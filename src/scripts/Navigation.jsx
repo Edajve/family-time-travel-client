@@ -103,17 +103,13 @@ export const MobileNav = () => {
         }
         ,
         navigationCardInformationContainer: {
-            padding:'0px'
+            padding: '0px'
         }
         , navigationCardButtoneOne: {
             color: theme.colors.background
             , backgroundColor: theme.colors.secondary
             , marginRight: theme.space.lg
         }
-    }
-
-    const desktopStyle = {
-        
     }
 
     return (
@@ -126,8 +122,7 @@ export const MobileNav = () => {
                     </Button >
                 </Box >
                 {/* Laptup and up navigation elements */}
-
-                <Box  sx={styles.desktopAccountDropDown} className='desktopAccountDropwodn'>
+                <Box sx={styles.desktopAccountDropDown} className='desktopAccountDropwodn'>
                     Hello
                 </Box>
             </Box>
@@ -168,7 +163,7 @@ export const MobileNav = () => {
                                             </Box>
                                         </Box>
                                         <Box className='navigationCardInfoSectionTwo' sx={drawerStyle.navigationCardInfoSectionTwo} h='40px' >
-                                        <Box className='navigationCardInfoTemplate' sx={drawerStyle.navigationCardInfoTemplate} h='40px'>
+                                            <Box className='navigationCardInfoTemplate' sx={drawerStyle.navigationCardInfoTemplate} h='40px'>
                                                 Email
                                             </Box>
                                             <Box className='navigationCardInfoSectionValue' sx={drawerStyle.navigationCardInfoSectionValue} h='40px'>
@@ -176,7 +171,7 @@ export const MobileNav = () => {
                                             </Box>
                                         </Box>
                                         <Box className='navigationCardInfoSectionThree' sx={drawerStyle.navigationCardInfoSectionThree} h='40px' >
-                                        <Box className='navigationCardInfoTemplate' sx={drawerStyle.navigationCardInfoTemplate} h='40px'>
+                                            <Box className='navigationCardInfoTemplate' sx={drawerStyle.navigationCardInfoTemplate} h='40px'>
                                                 Phone
                                             </Box>
                                             <Box className='navigationCardInfoSectionValue' sx={drawerStyle.navigationCardInfoSectionValue} h='40px'>
@@ -184,14 +179,14 @@ export const MobileNav = () => {
                                             </Box>
                                         </Box>
                                         <Box className='navigationCardInfoSectionThree' sx={drawerStyle.navigationCardInfoSectionThree} h='40px' >
-                                        <Box className='navigationCardInfoTemplate' sx={drawerStyle.navigationCardInfoTemplate} h='40px'>
+                                            <Box className='navigationCardInfoTemplate' sx={drawerStyle.navigationCardInfoTemplate} h='40px'>
                                                 Joimed
                                             </Box>
                                             <Box className='navigationCardInfoSectionValue' sx={drawerStyle.navigationCardInfoSectionValue} h='40px'>
                                                 March 25th, 2021
                                             </Box>
                                         </Box>
-                                        
+
                                     </VStack>
                                 </Stack>
                             </CardBody>
