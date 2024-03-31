@@ -1,5 +1,5 @@
-export const mobileNavStyles = (theme) => ({
-    mobileNavContainer: {
+export const navigationStyles = (theme) => ({
+    hamburgerIconContainer: {
         height: '8vh'
         , width: '100vw'
         , padding: theme.space.md
@@ -12,6 +12,13 @@ export const mobileNavStyles = (theme) => ({
     , hamburgerButton: {
         color: theme.colors.textMain,
     }
+    , desktopAccountDropwodn : {
+      display: 'none'
+      , '@media screen and (min-width: 768px)': {
+        display: 'inline'
+      }
+    , 
+    }
 });
 
-export default mobileNavStyles;
+export default navigationStyles;

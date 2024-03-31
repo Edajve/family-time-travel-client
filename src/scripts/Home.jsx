@@ -1,7 +1,7 @@
 import React from 'react'
 import { homeStyles } from "../styles/HomeStyles"
 import { useTheme, Box } from '@chakra-ui/react'
-import MobileNav from './MobileNav';
+import Navigation from './Navigation';
 
 export const Home = () => {
   const theme = useTheme();
@@ -9,7 +9,7 @@ export const Home = () => {
 
   return (
     <Box sx={styles.homeContainer} className='homeContainer'>
-      <MobileNav />
+      <Navigation />
     </Box>
   )
 }
