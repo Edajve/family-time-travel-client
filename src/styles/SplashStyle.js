@@ -64,13 +64,13 @@ export const splashStyles = (theme) => ({
       , backgroundColor: theme.colors.secondary
       , marginTop: theme.space.xl
       , width: '200px'
-      , marginLeft: '20px'
+      , marginLeft: '75px'
       , '@media screen and (min-width: 600px)': {
-        marginLeft: '136px'
+        marginLeft: '125px'
         ,
       }
       , '@media screen and (min-width: 768px)': {
-        marginLeft: '215px'
+        marginLeft: '200px'
         ,
       }
     }
