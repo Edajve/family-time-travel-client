@@ -30,7 +30,7 @@ export const splashStyles = (theme) => ({
       color: theme.colors.textMain
       , fontSize: theme.fontSizes.huge
       , fontWeight: "530"
-      , letterSpacing: "2"
+      , letterSpacing: "3px"
       , lineHeight: "59px"
       , marginBottom: theme.space.xl
       ,
