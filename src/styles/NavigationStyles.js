@@ -12,7 +12,7 @@ export const navigationStyles = (theme) => ({
     , hamburgerButton: {
         color: theme.colors.textMain,
     }
-    , desktopAccountDropwodn : {
+    , desktopAccountDropDown : {
       display: 'none'
       , '@media screen and (min-width: 768px)': {
         display: 'inline'

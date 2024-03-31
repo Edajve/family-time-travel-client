@@ -127,7 +127,7 @@ export const MobileNav = () => {
                 </Box >
                 {/* Laptup and up navigation elements */}
 
-                <Box  sx={styles.desktopAccountDropwodn} className='desktopAccountDropwodn'>
+                <Box  sx={styles.desktopAccountDropDown} className='desktopAccountDropwodn'>
                     Hello
                 </Box>
             </Box>
