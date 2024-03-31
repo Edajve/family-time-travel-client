@@ -23,6 +23,7 @@ import {
     PopoverCloseButton,
 
 } from '@chakra-ui/react'
+import { Link } from "react-router-dom"
 import { navigationStyles } from '../../styles/NavigationStyles'
 import {
     Drawer,
@@ -194,7 +195,7 @@ export const Navigation = () => {
                                         <CardFooter className='navigationCardFooter' sx={drawerStyle.navigationCardFooter}>
                                             <ButtonGroup className='navigationCardButtonGroup' sx={drawerStyle.navigationCardButtonGroup} spacing='2'>
                                                 <Button size={4} className='navigationCardButtoneOne' sx={drawerStyle.navigationCardButtoneOne} variant='solid' colorScheme='blue'>
-                                                    Settings
+                                                    <Link to='/settings'>Settings</Link>
                                                 </Button>
                                                 <Button size='20px' className='navigationCardButtonTwo' sx={drawerStyle.navigationCardButtonTwo} variant='ghost' colorScheme='blue'>
                                                     Add Time Capsule
@@ -229,9 +230,14 @@ export const Navigation = () => {
                                 justifyContent='space-between'
                                 pb={4}
                             >
-
                                 <ButtonGroup size='sm'>
-                                    <Button className='desktopAccountSettingsButton' sx={styles.desktopAccountSettingsButton} colorScheme='green'>Account Settings</Button>
+                                    <Button
+                                        className='desktopAccountSettingsButton'
+                                        sx={styles.desktopAccountSettingsButton}
+                                        colorScheme='green'
+                                    >
+                                        <Link to='/settings'>Account Settings</Link>
+                                    </Button>
                                 </ButtonGroup>
                             </PopoverFooter>
                         </PopoverContent>
