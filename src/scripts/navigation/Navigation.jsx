@@ -14,7 +14,7 @@ import {
     VStack,
     StackDivider
 } from '@chakra-ui/react'
-import { navigationStyles } from '../styles/NavigationStyles'
+import { navigationStyles } from '../../styles/NavigationStyles'
 import {
     Drawer,
     DrawerBody,
