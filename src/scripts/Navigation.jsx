@@ -27,7 +27,7 @@ import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import { wrap } from 'framer-motion'
 
 
-export const MobileNav = () => {
+export const Navigation = () => {
     const theme = useTheme();
     const styles = navigationStyles(theme);
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -209,4 +209,4 @@ export const MobileNav = () => {
     )
 }
 
-export default MobileNav
+export default Navigation
