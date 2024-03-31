@@ -56,13 +56,9 @@ const notFoundStyles = (theme) => ({
         maxWidth: '600px',
         color: theme.colors.primary,
     },
-    goToHomeButtonContainer: {
-
-    },
     goToHomeButton: {
         color: theme.colors.background
         , backgroundColor: theme.colors.secondary
-
     }
 });
 
