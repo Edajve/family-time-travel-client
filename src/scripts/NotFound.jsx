@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, useTheme, Box, Button } from '@chakra-ui/react';
 import { Link } from "react-router-dom"
-import {notFoundStyles} from '../styles/NotFoundStyle'
+import { notFoundStyles } from '../styles/NotFoundStyle'
 
 
 export const NotFound = () => {

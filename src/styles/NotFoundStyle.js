@@ -37,7 +37,7 @@ export const notFoundStyles = (theme) => ({
         textAlign: 'center',
     },
     fourOhFourText: {
-        color: theme.colors.primary,
+        color: theme.colors.textMain,
         fontFamily: "'Roboto', sans-serif",
         fontWeight: '700',
         fontStyle: 'normal',
@@ -49,7 +49,7 @@ export const notFoundStyles = (theme) => ({
     },
     errorDescription: {
         maxWidth: '600px',
-        color: theme.colors.primary,
+        color: theme.colors.textMain,
     },
     goToHomeButton: {
         color: theme.colors.background
