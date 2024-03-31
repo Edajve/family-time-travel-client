@@ -5,6 +5,9 @@ export const mobileNavStyles = (theme) => ({
         , padding: theme.space.md
         , display: 'flex'
         , justifyContent: 'flex-end'
+        , '@media screen and (min-width: 768px)': {
+            display: 'none'
+          }
     }
     , hamburgerButton: {
         color: theme.colors.textMain,
