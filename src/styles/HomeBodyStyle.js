@@ -5,9 +5,8 @@ export const HomeBodyStyle = (theme) => ({
         , display: 'flex'
         , flexDirection: 'column'
         , '@media screen and (min-width: 768px)': {
-            // needs to become 
-            flexDirection: 'row'
 
+            flexDirection: 'row'
         }
     }
     , homeBodyYearPickerContainer: {
