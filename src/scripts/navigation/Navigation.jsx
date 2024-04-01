@@ -71,7 +71,6 @@ export const Navigation = () => {
         , navigationCardHeading: {
             color: theme.colors.secondary
             , fontSize: theme.fontSizes.md
-
         }
         , navigationInfoText: {
             color: theme.colors.background,
