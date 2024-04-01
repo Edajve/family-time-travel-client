@@ -30,6 +30,11 @@ export const HomeBodyStyle = (theme) => ({
     , homeBodyNotesCardContainer: {
         backgroundColor: theme.colors.background
         , color: theme.colors.textMain
+        , width: '95%'
+    }
+    , homeBodyNotesCardTitle: {
+        fontWeight: '300'
+        , paddingLeft: theme.space.md
     }
 })
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Box,
     useTheme,
@@ -11,16 +11,59 @@ import {
     Card,
     CardHeader,
     CardBody,
-    CardFooter,
     Heading,
     Stack,
-    StackDivider
+    StackDivider,
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+    Input
 } from '@chakra-ui/react'
 import HomeBodyStyle from '../styles/HomeBodyStyle'
 
 export const HomeBody = () => {
     const theme = useTheme();
     const styles = HomeBodyStyle(theme);
+    const [noteInput, setNoteInput] = useState({
+        title: ''
+        , emotion: ''
+        , note: ''
+    })
+
+    const handleInputChange = (e) => {
+        setNoteInput(e.target.value)
+        const newNote = { ...noteInput, }
+    }
+
+    const onChangeNoteFormInputs = (e) => {
+        const { id, value: inputText } = e.target; // Destructure for easier access
+        let fieldToUpdate = '';
+
+        switch (id) {
+            case 'note-title':
+                fieldToUpdate = 'title';
+                break;
+            case 'note-emotion':
+                fieldToUpdate = 'emotion';
+                break;
+            case 'note-note': // Assuming 'note-note' is the id for the 'note' field for clarity
+                fieldToUpdate = 'note';
+                break;
+            default:
+                console.log('No matching id for input');
+                return;
+        }
+
+        if (fieldToUpdate) {
+            const newNoteObject = { ...noteInput, [fieldToUpdate]: inputText };
+            setNoteInput(newNoteObject);
+        }
+    };
+
+    const isErrorForEmail = noteInput.title.trim() === ''
+    const isErrorForEmotion = noteInput.emotion.trim() === 'Select an emotion..'
+    const isErrorForNote = noteInput.note.trim() === ''
 
     return (
         <Box sx={styles.homeBodyContainer} className='homeBodyContainer'>
@@ -138,22 +181,34 @@ export const HomeBody = () => {
             <Box sx={styles.homeBodyNotesContainer} className='homeBodyNotesContainer'>
                 <Card sx={styles.homeBodyNotesCardContainer} className='homeBodyNotesCardContainer'>
                     <CardHeader>
-                        <Heading size='md'>Client Report</Heading>
+                        <Heading sx={styles.homeBodyNotesCardTitle} className='homeBodyNotesCardTitle' size='md'>Add a note</Heading>
                     </CardHeader>
 
                     <CardBody>
                         <Stack divider={<StackDivider />} spacing='4'>
                             <Box>
                                 <Heading size='xs' textTransform='uppercase'>
-                                    Summary
+                                    Note title
                                 </Heading>
-                                <Text pt='2' fontSize='sm'>
-                                    View a summary of all your clients over the last month.
-                                </Text>
+                                <FormControl isInvalid={isErrorForEmail}>
+                                    <FormLabel htmlFor='note-title'></FormLabel>
+                                    <Input
+                                        id='note-title'
+                                        value={noteInput.title}
+                                        onChange={onChangeNoteFormInputs} />
+                                    {!isErrorForEmail ? (
+                                        <FormHelperText>
+                                            Enter the title of your note.
+                                        </FormHelperText>
+                                    ) : (
+                                        <FormErrorMessage>Title is required</FormErrorMessage>
+                                    )}
+                                </FormControl>
+
                             </Box>
                             <Box>
                                 <Heading size='xs' textTransform='uppercase'>
-                                    Overview
+                                    note
                                 </Heading>
                                 <Text pt='2' fontSize='sm'>
                                     Check out the overview of your clients.
@@ -161,7 +216,7 @@ export const HomeBody = () => {
                             </Box>
                             <Box>
                                 <Heading size='xs' textTransform='uppercase'>
-                                    Analysis
+                                    Emotion
                                 </Heading>
                                 <Text pt='2' fontSize='sm'>
                                     See a detailed analysis of all your business clients.
