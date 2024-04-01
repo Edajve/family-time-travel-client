@@ -5,7 +5,6 @@ export const HomeBodyStyle = (theme) => ({
         , display: 'flex'
         , flexDirection: 'column'
         , '@media screen and (min-width: 768px)': {
-
             flexDirection: 'row'
         }
     }
@@ -46,14 +45,14 @@ export const HomeBodyStyle = (theme) => ({
     }
     , bodySubmitButton: {
         color: theme.colors.textMain
-    , fontWeight: '200'
-    , backgroundColor: theme.colors.background
-    , marginLeft: 'auto'
-    , marginTop: theme.space.md
-    , _hover: {
-      backgroundColor: theme.colors.background,
-      color: theme.colors.textMainDeemphasize
-    }
+        , fontWeight: '200'
+        , backgroundColor: theme.colors.background
+        , marginLeft: 'auto'
+        , marginTop: theme.space.md
+        , _hover: {
+            backgroundColor: theme.colors.background,
+            color: theme.colors.textMainDeemphasize
+        }
     }
 })
 
