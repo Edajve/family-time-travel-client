@@ -18,7 +18,9 @@ import {
     FormLabel,
     FormErrorMessage,
     FormHelperText,
-    Input
+    Input,
+    Select,
+    Button
 } from '@chakra-ui/react'
 import HomeBodyStyle from '../styles/HomeBodyStyle'
 
@@ -37,7 +39,7 @@ export const HomeBody = () => {
     }
 
     const onChangeNoteFormInputs = (e) => {
-        const { id, value: inputText } = e.target; // Destructure for easier access
+        const { id, value: inputText } = e.target;
         let fieldToUpdate = '';
 
         switch (id) {
@@ -47,7 +49,7 @@ export const HomeBody = () => {
             case 'note-emotion':
                 fieldToUpdate = 'emotion';
                 break;
-            case 'note-note': // Assuming 'note-note' is the id for the 'note' field for clarity
+            case 'note-note':
                 fieldToUpdate = 'note';
                 break;
             default:
@@ -55,15 +57,21 @@ export const HomeBody = () => {
                 return;
         }
 
+        console.log(inputText)
+
         if (fieldToUpdate) {
             const newNoteObject = { ...noteInput, [fieldToUpdate]: inputText };
             setNoteInput(newNoteObject);
         }
     };
 
-    const isErrorForEmail = noteInput.title.trim() === ''
-    const isErrorForEmotion = noteInput.emotion.trim() === 'Select an emotion..'
+    const submitNote = () => {
+        console.log('submit note', noteInput)
+    }
+
+    const isErrorForNoteTitle = noteInput.title.trim() === ''
     const isErrorForNote = noteInput.note.trim() === ''
+    const isErrorForEmotion = noteInput.emotion.trim() === 'Select an emotion..'
 
     return (
         <Box sx={styles.homeBodyContainer} className='homeBodyContainer'>
@@ -190,15 +198,15 @@ export const HomeBody = () => {
                                 <Heading size='xs' textTransform='uppercase'>
                                     Note title
                                 </Heading>
-                                <FormControl isInvalid={isErrorForEmail}>
+                                <FormControl isInvalid={isErrorForNoteTitle}>
                                     <FormLabel htmlFor='note-title'></FormLabel>
                                     <Input
                                         id='note-title'
                                         value={noteInput.title}
                                         onChange={onChangeNoteFormInputs} />
-                                    {!isErrorForEmail ? (
+                                    {!isErrorForNoteTitle ? (
                                         <FormHelperText>
-                                            Enter the title of your note.
+                                            Enter the title of your note
                                         </FormHelperText>
                                     ) : (
                                         <FormErrorMessage>Title is required</FormErrorMessage>
@@ -207,20 +215,72 @@ export const HomeBody = () => {
 
                             </Box>
                             <Box>
-                                <Heading size='xs' textTransform='uppercase'>
+                                <Heading
+                                    className='bodyNoteTitle'
+                                    sx={styles.bodyNoteTitle}
+                                    size='xs' textTransform='uppercase'>
                                     note
                                 </Heading>
-                                <Text pt='2' fontSize='sm'>
-                                    Check out the overview of your clients.
-                                </Text>
+                                <FormControl>
+                                    <FormControl isInvalid={isErrorForNote}>
+                                        <Input
+                                            className='bodyNoteInput'
+                                            sx={styles.bodyNoteInput}
+                                            id='note-note' value={noteInput.note} onChange={onChangeNoteFormInputs} />
+                                        {!isErrorForNote ? (
+                                            <FormHelperText>
+                                                Enter your time capsule note, make sure its throughful!
+                                            </FormHelperText>
+                                        ) : (
+                                            <FormErrorMessage>Note is required</FormErrorMessage>
+                                        )}
+                                    </FormControl>
+                                </FormControl>
                             </Box>
                             <Box>
-                                <Heading size='xs' textTransform='uppercase'>
+                                <Heading
+                                    className='bodyEmotionTitle'
+                                    sx={styles.bodyEmotionTitle}
+                                    size='xs' textTransform='uppercase'>
                                     Emotion
                                 </Heading>
-                                <Text pt='2' fontSize='sm'>
-                                    See a detailed analysis of all your business clients.
-                                </Text>
+                                <FormControl isInvalid={isErrorForEmotion}>
+                                    <Select
+                                        id='note-emotion'
+                                        placeholder='Select an emotion..'
+                                        className='bodyEmotionSelect'
+                                        sx={styles.bodyEmotionSelect}
+                                        value={noteInput.emotion}
+                                        onChange={onChangeNoteFormInputs}
+                                    >
+                                        <option value='happy'>Happy</option>
+                                        <option value='sad'>Sad</option>
+                                        <option value='excited'>Excited</option>
+                                        <option value='anxious'>Anxious</option>
+                                        <option value='content'>Content</option>
+                                        <option value='bored'>Bored</option>
+                                        <option value='hopeful'>Hopeful</option>
+                                        <option value='frustrated'>Frustrated</option>
+                                        <option value='proud'>Proud</option>
+                                        <option value='angry'>Angry</option>
+                                        <option value='confused'>Confused</option>
+                                        <option value='disappointed'>Disappointed</option>
+                                    </Select>
+                                    {!isErrorForEmotion ? (
+                                        <FormHelperText>
+                                            Select how you're feeling about this note
+                                        </FormHelperText>
+                                    ) : (
+                                        <FormErrorMessage>Emotion is required</FormErrorMessage>
+                                    )}
+                                    <Button
+                                        className='bodySubmitButton'
+                                        variant='outline'
+                                        sx={styles.bodySubmitButton}
+                                        onClick={() => submitNote()}>
+                                        Sumbit Note
+                                    </Button>
+                                </FormControl>
                             </Box>
                         </Stack>
                     </CardBody>

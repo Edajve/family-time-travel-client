@@ -15,7 +15,6 @@ export const HomeBodyStyle = (theme) => ({
         , color: theme.colors.textMain
         , '@media screen and (min-width: 768px)': {
             width: '25%'
-            , borderRight: '20x solid orange'
         }
     }
     , homeBodyNotesContainer: {
@@ -35,6 +34,27 @@ export const HomeBodyStyle = (theme) => ({
     , homeBodyNotesCardTitle: {
         fontWeight: '300'
         , paddingLeft: theme.space.md
+    }
+    , bodyNoteInput: {
+        height: '120px'
+    }
+    , bodyNoteTitle: {
+        paddingBottom: theme.space.sm
+    }
+    , bodyEmotionSelect: {
+        width: '%50'
+        , marginTop: theme.space.md
+    }
+    , bodySubmitButton: {
+        color: theme.colors.textMain
+    , fontWeight: '200'
+    , backgroundColor: theme.colors.background
+    , marginLeft: 'auto'
+    , marginTop: theme.space.md
+    , _hover: {
+      backgroundColor: theme.colors.background,
+      color: theme.colors.textMainDeemphasize
+    }
     }
 })
 
