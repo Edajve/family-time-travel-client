@@ -8,7 +8,6 @@ export const AccountSettings = () => {
     const styles = SettingsStyles(theme);
     const { pathname } = useLocation();
 
-
     const shouldRenderWrapper = !pathname.startsWith('/settings/');
 
     return (
