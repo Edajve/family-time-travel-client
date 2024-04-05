@@ -2,19 +2,40 @@ import { Text, useTheme, Box, Divider } from '@chakra-ui/react';
 import SettingsStyles from '../styles/SettingsStyles';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from 'react';
 
 export const AccountSettings = () => {
     const theme = useTheme();
     const styles = SettingsStyles(theme);
     const { pathname } = useLocation();
+    const [isWindowOver768px, setIsWindowOver768px] = useState(window.innerWidth > 768);
 
     const shouldRenderWrapper = !pathname.startsWith('/settings/');
+
+    /*
+        YOU STOPPED HERE YOU ADDED SOME STATE THAT TELLS ME IF THE WIDTH IS OVER 768, IF IT IS 
+        THEN WE DONT USE URL NAVIGATION FOR SETTINGS WE DO ALL CONDITIONAL RENDER FOR EACH PAGE, OR
+        THINK ABOUT IT FIRST BEFORE IMPLEMENTING
+    */
+    useEffect(() => {
+      const handleResize = () => {
+        setIsWindowOver768px(window.innerWidth > 768);
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+
+    console.log(isWindowOver768px)
 
     return (
         <>
             {shouldRenderWrapper && (
-                <Box>
-                    <Box className='settingsMobileGridContainer' sx={styles.settingsMobileGridContainer}>
+
+                    <Box className='settingsGridContainer' sx={styles.settingsGridContainer}>
                         <Box className='settingsMobileNav' sx={styles.settingsMobileNav}>
                             <Box className='settingsMobileNavHeaderContainer' sx={styles.settingsMobileNavHeader}>
                                 <Text className='settingsMobileNavBackIcon' sx={styles.settingsMobileNavBackIcon}>
@@ -69,8 +90,9 @@ export const AccountSettings = () => {
                             </Link>
                         </Box>
                     </Box>
-                </Box>
+                    
             )}
+            <Box className='settingsDesktopBodyContainer' sx={styles.settingsDesktopBodyContainer}>neoijodsijfapodsjxt</Box>
         </>
     );
 }

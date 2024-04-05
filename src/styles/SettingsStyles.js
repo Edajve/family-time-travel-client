@@ -6,10 +6,26 @@ export const SettingsStyles = (theme) => ({
         flexDirection: 'column',
         '@media screen and (min-width: 768px)': {
             flexDirection: 'row',
-            justifyContent: 'space-around',
+            justifyContent: 'space-around'
+            , height: '70vh'
+            , width: '70vw'
+            , display: 'flex'
+            , justifyContent: 'center'
+            , alignItems: 'center'
+            , flexDirection: 'row'
+            , border: '1px solid #c0ccc897'
+            , margin: theme.space.lg
+            , padding: theme.space.lg
         },
-    },
-    settingsFirstGridContainer: {
+    }
+    , settingsGridContainer: {
+        '@media screen and (min-width: 768px)': {
+            height: '70vh'
+            , width: '30%'
+            ,  borderRight: '2px solid #c0ccc897'
+        }
+    }
+    , settingsFirstGridContainer: {
         width: '100%',
         color: theme.colors.textMain,
         display: 'hidden',
@@ -17,8 +33,11 @@ export const SettingsStyles = (theme) => ({
             width: '40%',
             display: 'inline',
         },
-    },
-    settingsSecondtGridContainer: {
+    }
+    , settingsMobileNavBackIcon: {
+        marginBotton: theme.space.lg
+    }
+    , settingsSecondtGridContainer: {
         backgroundColor: theme.colors.background,
         width: '100%',
         height: 'auto%',
@@ -41,11 +60,20 @@ export const SettingsStyles = (theme) => ({
         justifyContent: 'flex-start',
         gap: theme.space.xl,
         marginBottom: theme.space.lg,
+        '@media screen and (min-width: 768px)': {
+            flexGrow: '4',
+            display: 'inline',
+            boxShadow: 'rgba(0, 0, 0, 0) 0px 0px60px 0px, rgba(0, 0, 0, 00) 0px 0px 0px 0px',
+        }
     },
     settingsMobileNavHeaderContainer: {
         fontSize: theme.fontSizes.md,
         fontWeight: '200',
         color: theme.colors.textMain,
+        '@media screen and (min-width: 768px)': {
+            marginTop: theme.space.xl
+        }
+       
     },
     settingsMobileBodyListContainer: {
         padding: theme.space.md,
@@ -66,7 +94,13 @@ export const SettingsStyles = (theme) => ({
     settingsMobileBodyAccount: {},
     settingsMobileBodyAccountText: {
         color: theme.colors.textMain,
-    },
+    }
+    , settingsDesktopBodyContainer: {
+        '@media screen and (min-width: 768px)': {
+            width: '100%',
+            height: '19vh',
+        }
+    }
 })
 
 
