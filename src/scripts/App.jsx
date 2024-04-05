@@ -16,7 +16,7 @@ function App() {
       <Route path='/splash' element={<Splash />} />
       <Route path='/home' element={<Home />} />
       <Route path='/settings/*' element={<Settings />}>
-        <Route index element={<Account />} />
+        <Route element={<Account />} />
         <Route path='account' element={<Account />} />
         <Route path='privacy-security' element={<PrivacySecurity />} />
         <Route path='notification' element={<Notification />} />
