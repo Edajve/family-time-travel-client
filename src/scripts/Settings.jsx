@@ -1,22 +1,27 @@
 import React from 'react'
-import { Text, useTheme, Box, Button } from '@chakra-ui/react';
+import { useTheme, Box } from '@chakra-ui/react';
 import SettingsStyles from '../styles/SettingsStyles'
-import { ArrowBackIcon } from '@chakra-ui/icons'
-import { Link, Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import AccountSettings from './AccountSettings';
 
 export const Settings = () => {
   const theme = useTheme();
   const styles = SettingsStyles(theme);
+  const { pathname } = useLocation();
+
+  const shouldRenderWrapper = pathname.startsWith('/settings/');
 
   return (
+    <>
+
+     {shouldRenderWrapper && <Outlet />}
     <Box
       sx={styles.settingsContainer}
       className='settingsContainer'
     >
       {/* for mobile view */}
       <AccountSettings />
-      <Outlet />
+    
       <Box
         className='settingsFirstGridContainer'
         sx={styles.settingsFirstGridContainer}
@@ -28,8 +33,8 @@ export const Settings = () => {
         sx={styles.settingsSecondtGridContainer}
       >
       </Box>
-
     </Box>
+    </>
   )
 }
 
