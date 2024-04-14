@@ -1,8 +1,10 @@
 import React from 'react'
 
-export const PrivacySecurity = () => {
+ export const PrivacySecurity = () => {
   return (
-    <div>PrivacySecurity</div>
+    <>
+    <Text>hi</Text>
+    </>
   )
 }
 

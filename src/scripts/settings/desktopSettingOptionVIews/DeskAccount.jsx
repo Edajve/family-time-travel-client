@@ -1,6 +1,5 @@
 import { Text, useTheme, Box, VStack, Icon, Divider, Avatar, Button, Input } from '@chakra-ui/react';
 import DeskAccountStyle from '../../../styles/DeskAccountStyle'
-import { InfoIcon, LockIcon, BellIcon, QuestionOutlineIcon, SettingsIcon, HamburgerIcon } from '@chakra-ui/icons';
 
 const DeskAccount = () => {
   const theme = useTheme()
