@@ -7,24 +7,23 @@ import { PrivacySecurity } from "./settings/PrivacySecurity"
 import { Notification } from "./settings/Notification"
 import { Help } from "./settings/Help"
 import Account from "./settings/Account"
+import About from '../scripts/settings/About'
 
 function App() {
   return (
     <Routes>
-      <Route index element={<Splash />} />
-      <Route path='/splash' element={<Splash />} />
-      <Route path='/home' element={<Home />} />
-      <Route path='/settings/*' element={<Settings />}>
-        <Route element={<Account />} />
-        <Route path='account' element={<Account />} />
-        <Route path='privacy-security' element={<PrivacySecurity />} />
-        <Route path='notification' element={<Notification />} />
-        <Route path='help' element={<Help />} />
-        <Route path='about' element={<eAbout />} />
-      </Route>
-      <Route path='*' element={<NotFound />} />
+      <Route path="/" element={<Splash />} />
+      <Route path="/splash" element={<Splash />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/settings" element={<Settings />} />
+      <Route path="/settings/account" element={<Account />} />
+      <Route path="/settings/privacy-security" element={<PrivacySecurity />} />
+      <Route path="/settings/notification" element={<Notification />} />
+      <Route path="/settings/help" element={<Help />} />
+      <Route path="/settings/about" element={<About />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
-  )
+  );
 }
 
 export default App

@@ -1,7 +1,6 @@
 import { Text, useTheme, Box, VStack, Icon } from '@chakra-ui/react';
 import { InfoIcon, LockIcon, BellIcon, QuestionOutlineIcon, SettingsIcon } from '@chakra-ui/icons';
 import SettingsStyles from '../../styles/SettingsStyles';
-import { Link } from "react-router-dom";
 
 const DesktopSettingsView = ({ settingsOptions }) => {
     const theme = useTheme();
@@ -41,8 +40,12 @@ const DesktopSettingsView = ({ settingsOptions }) => {
                     </Box>
                     <Box className='settingsGridDesktopNavSettingsList' sx={styles.settingsGridDesktopNavSettingsList}>
                         {settingsOptions.map((option) => (
-                            <Link key={option.name} to={`/settings/${option.path}`}>
-                                <Box className='settingsGridDesktopNavSettingsListElement' sx={styles.settingsGridDesktopNavSettingsListElement}>
+                                <Box
+                                key={option.name}
+                                className='settingsGridDesktopNavSettingsListElement'
+                                sx={styles.settingsGridDesktopNavSettingsListElement}
+                                onClick={() => console.log(option.name)}
+                                >
                                     <Box className='settingsGridDesktopNavSettingsListElementIcon' sx={styles.settingsGridDesktopNavSettingsListElementIcon}>
                                         <Icon as={getIconForOption(option.name)} sx={styles.settingsGridDesktopNavSettingsListElementIconTag} />
                                     </Box>
@@ -52,7 +55,6 @@ const DesktopSettingsView = ({ settingsOptions }) => {
                                         </Text>
                                     </Box>
                                 </Box>
-                            </Link>
                         ))}
                     </Box>
                 </VStack>
