@@ -25,7 +25,6 @@ export const DeskAccountStyle = (theme) => ({
     }
     , deskAccountTitleSubText: {
         fontSize: theme.fontSizes.xs
-
     }
     , deskAccountProfileContainer: {
         display: 'flex'
