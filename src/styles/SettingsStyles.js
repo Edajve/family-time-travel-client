@@ -6,6 +6,7 @@ export const SettingsStyles = (theme) => ({
             , border: '1px solid #c0ccc897'
             , margin: theme.space.lg
             , borderRadius: theme.space.md
+            , color: theme.colors.textMain
         },
     }
     , settingsGridContainer: {
@@ -176,7 +177,8 @@ export const SettingsStyles = (theme) => ({
         , fontWeight: '500'
     }
     , settingsGridDesktopMainContainer: {
-        
+        width: '100%'
+        , height: '100%'
     }
 })
 

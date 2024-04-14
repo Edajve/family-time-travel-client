@@ -39,7 +39,7 @@ const theme = extendTheme({
         defaultFont: 'Open Sans, sans-serif',
     },
     fontSizes: {
-        xs: 'calc(16px - 8px)',
+        xs: 'calc(16px - 4px)',
         sm: '16px',
         md: 'calc(16px + 8px)',
         lg: 'calc(16px + 16px)',
