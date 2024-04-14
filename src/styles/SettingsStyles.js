@@ -105,6 +105,8 @@ export const SettingsStyles = (theme) => ({
         width: '35%'
         , height: '100%'
         , borderRight: '1px solid #c0ccc8e6'
+        , paddingLeft: theme.space.sm
+        , paddingRight: theme.space.sm
     }
     , settingsGridDesktopMainContextContainer: {
         backgroundColor: theme.colors.background
@@ -122,7 +124,7 @@ export const SettingsStyles = (theme) => ({
     }
     , settingsGridDesktopNavUsersName: {
         paddingLeft: theme.space.sm
-        // , fontWeight: '500'
+        , fontWeight: '700'
     }
     , settingsGridDesktopNavUsersIcon: {
         display: 'flex'
@@ -139,8 +141,39 @@ export const SettingsStyles = (theme) => ({
         , color: 'white'
     }
     , settingsGridDesktopNavSettingsTextElement: {
-        fontWeight: '900'
+        fontWeight: '700'
         , paddingLeft: theme.space.md
+        , fontSize: theme.fontSizes.sm
+    }
+    , settingsGridDesktopNavSettingsListElement: {
+        display: 'flex'
+        , flexDirection: 'row'
+        , alignItems: 'center'
+        , height: 'auto'
+        , paddingBottom: theme.space.sm
+        , paddingLeft: theme.space.sm
+        , paddingTop: theme.space.sm
+        , transition: 'background-color 0.3s ease, color 0.3s ease' // Add this line for transitions
+        , _hover: {
+            backgroundColor: theme.colors.textMainDeemphasize
+            , color: theme.colors.backgroundColor
+            , borderRadius: theme.space.sm
+            , cursor: 'pointer'
+        }
+    }
+    , settingsGridDesktopNavSettingsListElementIcon: {
+        paddingLeft: theme.space.sm
+        , paddingRight: theme.space.sm
+    }
+    , settingsGridDesktopNavSettingsListElementIconTag: {
+        paddingBotton: theme.space.md
+    }
+    , settingsGridDesktopNavSettingsListElementName: {
+
+    }
+    , settingsGridDesktopNavSettingsListElementNameTag: {
+        marginTop: '3px'
+        , fontWeight: '500'
     }
 })
 
