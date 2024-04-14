@@ -21,7 +21,7 @@ function App() {
         <Route path='privacy-security' element={<PrivacySecurity />} />
         <Route path='notification' element={<Notification />} />
         <Route path='help' element={<Help />} />
-        <Route path='about' element={<About />} />
+        <Route path='about' element={<eAbout />} />
       </Route>
       <Route path='*' element={<NotFound />} />
     </Routes>
