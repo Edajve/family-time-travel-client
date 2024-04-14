@@ -7,7 +7,6 @@ const AccountPage = () => {
     const { pathname } = useLocation()
     const [isWindowOver768px, setIsWindowOver768px] = useState(window.innerWidth > 768)
 
-
     const settingsOptions = [
         { name: 'Account', path: 'account' }
         , { name: 'Privacy & Security', path: 'privacy-security' }
