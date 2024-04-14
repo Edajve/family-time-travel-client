@@ -35,6 +35,7 @@ export const HomeBodyStyle = (theme) => ({
     }
     , bodyNoteInput: {
         height: '120px'
+        , size: theme.space.sm
     }
     , bodyNoteTitle: {
         paddingBottom: theme.space.sm

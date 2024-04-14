@@ -107,6 +107,7 @@ export const HomeBody = () => {
                                     <FormLabel htmlFor='note-title'></FormLabel>
                                     <Input
                                         id='note-title'
+                                        size='small'
                                         value={noteInput.title}
                                         onChange={onChangeNoteFormInputs} />
                                     {!isErrorForNoteTitle ? (
@@ -149,6 +150,7 @@ export const HomeBody = () => {
                                 <FormControl isInvalid={isErrorForEmotion}>
                                     <Select
                                         id='note-emotion'
+                                        size='medium'
                                         placeholder='Select an emotion..'
                                         className='bodyEmotionSelect'
                                         sx={styles.bodyEmotionSelect}
