@@ -1,9 +1,7 @@
-import { Text, useTheme, Box, Divider, VStack, Icon } from '@chakra-ui/react';
-import SettingsStyles from '../styles/SettingsStyles';
+import { Text, useTheme, Box, Divider } from '@chakra-ui/react';
+import SettingsStyles from '../../styles/SettingsStyles';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { Link } from "react-router-dom";
-
-
 
  const MobileSettingsView = () => {
     const theme = useTheme();
