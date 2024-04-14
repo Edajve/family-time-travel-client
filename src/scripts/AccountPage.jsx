@@ -27,65 +27,74 @@ const AccountPage = () => {
         };
     }, []);
 
+    const settingOptions = [
+        'Account'
+        , 'Privacy & Security'
+        , 'Notification'
+        , 'Help'
+        , 'About'
+    ]
+
     return (
         <>
             {/* We are rendering either the mobile or the desktop view of the settings page based off the width being 768px */}
             {renderMobileSettings ? (
+                // <MobileSettingsView />
                 <Box className='settingsGridContainer' sx={styles.settingsGridContainer}>
-                    <Box className='settingsMobileNav' sx={styles.settingsMobileNav}>
-                        <Box className='settingsMobileNavHeaderContainer' sx={styles.settingsMobileNavHeader}>
-                            <Text className='settingsMobileNavBackIcon' sx={styles.settingsMobileNavBackIcon}>
-                                <Link to='/home'>
-                                    <ArrowBackIcon boxSize={8} />
-                                </Link>
-                            </Text>
-                        </Box>
-                        <Box className='settingsMobileNavHeaderContainer' sx={styles.settingsMobileNavHeaderContainer}>
-                            Settings
-                        </Box>
+                <Box className='settingsMobileNav' sx={styles.settingsMobileNav}>
+                    <Box className='settingsMobileNavHeaderContainer' sx={styles.settingsMobileNavHeader}>
+                        <Text className='settingsMobileNavBackIcon' sx={styles.settingsMobileNavBackIcon}>
+                            <Link to='/home'>
+                                <ArrowBackIcon boxSize={8} />
+                            </Link>
+                        </Text>
                     </Box>
-                    <Box className='settingsMobileBodyListContainer' sx={styles.settingsMobileBodyListContainer}>
-                        <Link to="/settings/mobile/account">
-                            <Box className='settingsMobileBodyAccount' sx={styles.settingsMobileBodyAccount}>
-                                <Text className='settingsMobileBodyAccountText' sx={styles.settingsMobileBodyAccountText}>
-                                    Account
-                                </Text>
-                            </Box>
-                        </Link>
-                        <Divider pt={4} mb={4} />
-                        <Link to="/settings/mobile/privacy-security">
-                            <Box className='settingsMobileBodyPrivacySecurity' sx={styles.settingsMobileBodyPrivacySecurity}>
-                                <Text className='settingsMobileBodyPrivacySecurityText' sx={styles.settingsMobileBodyPrivacySecurityText}>
-                                    Privacy & Security
-                                </Text>
-                            </Box>
-                        </Link>
-                        <Divider pt={4} mb={4} />
-                        <Link to="/settings/mobile/notification">
-                            <Box className='settingsMobileBodyNotification' sx={styles.settingsMobileBodyNotification}>
-                                <Text className='settingsMobileBodyNotificationText' sx={styles.settingsMobileBodyNotificationText}>
-                                    Notification
-                                </Text>
-                            </Box>
-                        </Link>
-                        <Divider pt={4} mb={4} />
-                        <Link to="/settings/mobile/help">
-                            <Box className='settingsMobileBodyHelp' sx={styles.settingsMobileBodyHelp}>
-                                <Text className='settingsMobileBodyHelpText' sx={styles.settingsMobileBodyHelpText}>
-                                    Help
-                                </Text>
-                            </Box>
-                        </Link>
-                        <Divider pt={4} mb={4} />
-                        <Link to="/settings/mobile/about">
-                            <Box className='settingsMobileBodyAbout' sx={styles.settingsMobileBodyAbout}>
-                                <Text className='settingsMobileBodyAboutText' sx={styles.settingsMobileBodyAboutText}>
-                                    About
-                                </Text>
-                            </Box>
-                        </Link>
+                    <Box className='settingsMobileNavHeaderContainer' sx={styles.settingsMobileNavHeaderContainer}>
+                        Settings
                     </Box>
                 </Box>
+                <Box className='settingsMobileBodyListContainer' sx={styles.settingsMobileBodyListContainer}>
+                    <Link to="/settings/mobile/account">
+                        <Box className='settingsMobileBodyAccount' sx={styles.settingsMobileBodyAccount}>
+                            <Text className='settingsMobileBodyAccountText' sx={styles.settingsMobileBodyAccountText}>
+                                Account
+                            </Text>
+                        </Box>
+                    </Link>
+                    <Divider pt={4} mb={4} />
+                    <Link to="/settings/mobile/privacy-security">
+                        <Box className='settingsMobileBodyPrivacySecurity' sx={styles.settingsMobileBodyPrivacySecurity}>
+                            <Text className='settingsMobileBodyPrivacySecurityText' sx={styles.settingsMobileBodyPrivacySecurityText}>
+                                Privacy & Security
+                            </Text>
+                        </Box>
+                    </Link>
+                    <Divider pt={4} mb={4} />
+                    <Link to="/settings/mobile/notification">
+                        <Box className='settingsMobileBodyNotification' sx={styles.settingsMobileBodyNotification}>
+                            <Text className='settingsMobileBodyNotificationText' sx={styles.settingsMobileBodyNotificationText}>
+                                Notification
+                            </Text>
+                        </Box>
+                    </Link>
+                    <Divider pt={4} mb={4} />
+                    <Link to="/settings/mobile/help">
+                        <Box className='settingsMobileBodyHelp' sx={styles.settingsMobileBodyHelp}>
+                            <Text className='settingsMobileBodyHelpText' sx={styles.settingsMobileBodyHelpText}>
+                                Help
+                            </Text>
+                        </Box>
+                    </Link>
+                    <Divider pt={4} mb={4} />
+                    <Link to="/settings/mobile/about">
+                        <Box className='settingsMobileBodyAbout' sx={styles.settingsMobileBodyAbout}>
+                            <Text className='settingsMobileBodyAboutText' sx={styles.settingsMobileBodyAboutText}>
+                                About
+                            </Text>
+                        </Box>
+                    </Link>
+                </Box>
+            </Box>
             ) : (
                 <Box className='settingsGridDesktopContainer' sx={styles.settingsGridDesktopContainer}>
                     <Box className='settingsGridDesktopNavContainer' sx={styles.settingsGridDesktopNavContainer}>
@@ -106,10 +115,14 @@ const AccountPage = () => {
                                 </Box>
                             </Box>
                             <Box className='settingsGridDesktopNavSettingsText' sx={styles.settingsGridDesktopNavSettingsText}>
-                                2
+                                <Text className='settingsGridDesktopNavSettingsTextElement' sx={styles.settingsGridDesktopNavSettingsTextElement}>
+                                    Settings
+                                </Text>
                             </Box>
                             <Box className='settingsGridDesktopNavSettingsList' sx={styles.settingsGridDesktopNavSettingsList}>
-                                3
+                                <Box>
+                                    Account
+                                </Box>
                             </Box>
                         </VStack>
                     </Box>
