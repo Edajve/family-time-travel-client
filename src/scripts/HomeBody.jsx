@@ -1,69 +1,62 @@
 import React, { useState } from 'react'
 import {
-    Box,
-    useTheme,
-    Accordion,
-    AccordionItem,
-    AccordionButton,
-    AccordionPanel,
-    AccordionIcon,
-    Text,
-    Card,
-    CardHeader,
-    CardBody,
-    Heading,
-    Stack,
-    StackDivider,
-    FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText,
-    Input,
-    Select,
-    Button
+    Box
+    , useTheme
+    , Accordion
+    , AccordionItem
+    , AccordionButton
+    , AccordionPanel
+    , AccordionIcon
+    , Text
+    , Card
+    , CardHeader
+    , CardBody
+    , Heading
+    , Stack
+    , StackDivider
+    , FormControl
+    , FormLabel
+    , FormErrorMessage
+    , FormHelperText
+    , Input
+    , Select
+    , Button
 } from '@chakra-ui/react'
 import HomeBodyStyle from '../styles/HomeBodyStyle'
 
 export const HomeBody = () => {
-    const theme = useTheme();
-    const styles = HomeBodyStyle(theme);
+    const theme = useTheme()
+    const styles = HomeBodyStyle(theme)
     const [noteInput, setNoteInput] = useState({
         title: ''
         , emotion: ''
         , note: ''
     })
 
-    const handleInputChange = (e) => {
-        setNoteInput(e.target.value)
-        const newNote = { ...noteInput, }
-    }
-
     const onChangeNoteFormInputs = (e) => {
-        const { id, value: inputText } = e.target;
-        let fieldToUpdate = '';
+        const { id, value: inputText } = e.target
+        let fieldToUpdate = ''
 
         switch (id) {
             case 'note-title':
-                fieldToUpdate = 'title';
-                break;
+                fieldToUpdate = 'title'
+                break
             case 'note-emotion':
-                fieldToUpdate = 'emotion';
-                break;
+                fieldToUpdate = 'emotion'
+                break
             case 'note-note':
-                fieldToUpdate = 'note';
-                break;
+                fieldToUpdate = 'note'
+                break
             default:
-                console.log('No matching id for input');
-                return;
+                console.log('No matching id for input')
+                return
         }
-
-        console.log(inputText)
 
         if (fieldToUpdate) {
-            const newNoteObject = { ...noteInput, [fieldToUpdate]: inputText };
-            setNoteInput(newNoteObject);
+            const newNoteObject = { ...noteInput, [fieldToUpdate]: inputText }
+            setNoteInput(newNoteObject)
         }
-    };
+    }
 
     const submitNote = () => {
         console.log('submit note', noteInput)
@@ -77,113 +70,26 @@ export const HomeBody = () => {
         <Box sx={styles.homeBodyContainer} className='homeBodyContainer'>
             <Box sx={styles.homeBodyYearPickerContainer} className='homeBodyYearPickerContainer'>
                 <Accordion allowToggle>
-                    <AccordionItem className='bodyYearContainer' sx={styles.bodyYearContainer}>
-                        <h2 className='bodyYearTitle' sx={styles.bodyYearTitle}>
-                            <AccordionButton>
-                                <Box as="span" flex='1' textAlign='left'>
-                                    2018
-                                </Box>
-                                <AccordionIcon />
-                            </AccordionButton>
-                        </h2>
-                        <AccordionPanel pb={4}>
-                            <Text as='span' className='bodyYearText' sx={styles.bodyYearText}></Text>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </AccordionPanel>
-                    </AccordionItem>
-
-                    <AccordionItem className='bodyYearContainer' sx={styles.bodyYearContainer}>
-                        <h2 className='bodyYearTitle' sx={styles.bodyYearTitle}>
-                            <AccordionButton>
-                                <Box as="span" flex='1' textAlign='left'>
-                                    2019
-                                </Box>
-                                <AccordionIcon />
-                            </AccordionButton>
-                        </h2>
-                        <AccordionPanel pb={4}>
-                            <Text as='span' className='bodyYearText' sx={styles.bodyYearText}></Text>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </AccordionPanel>
-                    </AccordionItem>
-
-                    <AccordionItem className='bodyYearContainer' sx={styles.bodyYearContainer}>
-                        <h2 className='bodyYearTitle' sx={styles.bodyYearTitle}>
-                            <AccordionButton>
-                                <Box as="span" flex='1' textAlign='left'>
-                                    2020
-                                </Box>
-                                <AccordionIcon />
-                            </AccordionButton>
-                        </h2>
-                        <AccordionPanel pb={4}>
-                            <Text as='span' className='bodyYearText' sx={styles.bodyYearText}></Text>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </AccordionPanel>
-                    </AccordionItem>
-
-                    <AccordionItem className='bodyYearContainer' sx={styles.bodyYearContainer}>
-                        <h2 className='bodyYearTitle' sx={styles.bodyYearTitle}>
-                            <AccordionButton>
-                                <Box as="span" flex='1' textAlign='left'>
-                                    2021
-                                </Box>
-                                <AccordionIcon />
-                            </AccordionButton>
-                        </h2>
-                        <AccordionPanel pb={4}>
-                            <Text as='span' className='bodyYearText' sx={styles.bodyYearText}></Text>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </AccordionPanel>
-                    </AccordionItem>
-
-                    <AccordionItem className='bodyYearContainer' sx={styles.bodyYearContainer}>
-                        <h2 className='bodyYearTitle' sx={styles.bodyYearTitle}>
-                            <AccordionButton>
-                                <Box as="span" flex='1' textAlign='left'>
-                                    2022
-                                </Box>
-                                <AccordionIcon />
-                            </AccordionButton>
-                        </h2>
-                        <AccordionPanel pb={4}>
-                            <Text as='span' className='bodyYearText' sx={styles.bodyYearText}></Text>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </AccordionPanel>
-                    </AccordionItem>
-
-                    <AccordionItem className='bodyYearContainer lastYear' sx={styles.bodyYearContainer}>
-                        <h2 className='bodyYearTitle' sx={styles.bodyYearTitle}>
-                            <AccordionButton>
-                                <Box as="span" flex='1' textAlign='left'>
-                                    2023
-                                </Box>
-                                <AccordionIcon />
-                            </AccordionButton>
-                        </h2>
-                        <AccordionPanel pb={4}>
-                            <Text as='span' className='bodyYearText' sx={styles.bodyYearText}></Text>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </AccordionPanel>
-                    </AccordionItem>
+                    {['2018', '2019', '2020', '2021', '2022', '2023'].map(year => (
+                        <AccordionItem key={year} className='bodyYearContainer' sx={styles.bodyYearContainer}>
+                            <h2 className='bodyYearTitle' sx={styles.bodyYearTitle}>
+                                <AccordionButton>
+                                    <Box as="span" flex='1' textAlign='left'>
+                                        {year}
+                                    </Box>
+                                    <AccordionIcon />
+                                </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4}>
+                                <Text as='span' className='bodyYearText' sx={styles.bodyYearText}>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodo consequat.
+                                </Text>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    ))}
                 </Accordion>
             </Box>
             <Box sx={styles.homeBodyNotesContainer} className='homeBodyNotesContainer'>
@@ -191,7 +97,6 @@ export const HomeBody = () => {
                     <CardHeader>
                         <Heading sx={styles.homeBodyNotesCardTitle} className='homeBodyNotesCardTitle' size='md'>Add a note</Heading>
                     </CardHeader>
-
                     <CardBody>
                         <Stack divider={<StackDivider />} spacing='4'>
                             <Box>
@@ -212,7 +117,6 @@ export const HomeBody = () => {
                                         <FormErrorMessage>Title is required</FormErrorMessage>
                                     )}
                                 </FormControl>
-
                             </Box>
                             <Box>
                                 <Heading
@@ -221,20 +125,18 @@ export const HomeBody = () => {
                                     size='xs' textTransform='uppercase'>
                                     note
                                 </Heading>
-                                <FormControl>
-                                    <FormControl isInvalid={isErrorForNote}>
-                                        <Input
-                                            className='bodyNoteInput'
-                                            sx={styles.bodyNoteInput}
-                                            id='note-note' value={noteInput.note} onChange={onChangeNoteFormInputs} />
-                                        {!isErrorForNote ? (
-                                            <FormHelperText>
-                                                Enter your time capsule note, make sure its throughful!
-                                            </FormHelperText>
-                                        ) : (
-                                            <FormErrorMessage>Note is required</FormErrorMessage>
-                                        )}
-                                    </FormControl>
+                                <FormControl isInvalid={isErrorForNote}>
+                                    <Input
+                                        className='bodyNoteInput'
+                                        sx={styles.bodyNoteInput}
+                                        id='note-note' value={noteInput.note} onChange={onChangeNoteFormInputs} />
+                                    {!isErrorForNote ? (
+                                        <FormHelperText>
+                                            Enter your time capsule note, make sure it's thoughtful!
+                                        </FormHelperText>
+                                    ) : (
+                                        <FormErrorMessage>Note is required</FormErrorMessage>
+                                    )}
                                 </FormControl>
                             </Box>
                             <Box>
@@ -273,15 +175,15 @@ export const HomeBody = () => {
                                     ) : (
                                         <FormErrorMessage>Emotion is required</FormErrorMessage>
                                     )}
-                                    <Button
-                                        className='bodySubmitButton'
-                                        variant='outline'
-                                        sx={styles.bodySubmitButton}
-                                        onClick={() => submitNote()}>
-                                        Sumbit Note
-                                    </Button>
                                 </FormControl>
                             </Box>
+                            <Button
+                                className='bodySubmitButton'
+                                variant='outline'
+                                sx={styles.bodySubmitButton}
+                                onClick={() => submitNote()}>
+                                Submit Note
+                            </Button>
                         </Stack>
                     </CardBody>
                 </Card>
