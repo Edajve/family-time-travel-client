@@ -8,6 +8,7 @@ import { Notification } from "./settings/Notification"
 import { Help } from "./settings/Help"
 import Account from "./settings/Account"
 import About from '../scripts/settings/About'
+import DeskAccount from "./settings/desktopSettingOptionVIews/DeskAccount"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/settings/notification" element={<Notification />} />
       <Route path="/settings/help" element={<Help />} />
       <Route path="/settings/about" element={<About />} />
+      <Route path="/setting/desktop/account" element={<DeskAccount />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

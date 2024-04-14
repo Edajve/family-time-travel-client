@@ -1,10 +1,34 @@
 import { Text, useTheme, Box, VStack, Icon } from '@chakra-ui/react';
-import { InfoIcon, LockIcon, BellIcon, QuestionOutlineIcon, SettingsIcon } from '@chakra-ui/icons';
+import { InfoIcon, LockIcon, BellIcon, QuestionOutlineIcon, SettingsIcon, HamburgerIcon } from '@chakra-ui/icons';
 import SettingsStyles from '../../styles/SettingsStyles';
+import { useState } from 'react';
+import DeskAccount from '../settings/desktopSettingOptionVIews/DeskAccount'
+import DeskPrivacyAndSec from '../settings/desktopSettingOptionVIews/DeskPrivacyAndSec'
+import DeskNofiy from '../settings/desktopSettingOptionVIews/DeskNofiy'
+import DeskHelp from '../settings/desktopSettingOptionVIews/DeskHelp'
+import DeskAbout from '../settings/desktopSettingOptionVIews/DeskAbout'
 
 const DesktopSettingsView = ({ settingsOptions }) => {
     const theme = useTheme();
     const styles = SettingsStyles(theme);
+    const [settingState, setSettingState] = useState("");
+
+    const setMainPanelOnChange = () => {
+        switch (settingState) {
+            case 'Account':
+                return <DeskAccount />;
+            case 'Privacy & Security':
+                return <DeskPrivacyAndSec />;
+            case 'Notification':
+                return <DeskNofiy />;
+            case 'Help':
+                return <DeskHelp />;
+            case 'About':
+                return <DeskAbout />;
+            default:
+                return ""
+        }
+    };
 
     const getIconForOption = (optionName) => {
         switch (optionName) {
@@ -16,9 +40,15 @@ const DesktopSettingsView = ({ settingsOptions }) => {
                 return QuestionOutlineIcon;
             case 'About':
                 return InfoIcon;
+            case 'Home':
+                return HamburgerIcon;
             default:
                 return SettingsIcon; // Default icon
         }
+    };
+
+    const navigateSettingPage = (optionName) => {
+        setSettingState(optionName);
     };
 
     return (
@@ -27,7 +57,7 @@ const DesktopSettingsView = ({ settingsOptions }) => {
                 <VStack align='stretch'>
                     <Box className='settingsGridDesktopNavTitle' sx={styles.settingsGridDesktopNavTitle}>
                         <Box className='settingsGridDesktopNavUsersIcon' sx={styles.settingsGridDesktopNavUsersIcon}>
-                            <Icon as={SettingsIcon} viewBox="0 0 24 24" width="10px" height="10px" sx={styles.settingsGridDesktopNavUsersIconElement} />
+                            <Icon as={SettingsIcon} viewBox="0 0 24 24" width="24px" height="24px" sx={styles.settingsGridDesktopNavUsersIconElement} />
                         </Box>
                         <Box className='settingsGridDesktopNavUsersName' sx={styles.settingsGridDesktopNavUsersName}>
                             Settings
@@ -40,24 +70,27 @@ const DesktopSettingsView = ({ settingsOptions }) => {
                     </Box>
                     <Box className='settingsGridDesktopNavSettingsList' sx={styles.settingsGridDesktopNavSettingsList}>
                         {settingsOptions.map((option) => (
-                                <Box
+                            <Box
                                 key={option.name}
                                 className='settingsGridDesktopNavSettingsListElement'
                                 sx={styles.settingsGridDesktopNavSettingsListElement}
-                                onClick={() => console.log(option.name)}
-                                >
-                                    <Box className='settingsGridDesktopNavSettingsListElementIcon' sx={styles.settingsGridDesktopNavSettingsListElementIcon}>
-                                        <Icon as={getIconForOption(option.name)} sx={styles.settingsGridDesktopNavSettingsListElementIconTag} />
-                                    </Box>
-                                    <Box className='settingsGridDesktopNavSettingsListElementName' sx={styles.settingsGridDesktopNavSettingsListElementName}>
-                                        <Text sx={styles.settingsGridDesktopNavSettingsListElementNameTag}>
-                                            {option.name}
-                                        </Text>
-                                    </Box>
+                                onClick={() => navigateSettingPage(option.name)}
+                            >
+                                <Box className='settingsGridDesktopNavSettingsListElementIcon' sx={styles.settingsGridDesktopNavSettingsListElementIcon}>
+                                    <Icon as={getIconForOption(option.name)} sx={styles.settingsGridDesktopNavSettingsListElementIconTag} />
                                 </Box>
+                                <Box className='settingsGridDesktopNavSettingsListElementName' sx={styles.settingsGridDesktopNavSettingsListElementName}>
+                                    <Text sx={styles.settingsGridDesktopNavSettingsListElementNameTag}>
+                                        {option.name}
+                                    </Text>
+                                </Box>
+                            </Box>
                         ))}
                     </Box>
                 </VStack>
+            </Box>
+            <Box className='settingsGridDesktopMainContainer' sx={styles.settingsGridDesktopMainContainer}>
+                {setMainPanelOnChange()}
             </Box>
         </Box>
     );

@@ -175,6 +175,9 @@ export const SettingsStyles = (theme) => ({
         marginTop: '3px'
         , fontWeight: '500'
     }
+    , settingsGridDesktopMainContainer: {
+        
+    }
 })
 
 

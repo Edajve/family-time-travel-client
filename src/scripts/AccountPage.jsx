@@ -13,6 +13,7 @@ const AccountPage = () => {
         , { name: 'Notification', path: 'notification' }
         , { name: 'Help', path: 'help' }
         , { name: 'About', path: 'about' }
+        , { name: 'Home', path: 'home' }
     ]
 
     useEffect(() => {
