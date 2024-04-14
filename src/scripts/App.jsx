@@ -6,7 +6,6 @@ import { Settings } from './Settings'
 import { PrivacySecurity } from "./settings/PrivacySecurity"
 import { Notification } from "./settings/Notification"
 import { Help } from "./settings/Help"
-import { About } from "./settings/About"
 import Account from "./settings/Account"
 
 function App() {

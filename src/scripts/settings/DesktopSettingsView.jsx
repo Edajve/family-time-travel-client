@@ -3,17 +3,24 @@ import { InfoIcon, LockIcon, BellIcon, QuestionOutlineIcon, SettingsIcon } from 
 import SettingsStyles from '../../styles/SettingsStyles';
 import { Link } from "react-router-dom";
 
-const DesktopSettingsView = () => {
+const DesktopSettingsView = ({ settingsOptions }) => {
     const theme = useTheme();
     const styles = SettingsStyles(theme);
 
-    const settingOptions = [
-        { name: 'Account', icon: SettingsIcon },
-        { name: 'Privacy & Security', icon: LockIcon },
-        { name: 'Notification', icon: BellIcon },
-        { name: 'Help', icon: QuestionOutlineIcon },
-        { name: 'About', icon: InfoIcon }
-    ];
+    const getIconForOption = (optionName) => {
+        switch (optionName) {
+            case 'Privacy & Security':
+                return LockIcon;
+            case 'Notification':
+                return BellIcon;
+            case 'Help':
+                return QuestionOutlineIcon;
+            case 'About':
+                return InfoIcon;
+            default:
+                return SettingsIcon; // Default icon
+        }
+    };
 
     return (
         <Box className='settingsGridDesktopContainer' sx={styles.settingsGridDesktopContainer}>
@@ -21,24 +28,23 @@ const DesktopSettingsView = () => {
                 <VStack align='stretch'>
                     <Box className='settingsGridDesktopNavTitle' sx={styles.settingsGridDesktopNavTitle}>
                         <Box className='settingsGridDesktopNavUsersIcon' sx={styles.settingsGridDesktopNavUsersIcon}>
-                            {/* User Icon */}
                             <Icon as={SettingsIcon} viewBox="0 0 24 24" width="10px" height="10px" sx={styles.settingsGridDesktopNavUsersIconElement} />
                         </Box>
                         <Box className='settingsGridDesktopNavUsersName' sx={styles.settingsGridDesktopNavUsersName}>
-                            James Bond
+                            Settings
                         </Box>
                     </Box>
                     <Box className='settingsGridDesktopNavSettingsText' sx={styles.settingsGridDesktopNavSettingsText}>
                         <Text sx={styles.settingsGridDesktopNavSettingsTextElement}>
-                            Settings
+                            Manage Your Account
                         </Text>
                     </Box>
                     <Box className='settingsGridDesktopNavSettingsList' sx={styles.settingsGridDesktopNavSettingsList}>
-                        {settingOptions.map((option) => (
-                            <Link to="/settings/mobile/account">
-                                <Box key={option.name} className='settingsGridDesktopNavSettingsListElement' sx={styles.settingsGridDesktopNavSettingsListElement}>
+                        {settingsOptions.map((option) => (
+                            <Link key={option.name} to={`/settings/${option.path}`}>
+                                <Box className='settingsGridDesktopNavSettingsListElement' sx={styles.settingsGridDesktopNavSettingsListElement}>
                                     <Box className='settingsGridDesktopNavSettingsListElementIcon' sx={styles.settingsGridDesktopNavSettingsListElementIcon}>
-                                        <Icon as={option.icon} sx={styles.settingsGridDesktopNavSettingsListElementIconTag} />
+                                        <Icon as={getIconForOption(option.name)} sx={styles.settingsGridDesktopNavSettingsListElementIconTag} />
                                     </Box>
                                     <Box className='settingsGridDesktopNavSettingsListElementName' sx={styles.settingsGridDesktopNavSettingsListElementName}>
                                         <Text sx={styles.settingsGridDesktopNavSettingsListElementNameTag}>
@@ -51,11 +57,8 @@ const DesktopSettingsView = () => {
                     </Box>
                 </VStack>
             </Box>
-            <Box className='settingsGridDesktopMainContextContainer' sx={styles.settingsGridDesktopMainContextContainer}>
-                hello
-            </Box>
         </Box>
     );
-}
+};
 
 export default DesktopSettingsView;

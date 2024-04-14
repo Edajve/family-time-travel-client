@@ -1,11 +1,12 @@
-import { Text, useTheme, Box, Divider } from '@chakra-ui/react';
-import SettingsStyles from '../../styles/SettingsStyles';
-import { ArrowBackIcon } from '@chakra-ui/icons';
-import { Link } from "react-router-dom";
+import { Text, useTheme, Box, Divider, VStack } from '@chakra-ui/react'
+import SettingsStyles from '../../styles/SettingsStyles'
+import { ArrowBackIcon } from '@chakra-ui/icons'
+import { Link } from "react-router-dom"
 
- const MobileSettingsView = () => {
-    const theme = useTheme();
-    const styles = SettingsStyles(theme);
+const MobileSettingsView = ({ settingsOptions }) => {
+    const theme = useTheme()
+    const styles = SettingsStyles(theme)
+
     return (
         <Box className='settingsGridContainer' sx={styles.settingsGridContainer}>
             <Box className='settingsMobileNav' sx={styles.settingsMobileNav}>
@@ -21,45 +22,17 @@ import { Link } from "react-router-dom";
                 </Box>
             </Box>
             <Box className='settingsMobileBodyListContainer' sx={styles.settingsMobileBodyListContainer}>
-                <Link to="/settings/mobile/account">
-                    <Box className='settingsMobileBodyAccount' sx={styles.settingsMobileBodyAccount}>
-                        <Text className='settingsMobileBodyAccountText' sx={styles.settingsMobileBodyAccountText}>
-                            Account
-                        </Text>
-                    </Box>
-                </Link>
-                <Divider pt={4} mb={4} />
-                <Link to="/settings/mobile/privacy-security">
-                    <Box className='settingsMobileBodyPrivacySecurity' sx={styles.settingsMobileBodyPrivacySecurity}>
-                        <Text className='settingsMobileBodyPrivacySecurityText' sx={styles.settingsMobileBodyPrivacySecurityText}>
-                            Privacy & Security
-                        </Text>
-                    </Box>
-                </Link>
-                <Divider pt={4} mb={4} />
-                <Link to="/settings/mobile/notification">
-                    <Box className='settingsMobileBodyNotification' sx={styles.settingsMobileBodyNotification}>
-                        <Text className='settingsMobileBodyNotificationText' sx={styles.settingsMobileBodyNotificationText}>
-                            Notification
-                        </Text>
-                    </Box>
-                </Link>
-                <Divider pt={4} mb={4} />
-                <Link to="/settings/mobile/help">
-                    <Box className='settingsMobileBodyHelp' sx={styles.settingsMobileBodyHelp}>
-                        <Text className='settingsMobileBodyHelpText' sx={styles.settingsMobileBodyHelpText}>
-                            Help
-                        </Text>
-                    </Box>
-                </Link>
-                <Divider pt={4} mb={4} />
-                <Link to="/settings/mobile/about">
-                    <Box className='settingsMobileBodyAbout' sx={styles.settingsMobileBodyAbout}>
-                        <Text className='settingsMobileBodyAboutText' sx={styles.settingsMobileBodyAboutText}>
-                            About
-                        </Text>
-                    </Box>
-                </Link>
+                <VStack spacing={4} divider={<Divider />}>
+                    {settingsOptions.map((option, index) => (
+                        <Link key={index} to={`/settings/${option.path}`}>
+                            <Box className='settingsMobileBodyOption' sx={styles.settingsMobileBodyOption}>
+                                <Text className='settingsMobileBodyOptionText' sx={styles.settingsMobileBodyOptionText}>
+                                    {option.name}
+                                </Text>
+                            </Box>
+                        </Link>
+                    ))}
+                </VStack>
             </Box>
         </Box>
     )
