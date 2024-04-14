@@ -17,7 +17,6 @@ const PrivacyAuthenticationPage = ({ onAuthorize }) => {
 
   useEffect(() => {
     if (password === dummyPassword) {
-      console.log('AUTHORIZED');
       onAuthorize('AUTHORIZED');
     }
   }, [password, onAuthorize]);
@@ -37,7 +36,7 @@ const PrivacyAuthenticationPage = ({ onAuthorize }) => {
             onChange={handlePasswordChange}
           />
           <InputRightElement width='4.5rem'>
-            <Button h='1.25rem' size='xs' onClick={handleClick}>
+            <Button className='settingsPrivacySecurityAuthShowButton' sx={styles.settingsPrivacySecurityAuthShowButton} h='1.25rem' size='xs' onClick={handleClick}>
               {show ? 'Hide' : 'Show'}
             </Button>
           </InputRightElement>

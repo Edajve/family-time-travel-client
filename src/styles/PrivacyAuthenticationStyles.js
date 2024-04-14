@@ -14,6 +14,9 @@ export const PrivacyAuthenticationStyles = (theme) => ({
         , color: theme.colors.secondary
         , marginBottom: theme.space.sm
     }
+    , settingsPrivacySecurityAuthShowButton: {
+        backgroundColor: theme.colors.secondary
+    }
 })
 
 export default PrivacyAuthenticationStyles

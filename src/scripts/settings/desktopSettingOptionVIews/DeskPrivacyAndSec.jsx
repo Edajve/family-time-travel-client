@@ -2,6 +2,7 @@ import { Text, useTheme } from '@chakra-ui/react';
 import DeskPrivacyAndSecStyles from '../../../styles/DeskPrivacyAndSecStyles';
 import { useState } from 'react';
 import PrivacyAuthenticationPage from './privacySecurityViews/PrivacyAuthenticationPage';
+import AuthorizedPrivacyPage from './AuthorizedPrivacyPage';
 
 const DeskPrivacyAndSec = () => {
   const [authorizedStatus, setAuthorizedStatus] = useState(false);
@@ -14,7 +15,7 @@ const DeskPrivacyAndSec = () => {
 
   return (
     <>
-    {authorizedStatus ? <Text sx={styles.authorizedPage}>You are now authorized!</Text>: <PrivacyAuthenticationPage onAuthorize={handleAuthorization} />}
+      {authorizedStatus ? <AuthorizedPrivacyPage /> : <PrivacyAuthenticationPage onAuthorize={handleAuthorization} />}
     </>
   );
 }
