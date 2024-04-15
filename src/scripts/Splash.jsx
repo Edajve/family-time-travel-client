@@ -3,8 +3,6 @@ import { Box, Text, Button, useTheme } from '@chakra-ui/react';
 import { Link } from "react-router-dom"
 import { splashStyles } from '../styles/SplashStyle.js'
 
-
-
 export const Splash = () => {
   const theme = useTheme();
   const styles = splashStyles(theme);
