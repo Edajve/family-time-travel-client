@@ -13,7 +13,6 @@ import {
     Image,
     VStack,
     StackDivider,
-
 } from '@chakra-ui/react'
 import { Link } from "react-router-dom"
 import { navigationStyles } from '../../styles/NavigationStyles'
@@ -26,7 +25,6 @@ import {
     DrawerCloseButton,
 } from '@chakra-ui/react'
 import { Card, CardBody, CardFooter } from '@chakra-ui/react'
-
 
 export const Navigation = () => {
     const theme = useTheme();
@@ -47,7 +45,6 @@ export const Navigation = () => {
         , navigationCardContainer: {
             color: theme.colors.textMain,
             backgroundColor: theme.colors.textMainDeemphasize
-
         }
         , navigationCardBody: {
             color: theme.colors.textMain
@@ -58,7 +55,6 @@ export const Navigation = () => {
         }
         , navigationCardInformationContainer: {
             width: '100%'
-            // , padding: '0px'
             , height: 'auto'
         }
         , navigationCardHeading: {
@@ -102,7 +98,6 @@ export const Navigation = () => {
             fontSize: theme.fontSizes.sm
             , color: theme.colors.background
         }
-
         , navigationCardButtoneOne: {
             color: theme.colors.background
             , backgroundColor: theme.colors.secondary

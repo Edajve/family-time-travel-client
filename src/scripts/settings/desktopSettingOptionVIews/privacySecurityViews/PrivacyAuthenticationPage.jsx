@@ -1,6 +1,6 @@
-import { Text, useTheme, Box, Input, InputGroup, InputRightElement, Button } from '@chakra-ui/react';
+import { Text, useTheme, Box, Input, InputGroup, InputRightElement, Button, CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
 import PrivacyAuthenticationStyles from '../../../../styles/PrivacyAuthenticationStyles';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Spinner } from 'react';
 
 const PrivacyAuthenticationPage = ({ onAuthorize }) => {
   const theme = useTheme();
@@ -25,7 +25,7 @@ const PrivacyAuthenticationPage = ({ onAuthorize }) => {
     <Box className='settingsPrivacySecurityContainer' sx={styles.settingsPrivacySecurityContainer}>
       <Box className='settingsPrivacySecurityAuthContainer' sx={styles.settingsPrivacySecurityAuthContainer}>
         <Text className='settingsPrivacySecurityAuthText' sx={styles.settingsPrivacySecurityAuthText}>
-          Password
+          Passwordd
         </Text>
         <InputGroup size='sm'>
           <Input
