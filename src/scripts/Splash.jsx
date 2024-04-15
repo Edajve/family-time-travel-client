@@ -19,7 +19,9 @@ export const Splash = () => {
           Enim commodi voluptate amet cupiditate numquam dicta voluptatibus!
           Ullam odit omnis voluptatum, eos magni libero.
         </Text>
-        <Button sx={styles.splashHomePageButtonDark}><Link to='/home' >Home</Link></Button>
+        <Link to='/home'>
+          <Button sx={styles.splashHomePageButtonDark}>Home</Button>
+        </Link>
       </Box>
     </Box>
   );
