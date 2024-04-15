@@ -13,14 +13,6 @@ import {
     Image,
     VStack,
     StackDivider,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-    PopoverHeader,
-    PopoverBody,
-    PopoverFooter,
-    PopoverArrow,
-    PopoverCloseButton,
 
 } from '@chakra-ui/react'
 import { Link } from "react-router-dom"
