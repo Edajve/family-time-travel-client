@@ -178,7 +178,7 @@ export const Navigation = () => {
                                                     </Box>
                                                     <Box className='navigationCardInfoSectionThree' sx={drawerStyle.navigationCardInfoSectionThree} h='40px' >
                                                         <Box className='navigationCardInfoTemplate' sx={drawerStyle.navigationCardInfoTemplate} h='40px'>
-                                                            Joimed
+                                                            Joined
                                                         </Box>
                                                         <Box className='navigationCardInfoSectionValue' sx={drawerStyle.navigationCardInfoSectionValue} h='40px'>
                                                             March 25th, 2021
@@ -207,38 +207,9 @@ export const Navigation = () => {
                 </Box >
                 {/* Laptup and up navigation elements */}
                 <Box sx={styles.desktopAccountDropDown} className='desktopAccountDropwodn'>
-                    <Popover
-                        placement='bottom'
-                        closeOnBlur={false}
-                    >
-                        <PopoverTrigger>
-                            <Button className='desktopAccountButton' sx={styles.desktopAccountButton}>Account</Button>
-                        </PopoverTrigger>
-                        <PopoverContent className='desktopAccountPopUp' sx={styles.desktopAccountPopUp} >
-                            <PopoverHeader pt={4} fontWeight='bold' border='0'>
-                                Hey James
-                            </PopoverHeader>
-                            <PopoverArrow className='desktopPopUpArrow' sx={styles.desktopAccountPopUpArrow} />
-                            <PopoverCloseButton />
-                            <PopoverFooter
-                                border='0'
-                                display='flex'
-                                alignItems='center'
-                                justifyContent='space-between'
-                                pb={4}
-                            >
-                                <ButtonGroup size='sm'>
-                                    <Button
-                                        className='desktopAccountSettingsButton'
-                                        sx={styles.desktopAccountSettingsButton}
-                                        colorScheme='green'
-                                    >
-                                        <Link to='/settings'>Account Settings</Link>
-                                    </Button>
-                                </ButtonGroup>
-                            </PopoverFooter>
-                        </PopoverContent>
-                    </Popover>
+                    <Link to='/settings'>
+                        <Button className='desktopAccountButton' sx={styles.desktopAccountButton}>Account</Button>
+                    </Link>
                 </Box>
             </Box>
         </>

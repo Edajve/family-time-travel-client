@@ -75,7 +75,9 @@ export const HomeBody = () => {
                             <h2 className='bodyYearTitle' sx={styles.bodyYearTitle}>
                                 <AccordionButton>
                                     <Box as="span" flex='1' textAlign='left'>
-                                        {year}
+                                        <Text sx={styles.homeBodyYearElement} className='homeBodyYearElement'>
+                                            {year}
+                                        </Text>
                                     </Box>
                                     <AccordionIcon />
                                 </AccordionButton>
@@ -131,16 +133,14 @@ export const HomeBody = () => {
                                         className='bodyNoteInput'
                                         sx={styles.bodyNoteInput}
                                         id='note-note' value={noteInput.note} onChange={onChangeNoteFormInputs} />
-                                    {!isErrorForNote ? (
+                                    {isErrorForNote ? (<FormErrorMessage>Note is required</FormErrorMessage>) : (
                                         <FormHelperText>
                                             Enter your time capsule note, make sure it's thoughtful!
                                         </FormHelperText>
-                                    ) : (
-                                        <FormErrorMessage>Note is required</FormErrorMessage>
                                     )}
                                 </FormControl>
                             </Box>
-                            <Box>
+                            <Box w='150px'>
                                 <Heading
                                     className='bodyEmotionTitle'
                                     sx={styles.bodyEmotionTitle}
@@ -150,12 +150,13 @@ export const HomeBody = () => {
                                 <FormControl isInvalid={isErrorForEmotion}>
                                     <Select
                                         id='note-emotion'
-                                        size='medium'
+                                        size='lgmd'
                                         placeholder='Select an emotion..'
                                         className='bodyEmotionSelect'
                                         sx={styles.bodyEmotionSelect}
                                         value={noteInput.emotion}
                                         onChange={onChangeNoteFormInputs}
+                                        pl={0}
                                     >
                                         <option value='happy'>Happy</option>
                                         <option value='sad'>Sad</option>
@@ -170,16 +171,15 @@ export const HomeBody = () => {
                                         <option value='confused'>Confused</option>
                                         <option value='disappointed'>Disappointed</option>
                                     </Select>
-                                    {!isErrorForEmotion ? (
+                                    {isErrorForEmotion ? (<FormErrorMessage>Emotion is required</FormErrorMessage>) : (
                                         <FormHelperText>
                                             Select how you're feeling about this note
                                         </FormHelperText>
-                                    ) : (
-                                        <FormErrorMessage>Emotion is required</FormErrorMessage>
                                     )}
                                 </FormControl>
                             </Box>
                             <Button
+                                size='sm'
                                 className='bodySubmitButton'
                                 variant='outline'
                                 sx={styles.bodySubmitButton}

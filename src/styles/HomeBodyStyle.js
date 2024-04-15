@@ -8,12 +8,20 @@ export const HomeBodyStyle = (theme) => ({
             flexDirection: 'row'
         }
     }
+    , homeBodyYearElement: {
+        fontSize: theme.fontSizes.sm
+        , fontWeight: '700'
+    }
     , homeBodyYearPickerContainer: {
         width: '100%'
         , color: theme.colors.textMain
         , '@media screen and (min-width: 768px)': {
             width: '25%'
         }
+    }
+    , bodyYearText: {
+        fontSize: theme.fontSizes.xs
+        , lineHeight: theme.space.xs
     }
     , homeBodyNotesContainer: {
         backgroundColor: theme.colors.background
@@ -31,7 +39,7 @@ export const HomeBodyStyle = (theme) => ({
     }
     , homeBodyNotesCardTitle: {
         fontWeight: '300'
-        , paddingLeft: theme.space.md
+        , fontSize: theme.fontSizes.md
     }
     , bodyNoteInput: {
         height: '120px'
