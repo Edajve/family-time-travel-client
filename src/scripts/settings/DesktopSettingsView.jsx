@@ -7,6 +7,8 @@ import DeskPrivacyAndSec from '../settings/desktopSettingOptionVIews/DeskPrivacy
 import DeskNofiy from '../settings/desktopSettingOptionVIews/DeskNofiy'
 import DeskHelp from '../settings/desktopSettingOptionVIews/DeskHelp'
 import DeskAbout from '../settings/desktopSettingOptionVIews/DeskAbout'
+import Home from '../Home'
+import { Link } from 'react-router-dom';
 
 const DesktopSettingsView = ({ settingsOptions }) => {
     const theme = useTheme();
@@ -25,6 +27,8 @@ const DesktopSettingsView = ({ settingsOptions }) => {
                 return <DeskHelp />;
             case 'About':
                 return <DeskAbout />;
+            case 'Home':
+                return <Home />;
             default:
                 return ""
         }
@@ -86,6 +90,21 @@ const DesktopSettingsView = ({ settingsOptions }) => {
                                 </Box>
                             </Box>
                         ))}
+                        <Link to="/home">
+                        <Box
+                            className='settingsGridDesktopNavSettingsListElement'
+                            sx={styles.settingsGridDesktopNavSettingsListElement}
+                        >
+                            <Box className='settingsGridDesktopNavSettingsListElementIcon' sx={styles.settingsGridDesktopNavSettingsListElementIcon}>
+                                <Icon as={HamburgerIcon} sx={styles.settingsGridDesktopNavSettingsListElementIconTag} />
+                            </Box>
+                            <Box className='settingsGridDesktopNavSettingsListElementName' sx={styles.settingsGridDesktopNavSettingsListElementName}>
+                                <Text sx={styles.settingsGridDesktopNavSettingsListElementNameTag}>
+                                    Home
+                                </Text>
+                            </Box>
+                        </Box>
+                        </Link>
                     </Box>
                 </VStack>
             </Box>
