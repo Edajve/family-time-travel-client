@@ -65,8 +65,9 @@ export const Navigation = () => {
             color: theme.colors.background
         }
         , navigationCardInformationContainer: {
-            width: '100%',
-            height: 'auto'
+            width: '100%'
+            // , padding: '0px'
+            , height: 'auto'
         }
         , navigationCardHeading: {
             color: theme.colors.secondary
@@ -109,10 +110,7 @@ export const Navigation = () => {
             fontSize: theme.fontSizes.sm
             , color: theme.colors.background
         }
-        ,
-        navigationCardInformationContainer: {
-            padding: '0px'
-        }
+
         , navigationCardButtoneOne: {
             color: theme.colors.background
             , backgroundColor: theme.colors.secondary
