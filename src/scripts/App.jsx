@@ -8,7 +8,7 @@ import { Notification } from "./settings/Notification"
 import { Help } from "./settings/Help"
 import Account from "./settings/Account"
 import About from '../scripts/settings/About'
-import DeskAccount from "./settings/desktopSettingOptionVIews/DeskAccount"
+import DeskAccount from './settings/desktopSettingOptionViews/DeskAccount.jsx'
 
 function App() {
   return (

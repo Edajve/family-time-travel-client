@@ -2,11 +2,11 @@ import { Text, useTheme, Box, VStack, Icon } from '@chakra-ui/react';
 import { InfoIcon, LockIcon, BellIcon, QuestionOutlineIcon, SettingsIcon, HamburgerIcon } from '@chakra-ui/icons';
 import SettingsStyles from '../../styles/SettingsStyles';
 import { useState } from 'react';
-import DeskAccount from '../settings/desktopSettingOptionVIews/DeskAccount'
-import DeskPrivacyAndSec from '../settings/desktopSettingOptionVIews/DeskPrivacyAndSec'
-import DeskNofiy from '../settings/desktopSettingOptionVIews/DeskNofiy'
-import DeskHelp from '../settings/desktopSettingOptionVIews/DeskHelp'
-import DeskAbout from '../settings/desktopSettingOptionVIews/DeskAbout'
+import DeskAccount from '../settings/desktopSettingOptionViews/DeskAccount'
+import DeskPrivacyAndSec from '../settings/desktopSettingOptionViews/DeskPrivacyAndSec'
+import DeskNofiy from '../settings/desktopSettingOptionViews/DeskNofiy'
+import DeskHelp from '../settings/desktopSettingOptionViews/DeskHelp'
+import DeskAbout from "../settings/desktopSettingOptionViews/DeskAbout"
 import Home from '../Home'
 import { Link } from 'react-router-dom';
 

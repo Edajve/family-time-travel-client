@@ -1,7 +1,7 @@
 import { Text, useTheme, Box, VStack, Icon, Divider, Avatar, Button, Input } from '@chakra-ui/react';
 import DeskAccountStyle from '../../../styles/DeskAccountStyle'
 
-const DeskAccount = () => {
+export const DeskAccount = () => {
   const theme = useTheme()
   const styles = DeskAccountStyle(theme)
 
