@@ -35,6 +35,7 @@ export const Navigation = () => {
         navigationHeader: {
             color: theme.colors.secondary
             , backgroundColor: theme.colors.background
+            , fontSize: theme.fontSizes.md
         }
         , navigationDrawerBody: {
             backgroundColor: theme.colors.background
@@ -43,8 +44,8 @@ export const Navigation = () => {
             color: theme.colors.textMain
         }
         , navigationCardContainer: {
-            color: theme.colors.textMain,
-            backgroundColor: theme.colors.textMainDeemphasize
+            color: theme.colors.textMain
+            , backgroundColor: theme.colors.textMainDeemphasize
         }
         , navigationCardBody: {
             color: theme.colors.textMain
@@ -58,8 +59,8 @@ export const Navigation = () => {
             , height: 'auto'
         }
         , navigationCardHeading: {
-            color: theme.colors.secondary
-            , fontSize: theme.fontSizes.md
+            color: theme.colors.background
+            , fontSize: theme.fontSizes.sm
         }
         , navigationInfoText: {
             color: theme.colors.background,
@@ -192,7 +193,7 @@ export const Navigation = () => {
                         </Drawer>
                     </Button >
                 </Box >
-                {/* Laptup and up navigation elements */}
+                {/* Laptop and up navigation elements */}
                 <Box sx={styles.desktopAccountDropDown} className='desktopAccountDropwodn'>
                     <Link to='/settings'>
                         <Button className='desktopAccountButton' sx={styles.desktopAccountButton}>Account</Button>

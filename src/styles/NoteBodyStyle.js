@@ -1,4 +1,4 @@
-export const HomeBodyStyle = (theme) => ({
+export const NoteBodyStyle = (theme) => ({
     homeBodyContainer: {
         width: '100%'
         , height: '100%'
@@ -65,4 +65,4 @@ export const HomeBodyStyle = (theme) => ({
     }
 })
 
-export default HomeBodyStyle
+export default NoteBodyStyle

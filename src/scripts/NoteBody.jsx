@@ -22,11 +22,11 @@ import {
     , Select
     , Button
 } from '@chakra-ui/react'
-import HomeBodyStyle from '../styles/HomeBodyStyle'
+import NoteBodyStyle from '../styles/NoteBodyStyle'
 
-export const HomeBody = () => {
+export const NoteBody = () => {
     const theme = useTheme()
-    const styles = HomeBodyStyle(theme)
+    const styles = NoteBodyStyle(theme)
     const [noteInput, setNoteInput] = useState({
         title: ''
         , emotion: ''
@@ -194,4 +194,4 @@ export const HomeBody = () => {
     )
 }
 
-export default HomeBody
+export default NoteBody
