@@ -9,6 +9,7 @@ import { Help } from "./settings/Help"
 import Account from "./settings/Account"
 import About from '../scripts/settings/About'
 import DeskAccount from './settings/desktopSettingOptionViews/DeskAccount.jsx'
+import NoteBody from "./NoteBody.jsx"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" element={<Splash />} />
       <Route path="/splash" element={<Splash />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/note" element={<NoteBody />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/settings/account" element={<Account />} />
       <Route path="/settings/privacy-security" element={<PrivacySecurity />} />

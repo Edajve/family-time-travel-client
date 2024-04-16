@@ -1,7 +1,9 @@
-import React from 'react'
-import { useTheme, Box, Text } from '@chakra-ui/react'
-import Navigation from './navigation/Navigation'
-import { homeStyles } from "../styles/HomeStyles"
+import React from 'react';
+import { useTheme, Box, Text } from '@chakra-ui/react';
+import Navigation from './navigation/Navigation';
+import { homeStyles } from "../styles/HomeStyles";
+import NoteCard from './homeCards/NoteCard';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
     const theme = useTheme();
@@ -13,17 +15,21 @@ export const Home = () => {
             <Box sx={styles.homeBodyContainer} className='homeBodyContainer'>
                 <Box sx={styles.homeBodyInformationGrid} className='homeBodyInformationGrid'>
                     <Text sx={styles.homeBodyInformationTemporaryTitle} className='homeBodyInformationTemporaryTitle'>
-                        Picture of Family or a Caroussel of Pictures
-                        </Text>
+                        Picture of Family or a Carousel of Pictures
+                    </Text>
                 </Box>
                 <Box sx={styles.homeBodyCardGrid} className='homeBodyCardGrid'>
-                    <Box sx={styles.homeBodyLargeCard} className='homeBodyLargeCard'>large</Box>
-                    <Box sx={styles.homeBodyMediumCard} className='homeBodyMediumCard'>medium</Box>
+                    <Link to='/note' style={{ textDecoration: 'none', flex: '1 1 350px' }}>
+                        <Box id='note-card' sx={styles.homeBodyLargeCard} className='homeBodyLargeCard'>
+                            <NoteCard />
+                        </Box>
+                    </Link>
+                    <Box sx={styles.homeBodyMediumCard} className='homeBodyMediumCard'>Upcoming Events</Box>
                     <Box sx={styles.homeBodySmallCard} className='homeBodySmallCard'>small</Box>
                 </Box>
             </Box>
         </Box>
-    )
+    );
 }
 
 export default Home;
