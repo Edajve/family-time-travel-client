@@ -19,7 +19,7 @@ export const Home = () => {
                     </Text>
                 </Box>
                 <Box sx={styles.homeBodyCardGrid} className='homeBodyCardGrid'>
-                    <Link to='/note' style={{ textDecoration: 'none', flex: '1 1 350px' }}>
+                    <Link to='/note' style={{ textDecoration: 'none', flex: '1 1 150px' }}>
                         <Box id='note-card' sx={styles.homeBodyLargeCard} className='homeBodyLargeCard'>
                             <NoteCard />
                         </Box>
