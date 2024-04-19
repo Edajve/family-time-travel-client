@@ -6,24 +6,34 @@ export const CalendarStyles = (theme) => ({
         padding: theme.space.sm,
         paddingLeft: theme.space.lg,
         paddingRight: theme.space.lg
+        , '@media screen and (min-width: 768px)': {
+             border: '1px solid #c0ccc897'
+            ,borderRadius: theme.space.md
+        }
     },
     calendarHeader: {
         width: '100%',
         height: '10%',
         justifyContent: 'space-between',
-        marginBottom: theme.space.md
-    },
-    calendarHeaderDateElement: {
+        marginBottom: theme.space.lg
+    }
+    , calendarDivider: {
+        '@media screen and (min-width: 768px)': {
+            display: 'none'
+       }
+    }
+    , calendarHeaderDateElement: {
         fontSize: theme.fontSizes.md
     },
-    calendarHeaderButtonsContainer: {},
-    calendarHeaderDate: {},
-    calendarHeaderLeftArrow: {},
     calendarHeaderRightArrow: {
         paddingRight: theme.space.md
     },
     calendarHeaderHamburgerIcon: {
-        marginLeft: theme.space.md
+        display: 'inline'
+        , marginLeft: theme.space.md
+        , '@media screen and (min-width: 768px)': {
+            display: 'none'
+        }
     },
     calendarHeaderDateButtons: {
         color: theme.colors.textMain,

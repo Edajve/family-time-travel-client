@@ -7,7 +7,8 @@ import {
     Text,
     ButtonGroup,
     Button,
-    Grid
+    Grid,
+    Divider
 } from '@chakra-ui/react';
 import CalendarStyles from '../../styles/CalendarStyles';
 import { ChevronLeftIcon, ChevronRightIcon, HamburgerIcon } from '@chakra-ui/icons';
@@ -46,10 +47,10 @@ const Calendar = () => {
                 </HStack>
             </HStack>
             <Grid
-            templateColumns="repeat(7, 1fr)"
-            gap={6}
-            className='calendarCalendarContainer'
-            sx={styles.calendarCalendarContainer}
+                templateColumns="repeat(7, 1fr)"
+                gap={6}
+                className='calendarCalendarContainer'
+                sx={styles.calendarCalendarContainer}
             >
                 {
                     Array.from({ length: 35 }).map((_, index) => (
@@ -59,6 +60,7 @@ const Calendar = () => {
                     ))
                 }
             </Grid>
+            <Divider className='calendarDivider' sx={styles.calendarDivider} />
         </VStack>
     );
 }
