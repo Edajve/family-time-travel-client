@@ -23,6 +23,7 @@ import {
     , Button
 } from '@chakra-ui/react'
 import NoteBodyStyle from '../styles/NoteBodyStyle'
+import BackHeader from './navigation/BackHeader'
 
 export const NoteBody = () => {
     const theme = useTheme()
@@ -67,6 +68,8 @@ export const NoteBody = () => {
     const isErrorForEmotion = noteInput.emotion.trim() === 'Select an emotion..'
 
     return (
+        <>
+            <BackHeader />
         <Box sx={styles.homeBodyContainer} className='homeBodyContainer'>
             <Box sx={styles.homeBodyYearPickerContainer} className='homeBodyYearPickerContainer'>
                 <Accordion allowToggle>
@@ -191,6 +194,7 @@ export const NoteBody = () => {
                 </Card>
             </Box>
         </Box>
+        </>
     )
 }
 

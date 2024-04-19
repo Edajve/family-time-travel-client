@@ -10,7 +10,7 @@ import Account from "./settings/Account"
 import About from '../scripts/settings/About'
 import DeskAccount from './settings/desktopSettingOptionViews/DeskAccount.jsx'
 import NoteBody from "./NoteBody.jsx"
-import UpcomingEvents from "./homeCards/UpcomingEvents.jsx"
+import RSVP from "./rsvpViews/RSVP.jsx"
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/note" element={<NoteBody />} />
       <Route path="/note" element={<NoteBody />} />
-      <Route path="/rsvp" element={<UpcomingEvents />} />
+      <Route path="/rsvp" element={<RSVP />} />
       <Route path="/settings/account" element={<Account />} />
       <Route path="/settings/privacy-security" element={<PrivacySecurity />} />
       <Route path="/settings/notification" element={<Notification />} />
