@@ -10,6 +10,7 @@ import Account from "./settings/Account"
 import About from '../scripts/settings/About'
 import DeskAccount from './settings/desktopSettingOptionViews/DeskAccount.jsx'
 import NoteBody from "./NoteBody.jsx"
+import UpcomingEventsStyles from "../styles/UpcomingEventsStyles.js"
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
       <Route path="/splash" element={<Splash />} />
       <Route path="/home" element={<Home />} />
       <Route path="/note" element={<NoteBody />} />
-      <Route path="/settings" element={<Settings />} />
+      <Route path="/note" element={<NoteBody />} />
+      <Route path="/rsvp" element={<UpcomingEventsStyles />} />
       <Route path="/settings/account" element={<Account />} />
       <Route path="/settings/privacy-security" element={<PrivacySecurity />} />
       <Route path="/settings/notification" element={<Notification />} />
