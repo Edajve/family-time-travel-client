@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteCardStyles from '../../styles/NoteCardStyles';
 import { useTheme, Box, Image, Text } from '@chakra-ui/react';
-import timeCapsule from '../../assets/public/images/timeCapsule.png';  // Adjust the path as necessary
+import timeCapsule from '../../assets/public/images/timeCapsule.png';
 
 const NoteCard = () => {
     const theme = useTheme();

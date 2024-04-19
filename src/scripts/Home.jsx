@@ -3,6 +3,7 @@ import { useTheme, Box, Text } from '@chakra-ui/react';
 import Navigation from './navigation/Navigation';
 import { homeStyles } from "../styles/HomeStyles";
 import NoteCard from './homeCards/NoteCard';
+import UpcomingEvents from './homeCards/UpcomingEvents';
 import { Link } from 'react-router-dom';
 
 export const Home = () => {
@@ -24,12 +25,14 @@ export const Home = () => {
                             <NoteCard />
                         </Box>
                     </Link>
-                    <Box sx={styles.homeBodyMediumCard} className='homeBodyMediumCard'>Upcoming Events</Box>
+                    <Link to='/rsvp' style={{ textDecoration: 'none', flex: '1 1 150px' }}>
+                        <Box sx={styles.homeBodyMediumCard} className='homeBodyMediumCard'><UpcomingEvents /> </Box>
+                    </Link>
                     <Box sx={styles.homeBodySmallCard} className='homeBodySmallCard'>small</Box>
                 </Box>
             </Box>
         </Box>
-    );
+    )
 }
 
 export default Home;
