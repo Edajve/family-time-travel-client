@@ -9,7 +9,7 @@ export const Splash = () => {
 
   return (
     <Box sx={styles.splashTitleContainerDark}>
-      <Text as="span" sx={styles.splashTitleDark}>Echols Time Portal</Text>
+      <Text as="span" sx={styles.splashTitleDark}>The Family Website</Text>
       <Box sx={styles.splashDescriptionContainerDark}>
         <Text sx={styles.splashDescriptionDark}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit.

@@ -12,9 +12,9 @@ const NoteCard = () => {
             <Box className='noteCardDescriptionContainer' sx={styles.noteCardDescriptionContainer}>
                 <Text className='noteCardTitleText' sx={styles.noteCardTitleText}>Family Time Portal</Text>
                 <Text className='noteCardDescriptionText' sx={styles.noteCardDescriptionText}>
-                As each year draws to a close, our family gathers to pen our achievements, 
-                aspirations, cherished memories, and defining moments. This sacred ritual binds us, 
-                capturing the essence of the year as it slips into the annals of our history.
+                    As each year draws to a close, our family gathers to pen our achievements,
+                    aspirations, cherished memories, and defining moments. This sacred ritual binds us,
+                    capturing the essence of the year as it slips into the annals of our history.
                 </Text>
             </Box>
             <Box className='noteCardImageAndText' sx={styles.noteCardImageAndText}>

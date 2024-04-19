@@ -5,6 +5,9 @@ export const NoteCardStyles = (theme) => ({
         , display: 'flex'
         , justifyContent: 'space-between'
     }
+    , splashTitleContainerDark: {
+        width: '700px'
+    }
     , noteCardDescriptionContainer: {
         height: '100%'
         , width: '50%'
@@ -33,6 +36,7 @@ export const NoteCardStyles = (theme) => ({
         fontSize: theme.fontSizes.md
         , fontWeight: '700'
         , marginBottom: theme.space.sm
+        , width: '800px'
     }
     , noteCardDescriptionText: {
         fontSize: theme.fontSizes.sm
