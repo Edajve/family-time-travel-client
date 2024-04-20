@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import CalendarStyles from "../../styles/CalendarStyles.js";
 import {ChevronDownIcon} from "@chakra-ui/icons";
+import {Link} from "react-router-dom";
 
 const DesktopCalendarAside = () => {
     const theme = useTheme();
@@ -40,8 +41,10 @@ const DesktopCalendarAside = () => {
                     </MenuButton>
                     <MenuList className='calendarAsideNewEventButtonMenuList'
                               sx={styles.calendarAsideNewEventButtonMenuList}>
-                        <MenuItem className='calendarAsideNewEventButtonMenuItem'
-                                  sx={styles.calendarAsideNewEventButtonMenuItem}>New Event</MenuItem>
+                        <Link to={'/rsvp/create'}>
+                            <MenuItem className='calendarAsideNewEventButtonMenuItem'
+                                      sx={styles.calendarAsideNewEventButtonMenuItem}>New RSVP</MenuItem>
+                        </Link>
                     </MenuList>
                 </Menu>
             </Box>

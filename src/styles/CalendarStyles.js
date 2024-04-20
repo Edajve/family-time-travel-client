@@ -3,11 +3,8 @@ export const CalendarStyles = (theme) => ({
         width: '100%'
         , height: '100%'
         , color: theme.colors.textMain
-        , padding: theme.space.sm
-        , paddingLeft: theme.space.lg
-        , paddingRight: theme.space.lg
         , '@media screen and (min-width: 768px)': {
-            marginRight: theme.space.md
+            marginRight: theme.space.sm
         }
     }
     , calendarDesktopAsideContainer: {
@@ -37,6 +34,8 @@ export const CalendarStyles = (theme) => ({
         , marginBottom: theme.space.lg
         , '@media screen and (min-width: 768px)': {
             justifyContent: 'flex-start'
+            , marginBottom: '15px'
+            , marginLeft: theme.space.xl
         }
     }
     , calendarDivider: {

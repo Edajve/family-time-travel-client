@@ -20,7 +20,8 @@ import {Link} from "react-router-dom";
 import MobileCalendar from "./MobileCalendar.jsx";
 import {useEffect, useState} from "react";
 import DesktopCalendarAside from "./DesktopCalendarAside.jsx";
-import DesktopCalendar from "./DesktopCalendar.jsx";
+
+import DesktopCalendar from "./DesktopCalendarGrid.jsx";
 
 const Calendar = () => {
     const theme = useTheme();
