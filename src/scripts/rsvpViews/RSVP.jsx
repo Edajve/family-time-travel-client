@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, useTheme } from '@chakra-ui/react'
 import RSVPStyles from '../../styles/RSVPStyles'
 import BackHeader from '../navigation/BackHeader'

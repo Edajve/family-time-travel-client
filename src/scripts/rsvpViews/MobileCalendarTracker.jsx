@@ -1,4 +1,4 @@
-import { Box, Divider, HStack, Text, useTheme, VStack} from '@chakra-ui/react';
+import {Box, Divider, HStack, Text, useTheme, VStack} from '@chakra-ui/react';
 import MobileCalendarTrackerStyles from '../../styles/MobileCalendarTrackerStyles';
 
 const MobileCalendarTracker = () => {
@@ -6,11 +6,11 @@ const MobileCalendarTracker = () => {
     const styles = MobileCalendarTrackerStyles(theme);
 
     const mockEvents = [
-        {"time": "11:00 AM", "description": "Alexis House Warming"}
-        , {"time": "3:00 PM", "description": "Muff Selling Plates"}
-        , {"time": "5:00 PM", "description": "Zavien's Birthday Dinner"}
-        , {"time": "8:00 PM", "description": "Calia's KickBack"}
-        , {"time": "10:00 PM", "description": "Trip to Miami"}
+        {"time": "11:00 AM", "iconColor": "blue", "description": "Alexis House Warming"}
+        , {"time": "3:00 PM", "iconColor": "green", "description": "Muff Selling Plates"}
+        , {"time": "5:00 PM", "iconColor": "pink", "description": "Zavien's Birthday Dinner"}
+        , {"time": "8:00 PM", "iconColor": "white", "description": "Calia's KickBack"}
+        , {"time": "10:00 PM", "iconColor": "orange", "description": "Trip to Miami"}
     ];
 
     return (
@@ -31,8 +31,13 @@ const MobileCalendarTracker = () => {
                                 <Text className='calendarMobileTrackerEventsTodayTime'
                                       sx={styles.calendarMobileTrackerEventsTodayTime}>{event.time}</Text>
                             </Box>
-                            <Box className='calendarMobileTrackerEventsIconContainer'
-                                 sx={styles.calendarMobileTrackerEventsIconContainer}></Box>
+                            <Box
+                                className='calendarMobileTrackerEventsIconContainer'
+                                sx={{
+                                    ...styles.calendarMobileTrackerEventsIconContainer,
+                                    backgroundColor: event.iconColor
+                                }}
+                            />
                             <Box className='calendarMobileTrackerEventsDescriptionContainer'
                                  sx={styles.calendarMobileTrackerEventsDescriptionContainer}>
                                 <Text className='calendarMobileTrackerEventsDescriptionText'

@@ -30,12 +30,22 @@ export const CalendarStyles = (theme) => ({
     },
     calendarHeaderHamburgerIcon: {
         display: 'inline'
+
         , marginLeft: theme.space.md
         , '@media screen and (min-width: 768px)': {
             display: 'none'
         }
-    },
-    calendarHeaderDateButtons: {
+    }
+    ,calendarHeaderHamburgerMenuItem: {
+        backgroundColor: theme.colors.background
+    }
+    , calendarHeaderHamburgerMenuList: {
+        backgroundColor: theme.colors.background
+    }
+    , calendarHeaderHamburger: {
+        color: theme.colors.textMain
+    }
+    , calendarHeaderDateButtons: {
         color: theme.colors.textMain
         , backgroundColor: theme.colors.background
         , '&:hover': {

@@ -1,8 +1,7 @@
-import React from 'react'
-import { Box, useTheme } from '@chakra-ui/react'
-import { Link } from "react-router-dom"
+import {Box, useTheme} from '@chakra-ui/react'
+import {Link} from "react-router-dom"
 import BackHeaderStyles from '../../styles/BackHeaderStyles'
-import { ChevronLeftIcon } from '@chakra-ui/icons'
+import {ChevronLeftIcon} from '@chakra-ui/icons'
 
 const BackHeader = () => {
     const theme = useTheme()

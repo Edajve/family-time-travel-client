@@ -1,7 +1,23 @@
-import {Box, Button, ButtonGroup, Divider, Grid, HStack, Text, useTheme, VStack} from '@chakra-ui/react';
+import {
+    Box,
+    Button,
+    ButtonGroup,
+    Divider,
+    Grid,
+    HStack,
+    IconButton,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuList,
+    Text,
+    useTheme,
+    VStack
+} from '@chakra-ui/react';
 import CalendarStyles from '../../styles/CalendarStyles';
-import {ChevronLeftIcon, ChevronRightIcon, HamburgerIcon} from '@chakra-ui/icons';
+import {AddIcon, ChevronLeftIcon, ChevronRightIcon, HamburgerIcon} from '@chakra-ui/icons';
 import MobileCalendarTracker from './MobileCalendarTracker';
+import {Link} from "react-router-dom";
 
 const Calendar = () => {
     const theme = useTheme();
@@ -37,7 +53,28 @@ const Calendar = () => {
                         </Button>
                     </ButtonGroup>
                     <Box className='calendarHeaderHamburgerIcon' sx={styles.calendarHeaderHamburgerIcon}>
-                        <HamburgerIcon boxSize={6}/>
+                        <Menu>
+                            <MenuButton
+                                className='calendarHeaderHamburger'
+                                sx={styles.calendarHeaderHamburger}
+                                as={IconButton}
+                                aria-label='Options'
+                                icon={<HamburgerIcon/>}
+                                variant='ghost'
+                            />
+                            <MenuList
+                                className='calendarHeaderHamburgerMenuList'
+                                sx={styles.calendarHeaderHamburgerMenuList}>
+                                <Link to="/rsvp/create">
+                                    <MenuItem
+                                        className='calendarHeaderHamburgerMenuItem'
+                                        sx={styles.calendarHeaderHamburgerMenuItem}
+                                        icon={<AddIcon/>} command='⌘T'>
+                                        Add Event
+                                    </MenuItem>
+                                </Link>
+                            </MenuList>
+                        </Menu>
                     </Box>
                 </HStack>
             </HStack>
