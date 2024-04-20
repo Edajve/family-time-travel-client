@@ -3,6 +3,7 @@ export const MobileCalendarTrackerStyles = (theme) => ({
         width: '100%'
         , minWidth: '320px'
         , height: '100%'
+        , padding: theme.space.md
     }
     , calendarMobileTrackerDateProjector: {
         fontSize: theme.fontSizes.md

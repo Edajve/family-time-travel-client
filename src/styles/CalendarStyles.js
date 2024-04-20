@@ -32,6 +32,8 @@ export const CalendarStyles = (theme) => ({
         , height: '10%'
         , justifyContent: 'space-between'
         , marginBottom: theme.space.lg
+        , paddingLeft: theme.space.md
+        , paddingRight: theme.space.md
         , '@media screen and (min-width: 768px)': {
             justifyContent: 'flex-start'
             , marginBottom: '15px'
