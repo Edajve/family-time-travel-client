@@ -1,9 +1,9 @@
-export const RSVPStyles = (theme) => ({
+export const RSVPStyles = () => ({
     rsvpContainer: {
-        width: '100%'
-        , height: 'auto'
-        , minWidth: '320px'
-        , maxWidth: '768px'
+        width: '100vw'
+        , height: '100vh'
+        // , minWidth: '320px'
+        // , maxWidth: '768px'
     }
 })
 

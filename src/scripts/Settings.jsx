@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTheme, Box } from '@chakra-ui/react';
 import SettingsStyles from '../styles/SettingsStyles'
 import { Outlet } from "react-router-dom"

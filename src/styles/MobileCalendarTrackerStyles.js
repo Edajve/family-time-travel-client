@@ -3,9 +3,6 @@ export const MobileCalendarTrackerStyles = (theme) => ({
         width: '100%'
         , minWidth: '320px'
         , height: '100%'
-        , '@media screen and (min-width: 768px)': {
-            display: 'none'
-        }
     }
     , calendarMobileTrackerDateProjector: {
         fontSize: theme.fontSizes.md

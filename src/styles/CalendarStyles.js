@@ -1,21 +1,43 @@
 export const CalendarStyles = (theme) => ({
-    calendarContainer: {
-        width: '100%',
-        height: '675px',
-        color: theme.colors.textMain,
-        padding: theme.space.sm,
-        paddingLeft: theme.space.lg,
-        paddingRight: theme.space.lg
+    calendarMobileContainer: {
+        width: '100%'
+        , height: '100%'
+        , color: theme.colors.textMain
+        , padding: theme.space.sm
+        , paddingLeft: theme.space.lg
+        , paddingRight: theme.space.lg
         , '@media screen and (min-width: 768px)': {
-            border: '1px solid #c0ccc897'
-            , borderRadius: theme.space.md
+            marginRight: theme.space.md
         }
-    },
-    calendarHeader: {
-        width: '100%',
-        height: '10%',
-        justifyContent: 'space-between',
-        marginBottom: theme.space.lg
+    }
+    , calendarDesktopAsideContainer: {
+        width: '250px'
+        , height: '100%'
+        , display: 'none'
+        , '@media screen and (min-width: 768px)': {
+            display: 'block'
+            , marginLeft: theme.space.md
+            , borderRight: '1px solid #c0ccc8e6'
+        }
+    }
+    , calendarMobileCalendarContainer: {
+        width: '100%'
+        , '@media screen and (min-width: 768px)': {
+            display: 'none'
+        }
+    }
+    , calendarDesktopAndMobileContainer: {
+        width: '100%'
+        , height: '100%'
+    }
+    , calendarHeader: {
+        width: '100%'
+        , height: '10%'
+        , justifyContent: 'space-between'
+        , marginBottom: theme.space.lg
+        , '@media screen and (min-width: 768px)': {
+            justifyContent: 'flex-start'
+        }
     }
     , calendarDivider: {
         '@media screen and (min-width: 768px)': {
@@ -24,20 +46,20 @@ export const CalendarStyles = (theme) => ({
     }
     , calendarHeaderDateElement: {
         fontSize: theme.fontSizes.md
-    },
-    calendarHeaderRightArrow: {
-        paddingRight: theme.space.md
-    },
-    calendarHeaderHamburgerIcon: {
-        display: 'inline'
-
-        , marginLeft: theme.space.md
         , '@media screen and (min-width: 768px)': {
-            display: 'none'
+            fontSize: theme.fontSizes.sm
+            , marginRight: theme.space.md
         }
     }
-    ,calendarHeaderHamburgerMenuItem: {
+    , calendarHeaderRightArrow: {
+        paddingRight: theme.space.md
+    }
+    , calendarHeaderHamburgerIcon: {
+        marginLeft: theme.space.md
+    }
+    , calendarHeaderHamburgerMenuItem: {
         backgroundColor: theme.colors.background
+        , color: theme.colors.textMainDeemphasize
     }
     , calendarHeaderHamburgerMenuList: {
         backgroundColor: theme.colors.background
@@ -49,7 +71,7 @@ export const CalendarStyles = (theme) => ({
         color: theme.colors.textMain
         , backgroundColor: theme.colors.background
         , '&:hover': {
-            backgroundColor: theme.colors.hoverBackground
+            backgroundColor: theme.colors.background
         },
         '&:focus': {
             backgroundColor: theme.colors.background
@@ -59,7 +81,7 @@ export const CalendarStyles = (theme) => ({
     calendarDayBox: {
         width: '100%'
         , height: '50px'
-        , bg: theme.colors.lightGray
+        , bg: theme.colors.background
         , display: 'flex'
         , alignItems: 'center'
         , justifyContent: 'center'
@@ -72,8 +94,27 @@ export const CalendarStyles = (theme) => ({
             , color: theme.colors.background
         }
     }
-    , calendarCalendarContainer: {
-        width: '100%'
+    , calendarAsideNewEventButton: {
+        color: theme.colors.textMain
+        , marginTop: theme.space.lg
+        , border: 'none'
+        , marginBottom: theme.space.lg
+    }
+    , calendarAsideNewEventButtonMenuButton: {
+        color: theme.colors.textMain
+        , backgroundColor: theme.colors.background
+    }
+    , calendarAsideNewEventButtonMenuItem: {
+        color: theme.colors.textMain, backgroundColor: theme.colors.background
+    }
+    , calendarAsideNewEventButtonMenuList: {
+        color: theme.colors.textMain
+        , backgroundColor: theme.colors.background
+    },
+    calendarAsideAccordionContainer: undefined,
+    calendarAsideAccordionTitle: {
+        fontSize: theme.fontSizes.sm
+        , color: theme.colors.textMain
     }
 })
 

@@ -1,11 +1,10 @@
-import { Box, useTheme } from '@chakra-ui/react'
+import {Box} from '@chakra-ui/react'
 import RSVPStyles from '../../styles/RSVPStyles'
 import BackHeader from '../navigation/BackHeader'
 import Calendar from './Calendar'
 
 const RSVP = () => {
-    const theme = useTheme();
-    const styles = RSVPStyles(theme);
+    const styles = RSVPStyles();
 
     return (
         <>
@@ -17,4 +16,5 @@ const RSVP = () => {
     )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default RSVP
