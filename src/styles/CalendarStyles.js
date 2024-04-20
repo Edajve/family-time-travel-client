@@ -71,8 +71,8 @@ export const CalendarStyles = (theme) => ({
             , backgroundColor: theme.colors.textMain
             , color: theme.colors.background
         }
-    },
-    calendarCalendarContainer: {
+    }
+    , calendarCalendarContainer: {
         width: '100%'
     }
 })
