@@ -7,9 +7,7 @@ export const homeStyles = (theme) => ({
     , hamburgerIcon: {
         textAlign: 'end',
     }
-    , homeBodyContainer: {
-
-    }
+    , homeBodyContainer: {}
     , homeBodyInformationGrid: {
         width: '100%'
         , height: '300px'
@@ -37,11 +35,13 @@ export const homeStyles = (theme) => ({
         , color: theme.colors.textMainDeemphasize
         , borderRadius: theme.space.sm
         , padding: theme.space.md
+        , width: '80%'
+        , paddingTop: theme.space.lg
         , overflow: 'auto'
         , transition: 'transform 0.3s ease, box-shadow 0.3s ease'
         , cursor: 'pointer'
         , _hover: {
-             color: theme.colors.textMain
+            color: theme.colors.textMain
             , transform: 'scale(1.02)'
             , boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
         }
@@ -57,7 +57,7 @@ export const homeStyles = (theme) => ({
         , transition: 'transform 0.3s ease, box-shadow 0.3s ease'
         , cursor: 'pointer'
         , _hover: {
-             color: theme.colors.textMain
+            color: theme.colors.textMain
             , transform: 'scale(1.02)'
             , boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
         }
@@ -73,9 +73,9 @@ export const homeStyles = (theme) => ({
         , transition: 'transform 0.3s ease, box-shadow 0.3s ease'
         , cursor: 'pointer'
         , _hover: {
-             color: theme.colors.textMain
+            color: theme.colors.textMain
             , transform: 'scale(1.02)'
             , boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
         }
-    }    
+    }
 })

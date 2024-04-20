@@ -20,15 +20,30 @@ export const DesktopCalendarStyles = (theme) => ({
     }
     , deskCalendarDayBox: {
         width: '100%'
-    },
-    deskCalendarDayBoxContainer: {
+    }
+    , eskCalendarDayBoxContainer: {
         width: '100%'
         , justifyContent: 'space-between'
         , marginBottom: 0
-    },
-    deskCalendarGridDayNumber: {
+    }
+    , deskCalendarGridDayNumber: {
         textAlign: 'center'
         , marginTop: theme.space.xs
+    }
+    , deskCalendarGridHighLightedNumber: {
+        width: '22px'
+        , height: '22px'
+        , backgroundColor: theme.colors.textMain
+        , margin: 'auto'
+        , borderTop: '1px solid #c0ccc897'
+        , textAlign: 'center'
+        , borderRadius: '100%'
+        , marginTop: theme.space.xs
+        , paddingBottom: theme.space.md
+    },
+    deskCalendarGridDayNumberHighLight: {
+        paddingBottom: theme.space.xs
+        , color: theme.colors.background
     }
 })
 
