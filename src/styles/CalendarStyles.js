@@ -7,8 +7,8 @@ export const CalendarStyles = (theme) => ({
         paddingLeft: theme.space.lg,
         paddingRight: theme.space.lg
         , '@media screen and (min-width: 768px)': {
-             border: '1px solid #c0ccc897'
-            ,borderRadius: theme.space.md
+            border: '1px solid #c0ccc897'
+            , borderRadius: theme.space.md
         }
     },
     calendarHeader: {
@@ -20,7 +20,7 @@ export const CalendarStyles = (theme) => ({
     , calendarDivider: {
         '@media screen and (min-width: 768px)': {
             display: 'none'
-       }
+        }
     }
     , calendarHeaderDateElement: {
         fontSize: theme.fontSizes.md
@@ -36,30 +36,30 @@ export const CalendarStyles = (theme) => ({
         }
     },
     calendarHeaderDateButtons: {
-        color: theme.colors.textMain,
-        backgroundColor: theme.colors.background,
-        '&:hover': {
+        color: theme.colors.textMain
+        , backgroundColor: theme.colors.background
+        , '&:hover': {
             backgroundColor: theme.colors.hoverBackground
         },
         '&:focus': {
-            backgroundColor: theme.colors.background,
-            outline: 'none'
+            backgroundColor: theme.colors.background
+            , outline: 'none'
         }
     },
     calendarDayBox: {
-        width: '100%',
-        height: '50px',
-        bg: theme.colors.lightGray,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 'md',
-        cursor: 'pointer',
-        transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out',
-        '&:hover': {
-            transform: 'scale(1.03)',
-            backgroundColor: theme.colors.textMain,
-            color: theme.colors.background
+        width: '100%'
+        , height: '50px'
+        , bg: theme.colors.lightGray
+        , display: 'flex'
+        , alignItems: 'center'
+        , justifyContent: 'center'
+        , borderRadius: 'md'
+        , cursor: 'pointer'
+        , transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out'
+        , '&:hover': {
+            transform: 'scale(1.03)'
+            , backgroundColor: theme.colors.textMain
+            , color: theme.colors.background
         }
     },
     calendarCalendarContainer: {
