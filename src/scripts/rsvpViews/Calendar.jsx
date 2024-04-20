@@ -12,10 +12,12 @@ import {
 } from '@chakra-ui/react';
 import CalendarStyles from '../../styles/CalendarStyles';
 import { ChevronLeftIcon, ChevronRightIcon, HamburgerIcon } from '@chakra-ui/icons';
+import MobileCalendarTracker from './MobileCalendarTracker';
 
 const Calendar = () => {
     const theme = useTheme();
     const styles = CalendarStyles(theme);
+
     const handleDateChangeClick = (event) => {
         console.log(event);
     }
@@ -61,6 +63,7 @@ const Calendar = () => {
                 }
             </Grid>
             <Divider className='calendarDivider' sx={styles.calendarDivider} />
+            <MobileCalendarTracker />
         </VStack>
     );
 }
