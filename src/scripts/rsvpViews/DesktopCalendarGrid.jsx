@@ -1,13 +1,15 @@
 import {Box, HStack, Text, useTheme, VStack} from "@chakra-ui/react";
 import DesktopCalendarStyles from "../../styles/DesktopCalendarStyles.js";
-import {days, currentTimeObj, getNumberOfDaysInMonth} from "../globals/Time.js"
+import CalendarUtils from "../globals/Time.js"
 import {useEffect, useState} from "react";
+
+const timeUtils = new CalendarUtils();
 
 const DesktopCalendarGrid = () => {
     const theme = useTheme()
     const styles = DesktopCalendarStyles(theme)
     const [firstDayOfMonth, setFirstDayOfMonth] = useState(0)
-    const [currentTime] = useState(currentTimeObj)
+    const [currentTime] = useState(timeUtils.currentTimeObj)
 
     useEffect(() => {
         setFirstDayOfMonth(currentTime.firstDayOfWeek);
@@ -31,7 +33,7 @@ const DesktopCalendarGrid = () => {
                     sx={styles.deskCalendarDayBoxContainer}
                     gap={0}
                 >
-                    {days.map((day, index) => (
+                    {timeUtils.days.map((day, index) => (
                         <Box
                             className='deskCalendarDayElement'
                             sx={styles.deskCalendarDayElement}
@@ -60,7 +62,7 @@ const DesktopCalendarGrid = () => {
                         {/* Leaving the empty spot blank */}
                     </Box>
                 ))}
-                {Array.from({length: getNumberOfDaysInMonth(currentTime.currentMonth)}, (_, index) => (
+                {Array.from({length: timeUtils.getNumberOfDaysInMonth(currentTime.currentMonth)}, (_, index) => (
                     <Box
                         className='deskCalendarGridItems'
                         sx={styles.deskCalendarGridItems}

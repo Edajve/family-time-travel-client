@@ -20,11 +20,13 @@ import {Link} from "react-router-dom";
 import MobileCalendar from "./MobileCalendar.jsx";
 import {useEffect, useState} from "react";
 import DesktopCalendarAside from "./DesktopCalendarAside.jsx";
+import CalendarUtils from "../globals/Time.js";
 
 const Calendar = () => {
     const theme = useTheme();
     const styles = CalendarStyles(theme);
     const [isWindowOver768px, setIsWindowOver768px] = useState(window.innerWidth > 768)
+    const timeUtils = new CalendarUtils();
 
     const handleDateChangeClick = (event) => {
         console.log(event);
@@ -50,7 +52,8 @@ const Calendar = () => {
                     <HStack className='calendarHeader' sx={styles.calendarHeader}>
                         <Box className='calendarHeaderDate' sx={styles.calendarHeaderDate}>
                             <Text className='calendarHeaderDateElement' sx={styles.calendarHeaderDateElement}>
-                                Fri December 19, 2024
+                                {/*Mobile UI View*/}
+                                {timeUtils.getUIReadyDate()}
                             </Text>
                         </Box>
                         <HStack className='calendarHeaderButtonsContainer' sx={styles.calendarHeaderButtonsContainer}>

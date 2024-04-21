@@ -19,12 +19,16 @@ import {
 import {Link} from "react-router-dom";
 import DesktopCalendarGrid from "./DesktopCalendarGrid.jsx";
 import {useEffect, useState} from "react";
+import CalendarUtils from "../globals/Time.js";
+
 
 const DesktopCalendarAside = () => {
     const theme = useTheme();
     const styles = CalendarStyles(theme);
     const [isWindowOver768px, setIsWindowOver768px] = useState(window.innerWidth > 768)
     const [filterSearch, setFilterSearch] = useState("");
+
+    const timeUtils = new CalendarUtils();
 
     const handleDateChangeClick = (event) => {
         console.log(event);
@@ -96,7 +100,8 @@ const DesktopCalendarAside = () => {
                             </Button>
                             <Box className='calendarHeaderDate' sx={styles.calendarHeaderDate}>
                                 <Text className='calendarHeaderDateElement' sx={styles.calendarHeaderDateElement}>
-                                    Thurs September 19th, 2024
+                                    {/*Desktop UI View*/}
+                                    {timeUtils.getUIReadyDate()}
                                 </Text>
                             </Box>
                             <Button size={1} onClick={() => handleDateChangeClick("next month")}
