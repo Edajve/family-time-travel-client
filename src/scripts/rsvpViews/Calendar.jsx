@@ -14,7 +14,14 @@ import {
     VStack,
 } from '@chakra-ui/react';
 import CalendarStyles from '../../styles/CalendarStyles';
-import {AddIcon, ChevronLeftIcon, ChevronRightIcon, HamburgerIcon} from '@chakra-ui/icons';
+import {
+    AddIcon,
+    ArrowLeftIcon,
+    ArrowRightIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    HamburgerIcon
+} from '@chakra-ui/icons';
 import MobileCalendarTracker from './MobileCalendarTracker';
 import {Link} from "react-router-dom";
 import MobileCalendar from "./MobileCalendar.jsx";
@@ -67,6 +74,11 @@ const Calendar = () => {
                         <HStack className='calendarHeaderButtonsContainer' sx={styles.calendarHeaderButtonsContainer}>
                             <ButtonGroup className='calendarHeaderButtonGroup' sx={styles.calendarHeaderButtonGroup}
                                          variant='outline' spacing='6'>
+                                <Button size={2} onClick={() => handleDateChangeClick("previous year")}
+                                        className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
+                                        variant='ghost'>
+                                    <ArrowLeftIcon boxSize={3}/>
+                                </Button>
                                 <Button size={2} onClick={() => handleDateChangeClick("previous month")}
                                         className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
                                         variant='ghost'>
@@ -76,6 +88,11 @@ const Calendar = () => {
                                         className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
                                         variant='ghost'>
                                     <ChevronRightIcon boxSize={6}/>
+                                </Button>
+                                <Button size={2} onClick={() => handleDateChangeClick("next year")}
+                                        className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
+                                        variant='ghost'>
+                                    <ArrowRightIcon boxSize={3}/>
                                 </Button>
                             </ButtonGroup>
                             {!isWindowOver768px && (
