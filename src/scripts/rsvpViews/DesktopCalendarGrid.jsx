@@ -1,12 +1,17 @@
 import {Box, HStack, Text, useTheme, VStack} from "@chakra-ui/react";
 import DesktopCalendarStyles from "../../styles/DesktopCalendarStyles.js";
-import DaysOfTheWeek from "../../scripts/globals/DaysOfWeeks.js"
+import {days, currentTimeObj, getNumberOfDaysInMonth} from "../globals/Time.js"
+import {useEffect, useState} from "react";
 
 const DesktopCalendarGrid = () => {
-    const theme = useTheme();
-    const styles = DesktopCalendarStyles(theme);
+    const theme = useTheme()
+    const styles = DesktopCalendarStyles(theme)
+    const [firstDayOfMonth, setFirstDayOfMonth] = useState(0)
+    const [currentTime] = useState(currentTimeObj)
 
-    // const highlighted = () => false
+    useEffect(() => {
+        setFirstDayOfMonth(currentTime.firstDayOfWeek);
+    }, [currentTime]);
 
     function handleDateClicked(event) {
         console.log(event.target.innerText)
@@ -26,12 +31,16 @@ const DesktopCalendarGrid = () => {
                     sx={styles.deskCalendarDayBoxContainer}
                     gap={0}
                 >
-                    {DaysOfTheWeek.map((day, index) => (
+                    {days.map((day, index) => (
                         <Box
                             className='deskCalendarDayElement'
                             sx={styles.deskCalendarDayElement}
-                            key={index}><Text className='deskCalendarNumberElement'
-                                              sx={styles.deskCalendarNumberElement}>{day}</Text></Box>
+                            key={index}
+                        >
+                            <Text className='deskCalendarNumberElement' sx={styles.deskCalendarNumberElement}>
+                                {day}
+                            </Text>
+                        </Box>
                     ))}
                 </HStack>
             </Box>
@@ -42,18 +51,27 @@ const DesktopCalendarGrid = () => {
                 gridTemplateColumns="repeat(7, 1fr)"
                 gridTemplateRows="repeat(5, 1fr)"
             >
-                {Array.from({length: 35}, (_, index) => (
+                {Array.from({length: firstDayOfMonth}, (_, index) => (
+                    <Box
+                        className='deskCalendarGridItems empty'
+                        sx={styles.deskCalendarGridItems}
+                        key={'empty_' + index}
+                    >
+                        {/* Leaving the empty spot blank */}
+                    </Box>
+                ))}
+                {Array.from({length: getNumberOfDaysInMonth(currentTime.currentMonth)}, (_, index) => (
                     <Box
                         className='deskCalendarGridItems'
                         sx={styles.deskCalendarGridItems}
                         key={index}
                         onClick={(event) => handleDateClicked(event)}
                     >
-                        <Text className='deskCalendarGridDayNumber'
-                              sx={styles.deskCalendarGridDayNumber}>{index + 1}</Text>
+                        <Text className='deskCalendarGridDayNumber' sx={styles.deskCalendarGridDayNumber}>
+                            {index + 1}
+                        </Text>
                     </Box>
                 ))}
-
             </Box>
         </VStack>
     );
