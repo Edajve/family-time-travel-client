@@ -65,7 +65,9 @@ const DesktopCalendarAside = () => {
                         _expanded={{bg: 'blue.400'}}
                         _focus={{boxShadow: 'outline'}}
                     >
+                        <Text className='calendarAsideNewEventText' sx={styles.calendarAsideNewEventText}>
                         Create <ChevronDownIcon/>
+                        </Text>
                     </MenuButton>
                     <MenuList className='calendarAsideNewEventButtonMenuList'
                               sx={styles.calendarAsideNewEventButtonMenuList}>

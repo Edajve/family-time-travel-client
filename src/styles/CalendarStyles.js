@@ -102,6 +102,7 @@ export const CalendarStyles = (theme) => ({
     , calendarAsideNewEventButtonMenuButton: {
         color: theme.colors.textMain
         , backgroundColor: theme.colors.background
+        , borderColor: theme.colors.textMainDeemphasize
     }
     , calendarAsideNewEventButtonMenuItem: {
         color: theme.colors.textMain, backgroundColor: theme.colors.background
@@ -122,6 +123,10 @@ export const CalendarStyles = (theme) => ({
         width: '80%'
         , backgroundColor: theme.colors.background
         , color: theme.colors.textMain
+        , borderColor: theme.colors.textMainDeemphasize
+    },
+    calendarAsideNewEventText: {
+        color: theme.colors.textMainDeemphasize
     }
 })
 
