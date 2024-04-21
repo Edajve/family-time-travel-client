@@ -1,12 +1,11 @@
 import {Box, HStack, Text, useTheme, VStack} from "@chakra-ui/react";
 import DesktopCalendarStyles from "../../styles/DesktopCalendarStyles.js";
-// TODO you are trying to import this days object from globals directory
-// import {days} from "src/scripts/globals/DaysOfWeeks.js"
+import DaysOfTheWeek from "../../scripts/globals/DaysOfWeeks.js"
+
 const DesktopCalendar = () => {
     const theme = useTheme();
     const styles = DesktopCalendarStyles(theme);
 
-    const days = ['SUN', 'MON', 'TUES', 'WED', 'THU', 'FRI', 'SAT']
     const highlighted = () => true
 
     return (
@@ -24,7 +23,7 @@ const DesktopCalendar = () => {
                     gap={0}
 
                 >
-                    {days.map((day, index) => (
+                    {DaysOfTheWeek.map((day, index) => (
                         <Box
                             className='deskCalendarDayElement'
                             sx={styles.deskCalendarDayElement}
@@ -50,7 +49,9 @@ const DesktopCalendar = () => {
                             <Box className='deskCalendarGridHighLightedNumber'
                                  sx={styles.deskCalendarGridHighLightedNumber}>
                                 <Text className='deskCalendarGridDayNumberHighLight'
-                                      sx={styles.deskCalendarGridDayNumberHighLight}> {index + 1} </Text>
+                                      sx={styles.deskCalendarGridDayNumberHighLight}>
+                                    {index + 1}
+                                </Text>
                             </Box>
                         ) : (
                             <Text className='deskCalendarGridDayNumber'

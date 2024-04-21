@@ -1,17 +1,10 @@
 import {Box, Divider, HStack, Text, useTheme, VStack} from '@chakra-ui/react';
 import MobileCalendarTrackerStyles from '../../styles/MobileCalendarTrackerStyles';
+import mockEvents from "../globals/mocks/UpcomingEvents.js";
 
 const MobileCalendarTracker = () => {
     const theme = useTheme();
     const styles = MobileCalendarTrackerStyles(theme);
-
-    const mockEvents = [
-        {"time": "11:00 AM", "iconColor": "blue", "description": "Alexis House Warming"}
-        , {"time": "3:00 PM", "iconColor": "green", "description": "Muff Selling Plates"}
-        , {"time": "5:00 PM", "iconColor": "pink", "description": "Zavien's Birthday Dinner"}
-        , {"time": "8:00 PM", "iconColor": "white", "description": "Calia's KickBack"}
-        , {"time": "10:00 PM", "iconColor": "orange", "description": "Trip to Miami"}
-    ];
 
     return (
         <VStack className='calendarMobileTrackerContainer' sx={styles.calendarMobileTrackerContainer}>
@@ -29,7 +22,7 @@ const MobileCalendarTracker = () => {
                             <Box className='calendarMobileTrackerEventsTodayTimeContainer'
                                  sx={styles.calendarMobileTrackerEventsTodayTimeContainer}>
                                 <Text className='calendarMobileTrackerEventsTodayTime'
-                                      sx={styles.calendarMobileTrackerEventsTodayTime}>{event.time}</Text>
+                                      sx={styles.calendarMobileTrackerEventsTodayTime}>{event.startTime}</Text>
                             </Box>
                             <Box
                                 className='calendarMobileTrackerEventsIconContainer'
