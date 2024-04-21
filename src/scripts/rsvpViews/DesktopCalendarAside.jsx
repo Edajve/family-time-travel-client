@@ -4,7 +4,7 @@ import {
     AccordionIcon,
     AccordionItem,
     AccordionPanel,
-    Box,
+    Box, Button, ButtonGroup, HStack, IconButton,
     Menu,
     MenuButton,
     MenuItem,
@@ -13,12 +13,31 @@ import {
     useTheme
 } from "@chakra-ui/react";
 import CalendarStyles from "../../styles/CalendarStyles.js";
-import {ChevronDownIcon} from "@chakra-ui/icons";
+import {AddIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, HamburgerIcon} from "@chakra-ui/icons";
 import {Link} from "react-router-dom";
+import DesktopCalendarGrid from "./DesktopCalendarGrid.jsx";
+import {useEffect, useState} from "react";
 
 const DesktopCalendarAside = () => {
     const theme = useTheme();
     const styles = CalendarStyles(theme);
+    const [isWindowOver768px, setIsWindowOver768px] = useState(window.innerWidth > 768)
+
+    const handleDateChangeClick = (event) => {
+        console.log(event);
+    }
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsWindowOver768px(window.innerWidth > 768)
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
 
     return (
         <Box className='calendarDesktopAsideContainer' sx={styles.calendarDesktopAsideContainer}>
@@ -47,6 +66,54 @@ const DesktopCalendarAside = () => {
                         </Link>
                     </MenuList>
                 </Menu>
+            </Box>
+            <Box>
+                <HStack className='calendarHeader' sx={styles.calendarHeader}>
+                    <Box className='calendarHeaderDate' sx={styles.calendarHeaderDate}>
+                        <Text className='calendarHeaderDateElement' sx={styles.calendarHeaderDateElement}>
+                            Fri April 19, 2024
+                        </Text>
+                    </Box>
+                    <HStack className='calendarHeaderButtonsContainer' sx={styles.calendarHeaderButtonsContainer}>
+                        <ButtonGroup className='calendarHeaderButtonGroup' sx={styles.calendarHeaderButtonGroup}
+                                     variant='outline' spacing='6'>
+                            <Button size={2} onClick={() => handleDateChangeClick("left")}
+                                    className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
+                                    variant='ghost'>
+                                <ChevronLeftIcon boxSize={6}/>
+                            </Button>
+                            <Button size={2} onClick={() => handleDateChangeClick("right")}
+                                    className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
+                                    variant='ghost'>
+                                <ChevronRightIcon boxSize={6}/>
+                            </Button>
+                        </ButtonGroup>
+                        {!isWindowOver768px &&
+                            <Box className='calendarHeaderHamburgerIcon' sx={styles.calendarHeaderHamburgerIcon}>
+                                <Menu>
+                                    <MenuButton
+                                        className='calendarHeaderHamburger'
+                                        sx={styles.calendarHeaderHamburger}
+                                        as={IconButton}
+                                        aria-label='Options'
+                                        icon={<HamburgerIcon/>}
+                                        variant='ghost'
+                                    />
+                                    <MenuList className='calendarHeaderHamburgerMenuList'
+                                              sx={styles.calendarHeaderHamburgerMenuList}>
+                                        <Link to="/rsvp/create">
+                                            <MenuItem className='calendarHeaderHamburgerMenuItem'
+                                                      sx={styles.calendarHeaderHamburgerMenuItem} icon={<AddIcon/>}
+                                                      command='⌘T'>
+                                                Add Event
+                                            </MenuItem>
+                                        </Link>
+                                    </MenuList>
+                                </Menu>
+                            </Box>}
+                    </HStack>
+                </HStack>
+                <DesktopCalendarGrid/>
             </Box>
             <Box className='calendarAsideAccordianContainer' sx={styles.calendarAsideAccordionContainer}>
                 <Accordion className='calendarAsideAccordion' sx={styles.calendarAsideAccordion} allowToggle>
