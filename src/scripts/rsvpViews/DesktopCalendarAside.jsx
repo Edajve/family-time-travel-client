@@ -1,9 +1,4 @@
 import {
-    Accordion,
-    AccordionButton,
-    AccordionIcon,
-    AccordionItem,
-    AccordionPanel,
     Box, Button, ButtonGroup, HStack, IconButton,
     Menu,
     MenuButton,
@@ -13,7 +8,14 @@ import {
     useTheme
 } from "@chakra-ui/react";
 import CalendarStyles from "../../styles/CalendarStyles.js";
-import {AddIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, HamburgerIcon} from "@chakra-ui/icons";
+import {
+    AddIcon,
+    ArrowLeftIcon, ArrowRightIcon,
+    ChevronDownIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    HamburgerIcon
+} from "@chakra-ui/icons";
 import {Link} from "react-router-dom";
 import DesktopCalendarGrid from "./DesktopCalendarGrid.jsx";
 import {useEffect, useState} from "react";
@@ -69,23 +71,34 @@ const DesktopCalendarAside = () => {
             </Box>
             <Box>
                 <HStack className='calendarHeader' sx={styles.calendarHeader}>
-                    <Box className='calendarHeaderDate' sx={styles.calendarHeaderDate}>
-                        <Text className='calendarHeaderDateElement' sx={styles.calendarHeaderDateElement}>
-                            Fri April 19, 2024
-                        </Text>
-                    </Box>
+
                     <HStack className='calendarHeaderButtonsContainer' sx={styles.calendarHeaderButtonsContainer}>
                         <ButtonGroup className='calendarHeaderButtonGroup' sx={styles.calendarHeaderButtonGroup}
                                      variant='outline' spacing='6'>
-                            <Button size={2} onClick={() => handleDateChangeClick("left")}
+                            <Button size={1} onClick={() => handleDateChangeClick("previous year")}
                                     className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
                                     variant='ghost'>
-                                <ChevronLeftIcon boxSize={6}/>
+                                <ArrowLeftIcon boxSize={2}/>
                             </Button>
-                            <Button size={2} onClick={() => handleDateChangeClick("right")}
+                            <Button size={1} onClick={() => handleDateChangeClick("previous month")}
                                     className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
                                     variant='ghost'>
-                                <ChevronRightIcon boxSize={6}/>
+                                <ChevronLeftIcon boxSize={3}/>
+                            </Button>
+                            <Box className='calendarHeaderDate' sx={styles.calendarHeaderDate}>
+                                <Text className='calendarHeaderDateElement' sx={styles.calendarHeaderDateElement}>
+                                    Thurs September 19th, 2024
+                                </Text>
+                            </Box>
+                            <Button size={1} onClick={() => handleDateChangeClick("next month")}
+                                    className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
+                                    variant='ghost'>
+                                <ChevronRightIcon boxSize={3}/>
+                            </Button>
+                            <Button size={1} onClick={() => handleDateChangeClick("next year")}
+                                    className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
+                                    variant='ghost'>
+                                <ArrowRightIcon boxSize={2}/>
                             </Button>
                         </ButtonGroup>
                         {!isWindowOver768px &&
@@ -116,57 +129,7 @@ const DesktopCalendarAside = () => {
                 <DesktopCalendarGrid/>
             </Box>
             <Box className='calendarAsideAccordianContainer' sx={styles.calendarAsideAccordionContainer}>
-                <Accordion className='calendarAsideAccordion' sx={styles.calendarAsideAccordion} allowToggle>
-                    <AccordionItem className='calendarAsideAccordionItem' sx={styles.calendarAsideAccordionItem}>
-                        <Text className='calendarAsideAccordionTitle'
-                              sx={styles.calendarAsideAccordionTitle}>
-                            <AccordionButton className='calendarAsideAccordionButton'
-                                             sx={styles.calendarAsideAccordionButton}>
-                                <Box as='span' flex='1' textAlign='left'>
-                                    <Text className='calendarAsideAccordionTitle'
-                                          sx={styles.calendarAsideAccordionTitle}>
-                                        My Events
-                                    </Text>
-                                </Box>
-                                <AccordionIcon/>
-                            </AccordionButton>
-                        </Text>
-                        <AccordionPanel className='calendarAsideAccordionPanel'
-                                        sx={styles.calendarAsideAccordionPanel} pb={4}>
-                            <Text
-                                className='calendarAsideNoDataText'
-                                sx={styles.calendarHeaderHamburgerMenuItem}
-                            >
-                                No Current Upcoming Events
-                            </Text>
-                        </AccordionPanel>
-                    </AccordionItem>
 
-                    <AccordionItem className='calendarAsideAccordionItem' sx={styles.calendarAsideAccordionItem}>
-                        <Text className='calendarAsideAccordionTitle'
-                              sx={styles.calendarAsideAccordionTitle}>
-                            <AccordionButton className='calendarAsideAccordionButton'
-                                             sx={styles.calendarAsideAccordionButton}>
-                                <Box as='span' flex='1' textAlign='left'>
-                                    <Text className='calendarAsideAccordionTitle'
-                                          sx={styles.calendarAsideAccordionTitle}>
-                                        Upcoming Events
-                                    </Text>
-                                </Box>
-                                <AccordionIcon/>
-                            </AccordionButton>
-                        </Text>
-                        <AccordionPanel className='calendarAsideAccordionPanel'
-                                        sx={styles.calendarAsideAccordionPanel} pb={4}>
-                            <Text
-                                className='calendarAsideNoDataText'
-                                sx={styles.calendarHeaderHamburgerMenuItem}
-                            >
-                                No Current Events
-                            </Text>
-                        </AccordionPanel>
-                    </AccordionItem>
-                </Accordion>
             </Box>
         </Box>
     )
