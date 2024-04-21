@@ -2,11 +2,15 @@ import {Box, HStack, Text, useTheme, VStack} from "@chakra-ui/react";
 import DesktopCalendarStyles from "../../styles/DesktopCalendarStyles.js";
 import DaysOfTheWeek from "../../scripts/globals/DaysOfWeeks.js"
 
-const DesktopCalendar = () => {
+const DesktopCalendarGrid = () => {
     const theme = useTheme();
     const styles = DesktopCalendarStyles(theme);
 
-    const highlighted = () => true
+    // const highlighted = () => false
+
+    function handleDateClicked(event) {
+        console.log(event.target.innerText)
+    }
 
     return (
         <VStack
@@ -26,7 +30,8 @@ const DesktopCalendar = () => {
                         <Box
                             className='deskCalendarDayElement'
                             sx={styles.deskCalendarDayElement}
-                            key={index}>{day}</Box>
+                            key={index}><Text className='deskCalendarNumberElement'
+                                              sx={styles.deskCalendarNumberElement}>{day}</Text></Box>
                     ))}
                 </HStack>
             </Box>
@@ -42,20 +47,10 @@ const DesktopCalendar = () => {
                         className='deskCalendarGridItems'
                         sx={styles.deskCalendarGridItems}
                         key={index}
+                        onClick={(event) => handleDateClicked(event)}
                     >
-                        {highlighted ? (
-                            // TODO for a highlighted day, make sure its centered
-                            <Box className='deskCalendarGridHighLightedNumber'
-                                 sx={styles.deskCalendarGridHighLightedNumber}>
-                                <Text className='deskCalendarGridDayNumberHighLight'
-                                      sx={styles.deskCalendarGridDayNumberHighLight}>
-                                    {index + 1}
-                                </Text>
-                            </Box>
-                        ) : (
-                            <Text className='deskCalendarGridDayNumber'
-                                  sx={styles.deskCalendarGridDayNumber}>{index + 1}</Text>
-                        )}
+                        <Text className='deskCalendarGridDayNumber'
+                              sx={styles.deskCalendarGridDayNumber}>{index + 1}</Text>
                     </Box>
                 ))}
 
@@ -64,4 +59,4 @@ const DesktopCalendar = () => {
     );
 };
 
-export default DesktopCalendar;
+export default DesktopCalendarGrid;
