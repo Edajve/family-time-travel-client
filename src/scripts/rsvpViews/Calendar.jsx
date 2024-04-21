@@ -27,9 +27,17 @@ const Calendar = () => {
     const styles = CalendarStyles(theme);
     const [isWindowOver768px, setIsWindowOver768px] = useState(window.innerWidth > 768)
     const timeUtils = new CalendarUtils();
+    const [currentTime, setCurrentTime] = useState({
+        date: new Date().getDate(),
+        day: new Date().getDay(),
+        currentMonth: new Date().getMonth(),
+        year: new Date().getFullYear(),
+        firstDayOfWeek: new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay()
+    })
 
-    const handleDateChangeClick = (event) => {
-        console.log(event);
+    const handleDateChangeClick = (actionType) => {
+        const newTime = timeUtils.getUpdatedTime(actionType, currentTime);
+        setCurrentTime(newTime);
     }
 
     useEffect(() => {
@@ -53,18 +61,18 @@ const Calendar = () => {
                         <Box className='calendarHeaderDate' sx={styles.calendarHeaderDate}>
                             <Text className='calendarHeaderDateElement' sx={styles.calendarHeaderDateElement}>
                                 {/*Mobile UI View*/}
-                                {timeUtils.getUIReadyDate()}
+                                {timeUtils.getUIReadyDate(currentTime)}
                             </Text>
                         </Box>
                         <HStack className='calendarHeaderButtonsContainer' sx={styles.calendarHeaderButtonsContainer}>
                             <ButtonGroup className='calendarHeaderButtonGroup' sx={styles.calendarHeaderButtonGroup}
                                          variant='outline' spacing='6'>
-                                <Button size={2} onClick={() => handleDateChangeClick("left")}
+                                <Button size={2} onClick={() => handleDateChangeClick("previous month")}
                                         className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
                                         variant='ghost'>
                                     <ChevronLeftIcon boxSize={6}/>
                                 </Button>
-                                <Button size={2} onClick={() => handleDateChangeClick("right")}
+                                <Button size={2} onClick={() => handleDateChangeClick("next month")}
                                         className='calendarHeaderDateButtons' sx={styles.calendarHeaderDateButtons}
                                         variant='ghost'>
                                     <ChevronRightIcon boxSize={6}/>

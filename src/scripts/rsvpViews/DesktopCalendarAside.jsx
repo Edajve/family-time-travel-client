@@ -27,11 +27,18 @@ const DesktopCalendarAside = () => {
     const styles = CalendarStyles(theme);
     const [isWindowOver768px, setIsWindowOver768px] = useState(window.innerWidth > 768)
     const [filterSearch, setFilterSearch] = useState("");
-
     const timeUtils = new CalendarUtils();
+    const [currentTime, setCurrentTime] = useState({
+        date: new Date().getDate(),
+        day: new Date().getDay(),
+        currentMonth: new Date().getMonth(),
+        year: new Date().getFullYear(),
+        firstDayOfWeek: new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay()
+    })
 
-    const handleDateChangeClick = (event) => {
-        console.log(event);
+    const handleDateChangeClick = (actionType) => {
+        const newTime = timeUtils.getUpdatedTime(actionType, currentTime);
+        setCurrentTime(newTime);
     }
 
     useEffect(() => {
@@ -49,8 +56,6 @@ const DesktopCalendarAside = () => {
     function handleFilterSearch(input) {
         setFilterSearch(input.target.value)
     }
-
-    console.log(filterSearch)
 
     return (
         <Box className='calendarDesktopAsideContainer' sx={styles.calendarDesktopAsideContainer}>
@@ -101,7 +106,7 @@ const DesktopCalendarAside = () => {
                             <Box className='calendarHeaderDate' sx={styles.calendarHeaderDate}>
                                 <Text className='calendarHeaderDateElement' sx={styles.calendarHeaderDateElement}>
                                     {/*Desktop UI View*/}
-                                    {timeUtils.getUIReadyDate()}
+                                    {timeUtils.getUIReadyDate(currentTime)}
                                 </Text>
                             </Box>
                             <Button size={1} onClick={() => handleDateChangeClick("next month")}
@@ -140,6 +145,7 @@ const DesktopCalendarAside = () => {
                             </Box>}
                     </HStack>
                 </HStack>
+                {/*this is where you need to pass down info on the current time so it can update itself*/}
                 <DesktopCalendarGrid/>
             </Box>
             <Box className='calendarAsideFilterContainer' sx={styles.calendarAsideFilterContainer}>

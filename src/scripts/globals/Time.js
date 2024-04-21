@@ -33,11 +33,11 @@ class CalendarUtils {
         return undefined;
     }
 
-    getUIReadyDate() {
-        const day = this.fromIntToStringDate(this.currentTimeObj.day)
-        const month = this.fromIntToStringMonth(this.currentTimeObj.currentMonth)
-        const date = this.appendOrdinalSuffix(this.currentTimeObj.date)
-        const year = this.currentTimeObj.year
+    getUIReadyDate(obj) {
+        const day = this.fromIntToStringDate(obj.day)
+        const month = this.fromIntToStringMonth(obj.currentMonth)
+        const date = this.appendOrdinalSuffix(obj.date)
+        const year = obj.year
         return `${day} ${month} ${date}, ${year}`
     }
 
@@ -88,6 +88,20 @@ class CalendarUtils {
                 return "December"
         }
         return undefined;
+    }
+
+    getUpdatedTime(actionType, currentTime) {
+        let newTime;
+        if (actionType === "previous year") {
+            newTime = {...currentTime, year: currentTime.year - 1};
+        } else if (actionType === "previous month") {
+            newTime = {...currentTime, currentMonth: (currentTime.currentMonth - 1 + 12) % 12};
+        } else if (actionType === "next year") {
+            newTime = {...currentTime, year: currentTime.year + 1};
+        } else if (actionType === "next month") {
+            newTime = {...currentTime, currentMonth: (currentTime.currentMonth + 1) % 12};
+        }
+        return newTime;
     }
 }
 
