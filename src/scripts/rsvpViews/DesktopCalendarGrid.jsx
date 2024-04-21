@@ -21,7 +21,6 @@ const DesktopCalendar = () => {
                     className='deskCalendarDayBoxContainer'
                     sx={styles.deskCalendarDayBoxContainer}
                     gap={0}
-
                 >
                     {DaysOfTheWeek.map((day, index) => (
                         <Box
