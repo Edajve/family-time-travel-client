@@ -2,14 +2,28 @@ export const DesktopCalendarStyles = (theme) => ({
     deskCalendarGridContainer: {
         width: '100%'
         , height: '100%'
+        , color: theme.colors.textMainDeemphasize
     }
     , deskCalendarGridContainerContainer: {
         width: '100%'
-        , height: '100%'
+        , height: '200px'
+        , marginBottom: theme.space.sm
     }
     , deskCalendarGridItems: {
-        border: 'thin solid #c0ccc897'
-        , width: '100%'
+        width: '100%'
+        , '&:hover': {
+            backgroundColor: theme.colors.background
+            , borderRadius: theme.space.sm
+            , border: '2px solid #c0ccc897'
+        }
+    }
+    , deskCalendarGridItemsHighlighted: {
+        width: '100%'
+        , '&:hover': {
+            backgroundColor: theme.colors.background
+            , borderRadius: theme.space.sm
+            , border: '2px solid #c0ccc897'
+        }
     }
     , deskCalendarDayElement: {
         width: '100%'
@@ -17,6 +31,8 @@ export const DesktopCalendarStyles = (theme) => ({
         , margin: 'auto'
         , borderTop: '1px solid #c0ccc897'
         , textAlign: 'center'
+        , fontSize: theme.fontSizes.xs
+        , color: theme.colors.textMainDeemphasize
     }
     , deskCalendarDayBox: {
         width: '100%'
@@ -29,6 +45,8 @@ export const DesktopCalendarStyles = (theme) => ({
     , deskCalendarGridDayNumber: {
         textAlign: 'center'
         , marginTop: theme.space.xs
+        , fontSize: theme.fontSizes.xs
+        , cursor: 'pointer'
     }
     , deskCalendarGridHighLightedNumber: {
         width: '22px'
@@ -44,6 +62,10 @@ export const DesktopCalendarStyles = (theme) => ({
     deskCalendarGridDayNumberHighLight: {
         paddingBottom: theme.space.xs
         , color: theme.colors.background
+    },
+    deskCalendarNumberElement: {
+        color: theme.colors.textMainDeemphasize
+        , marginTop: theme.space.sm
     }
 })
 

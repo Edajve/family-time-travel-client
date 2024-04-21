@@ -32,12 +32,10 @@ export const CalendarStyles = (theme) => ({
         , height: '10%'
         , justifyContent: 'space-between'
         , marginBottom: theme.space.lg
-        , paddingLeft: theme.space.md
-        , paddingRight: theme.space.md
+        , paddingLeft: theme.space.sm
+        , paddingRight: theme.space.sm
         , '@media screen and (min-width: 768px)': {
-            justifyContent: 'flex-start'
-            , marginBottom: '15px'
-            , marginLeft: theme.space.xl
+            marginBottom: '15px'
         }
     }
     , calendarDivider: {
@@ -48,8 +46,8 @@ export const CalendarStyles = (theme) => ({
     , calendarHeaderDateElement: {
         fontSize: theme.fontSizes.md
         , '@media screen and (min-width: 768px)': {
-            fontSize: theme.fontSizes.sm
-            , marginRight: theme.space.md
+            fontSize: theme.fontSizes.xs
+            , color: theme.colors.textMainDeemphasize
         }
     }
     , calendarHeaderRightArrow: {
@@ -73,8 +71,8 @@ export const CalendarStyles = (theme) => ({
         , backgroundColor: theme.colors.background
         , '&:hover': {
             backgroundColor: theme.colors.background
-        },
-        '&:focus': {
+        }
+        , '&:focus': {
             backgroundColor: theme.colors.background
             , outline: 'none'
         }
