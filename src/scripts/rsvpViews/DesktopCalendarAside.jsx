@@ -1,5 +1,5 @@
 import {
-    Box, Button, ButtonGroup, HStack, IconButton,
+    Box, Button, ButtonGroup, HStack, IconButton, Input,
     Menu,
     MenuButton,
     MenuItem,
@@ -24,6 +24,7 @@ const DesktopCalendarAside = () => {
     const theme = useTheme();
     const styles = CalendarStyles(theme);
     const [isWindowOver768px, setIsWindowOver768px] = useState(window.innerWidth > 768)
+    const [filterSearch, setFilterSearch] = useState("");
 
     const handleDateChangeClick = (event) => {
         console.log(event);
@@ -40,6 +41,12 @@ const DesktopCalendarAside = () => {
             window.removeEventListener('resize', handleResize)
         }
     }, [])
+
+    function handleFilterSearch(input) {
+        setFilterSearch(input.target.value)
+    }
+
+    console.log(filterSearch)
 
     return (
         <Box className='calendarDesktopAsideContainer' sx={styles.calendarDesktopAsideContainer}>
@@ -128,8 +135,16 @@ const DesktopCalendarAside = () => {
                 </HStack>
                 <DesktopCalendarGrid/>
             </Box>
-            <Box className='calendarAsideAccordianContainer' sx={styles.calendarAsideAccordionContainer}>
-
+            <Box className='calendarAsideFilterContainer' sx={styles.calendarAsideFilterContainer}>
+                <Input
+                    className='calendarAsideFilterInput'
+                    sx={styles.calendarAsideFilterInput}
+                    size='sm'
+                    variant='outline'
+                    placeholder='Filter Events'
+                    value={filterSearch}
+                    onChange={handleFilterSearch}
+                />
             </Box>
         </Box>
     )

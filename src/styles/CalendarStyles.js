@@ -110,9 +110,17 @@ export const CalendarStyles = (theme) => ({
         color: theme.colors.textMain
         , backgroundColor: theme.colors.background
     },
-    calendarAsideAccordionContainer: undefined,
     calendarAsideAccordionTitle: {
         fontSize: theme.fontSizes.sm
+        , color: theme.colors.textMain
+    },
+    calendarAsideFilterContainer: {
+        width: '100%'
+        , height: 'auto'
+    },
+    calendarAsideFilterInput: {
+        width: '80%'
+        , backgroundColor: theme.colors.background
         , color: theme.colors.textMain
     }
 })
