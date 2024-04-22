@@ -13,7 +13,6 @@ import {
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
@@ -119,6 +118,17 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
                 </Box>
             </Box>
             <Box className='deskRsvpEventsContainer' sx={styles.deskRsvpEventsContainer}>
+                <Box
+                    className='deskRsvpEventsDynamicTitleContainer'
+                    sx={styles.deskRsvpEventsDynamicTitleContainer}
+                >
+                    <Text
+                        className='deskRsvpEventsDynamicTitle'
+                        sx={styles.deskRsvpEventsDynamicTitle}
+                    >
+                        {`${timeUtils.fromIntToStringMonth(currentTime.currentMonth)}, ${currentTime.year}. ${5} Events`}
+                    </Text>
+                </Box>
                 <TableContainer className='tableContainer' sx={styles.tableContainer}>
                     <Table overflowX='scroll' className='tableContainer' variant='simple' sx={styles.tableContainer}>
                         <TableCaption className='tableCaption' sx={styles.tableCaption}>
@@ -126,6 +136,7 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
                         </TableCaption>
                         <Thead className='thead' sx={styles.thead}>
                             <Tr className='tr'>
+                                <Th className='th'></Th>
                                 <Th className='th'>Name</Th>
                                 <Th className='th'>Date</Th>
                                 <Th className='th'>Description</Th>
@@ -137,54 +148,27 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
                                 <Th className='th'>Link</Th>
                             </Tr>
                         </Thead>
-                        <Tbody className='tbody' sx={styles.tbody}>
-                            <Tr className='tr'>
-                                <Td className='td'>inches</Td>
-                                <Td className='td'>millimetres (mm)</Td>
-                                <Td className='td' isNumeric>25.4</Td>
-                                <Td className='td'>inches</Td>
-                                <Td className='td'>millimetres (mm)</Td>
-                                <Td className='td' isNumeric>25.4</Td>
-                                <Td className='td'>inches</Td>
-                                <Td className='td'>millimetres (mm)</Td>
-                                <Td className='td' isNumeric>25.4</Td>
-                            </Tr>
-                            <Tr className='tr'>
-                                <Td className='td'>feet</Td>
-                                <Td className='td'>centimetres (cm)</Td>
-                                <Td className='td' isNumeric>30.48</Td>
-                                <Td className='td'>inches</Td>
-                                <Td className='td'>millimetres (mm)</Td>
-                                <Td className='td' isNumeric>25.4</Td>
-                                <Td className='td'>inches</Td>
-                                <Td className='td'>millimetres (mm)</Td>
-                                <Td className='td' isNumeric>25.4</Td>
-                            </Tr>
-                            <Tr className='tr'>
-                                <Td className='td'>yards</Td>
-                                <Td className='td'>metres (m)</Td>
-                                <Td className='td' isNumeric>0.91444</Td>
-                                <Td className='td'>inches</Td>
-                                <Td className='td'>millimetres (mm)</Td>
-                                <Td className='td' isNumeric>25.4</Td>
-                                <Td className='td'>inches</Td>
-                                <Td className='td'>millimetres (mm)</Td>
-                                <Td className='td' isNumeric>25.4</Td>
-                            </Tr>
-                        </Tbody>
-                        <Tfoot className='tfoot'>
-                            <Tr className='tr'>
-                                <Th className='th'>To convert</Th>
-                                <Th className='th'>into</Th>
-                                <Th className='th' isNumeric>multiply by</Th>
-                                <Th className='th'>To convert</Th>
-                                <Th className='th'>into</Th>
-                                <Th className='th' isNumeric>multiply by</Th>
-                                <Th className='th'>To convert</Th>
-                                <Th className='th'>into</Th>
-                                <Th className='th' isNumeric>multiply by</Th>
-                            </Tr>
-                        </Tfoot>
+                        {eventsForTheDay.map((_event) => (
+                            <Tbody key={_event.eventId} className='tbody' sx={styles.tbody}>
+                                <Tr className='tr'>
+
+                                    <Td className='td'>
+                                        <Box bg={_event.iconColor} className='nameIcon' sx={styles.nameIcon}/>
+                                    </Td>
+                                    <Td className='td'>
+                                        {_event.title}
+                                    </Td>
+                                    <Td className='td'>{_event.date}</Td>
+                                    <Td className='td'>{_event.description}</Td>
+                                    <Td className='td'>{_event.notes}</Td>
+                                    <Td className='td'>{_event.location}</Td>
+                                    <Td className='td'>{_event.organizer}</Td>
+                                    <Td className='td'>{_event.category}</Td>
+                                    <Td className='td'>{_event.tag}</Td>
+                                    <Td className='td'>{_event.links}</Td>
+                                </Tr>
+                            </Tbody>
+                        ))}
                     </Table>
                 </TableContainer>
             </Box>

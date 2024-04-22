@@ -138,6 +138,18 @@ export const CalendarStyles = (theme) => ({
         , height: '100%'
     },
     tableContainer: {
+        color: theme.colors.textMainDeemphasize
+    },
+    deskRsvpEventsDynamicTitleContainer: undefined,
+    deskRsvpEventsDynamicTitle: {
+        color: theme.colors.textMainDeemphasize
+        , fontWeight: '700'
+        , marginLeft: theme.space.md
+    },
+    nameIcon: {
+        width: theme.space.md
+        , height: theme.space.md
+        , borderRadius: '50%'
     }
 })
 
