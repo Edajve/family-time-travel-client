@@ -18,6 +18,11 @@ const MobileCalendar = () => {
         >
             {
                 Array.from({length: 35}).map((_, index) => (
+                    <Box key={index} sx={styles.calendarDayBoxEmpty}/>
+                ))
+            }
+            {
+                Array.from({length: 35}).map((_, index) => (
                     <Box key={index} sx={styles.calendarDayBox} onClick={() => handleDayClick(index + 1)}>
                         <Text>{index + 1}</Text>
                     </Box>

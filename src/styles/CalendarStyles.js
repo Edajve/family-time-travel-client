@@ -93,6 +93,11 @@ export const CalendarStyles = (theme) => ({
             , color: theme.colors.background
         }
     }
+    , calendarDayBoxEmpty: {
+        width: '100%'
+        , height: '50px'
+        , bg: theme.colors.background
+    }
     , calendarAsideNewEventButton: {
         color: theme.colors.textMain
         , marginTop: theme.space.lg

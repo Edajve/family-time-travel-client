@@ -88,7 +88,6 @@ const MobileRsvpView = ({currentTime, handleDateChangeClick}) => {
                         </Menu>
                     </Box>
                 </HStack>
-
             </HStack>
             <MobileCalendar/>
             <Divider className='calendarDivider' sx={styles.calendarDivider}/>
