@@ -25,6 +25,11 @@ const MobileCalendar = ({currentTime}) => {
             sx={styles.calendarMobileCalendarContainer}
         >
             {
+                Array.from(timeUtils.days).map((_day, index) => (
+                    <Box key={index} sx={styles.calendarDayBoxEmpty}><Text textAlign='center'>{_day}</Text></Box>
+                ))
+            }
+            {
                 Array.from({length: spacesTillFirstDay}).map((_, index) => (
                     <Box key={index} sx={styles.calendarDayBoxEmpty}/>
                 ))
