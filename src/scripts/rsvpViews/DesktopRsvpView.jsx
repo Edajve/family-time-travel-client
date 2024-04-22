@@ -37,6 +37,8 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
         setFilterSearch(input.target.value);
     }
 
+    const isEventsNull = eventsForTheDay.length > 0;
+
     return (
         <>
             <Box className='calendarDesktopAsideContainer' sx={styles.calendarDesktopAsideContainer}>
@@ -149,34 +151,38 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {eventsForTheDay.events.map((_event) => (
-                                <Tr key={_event.eventId} className='tr'>
-                                    <Td className='td'>
-                                        <Box
-                                            bg={_event.iconColor}
-                                            className='nameIcon'
-                                            sx={styles.nameIcon}
-                                        />
-                                    </Td>
-                                    <Td className='td'>
-                                        {_event.title}
-                                    </Td>
-                                    <Td className='td'>{_event.date}</Td>
-                                    <Td className='td'>{_event.description}</Td>
-                                    <Td className='td'>{_event.notes}</Td>
-                                    <Td className='td'>{_event.location}</Td>
-                                    <Td className='td'>{_event.organizer}</Td>
-                                    <Td className='td'>{_event.category}</Td>
-                                    <Td className='td'>{_event.tags.join(", ")}</Td>
-                                    <Td className='td'>
-                                        {_event.links.map((link, index) => (
-                                            <a key={index} href={link}>
-                                                Link {index + 1}
-                                            </a>
-                                        ))}
-                                    </Td>
-                                </Tr>
-                            ))}
+                            {eventsForTheDay ? ( // Check if eventsForTheDay is not null or undefined
+                                eventsForTheDay.events.map((_event) => (
+                                    <Tr key={_event.eventId} className='tr'>
+                                        <Td className='td'>
+                                            <Box
+                                                bg={_event.iconColor}
+                                                className='nameIcon'
+                                                sx={styles.nameIcon}
+                                            />
+                                        </Td>
+                                        <Td className='td'>
+                                            {_event.title}
+                                        </Td>
+                                        <Td className='td'>{_event.date}</Td>
+                                        <Td className='td'>{_event.description}</Td>
+                                        <Td className='td'>{_event.notes}</Td>
+                                        <Td className='td'>{_event.location}</Td>
+                                        <Td className='td'>{_event.organizer}</Td>
+                                        <Td className='td'>{_event.category}</Td>
+                                        <Td className='td'>{_event.tags.join(", ")}</Td>
+                                        <Td className='td'>
+                                            {_event.links.map((link, index) => (
+                                                <a key={index} href={link}>
+                                                    Link {index + 1}
+                                                </a>
+                                            ))}
+                                        </Td>
+                                    </Tr>
+                                ))
+                            ) : (
+                                <></>
+                            )}
                         </Tbody>
                     </Table>
                 </TableContainer>
