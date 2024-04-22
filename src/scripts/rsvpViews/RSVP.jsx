@@ -1,7 +1,7 @@
 import {Box} from '@chakra-ui/react'
 import RSVPStyles from '../../styles/RSVPStyles'
 import BackHeader from '../navigation/BackHeader'
-import Calendar from './Calendar'
+import RsvpView from './RsvpView.jsx'
 
 const RSVP = () => {
     const styles = RSVPStyles();
@@ -10,7 +10,7 @@ const RSVP = () => {
         <>
             <BackHeader />
             <Box className='rsvpContainer' sx={styles.rsvpContainer}>
-                <Calendar />
+                <RsvpView/>
             </Box>
         </>
     )
