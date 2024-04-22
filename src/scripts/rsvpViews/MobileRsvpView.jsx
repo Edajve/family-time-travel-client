@@ -1,9 +1,29 @@
-import {Box, Button, ButtonGroup, Divider, HStack, Menu, Text, useTheme, VStack} from "@chakra-ui/react";
-import {ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon} from "@chakra-ui/icons";
+import {
+    Box,
+    Button,
+    ButtonGroup,
+    Divider,
+    HStack, IconButton,
+    Menu,
+    MenuButton, MenuItem,
+    MenuList,
+    Text,
+    useTheme,
+    VStack
+} from "@chakra-ui/react";
+import {
+    AddIcon,
+    ArrowLeftIcon,
+    ArrowRightIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    HamburgerIcon
+} from "@chakra-ui/icons";
 import MobileCalendar from "./MobileCalendar.jsx";
 import MobileCalendarTracker from "./MobileCalendarTracker.jsx";
 import CalendarUtils from "../globals/Time.js";
 import CalendarStyles from "../../styles/CalendarStyles.js";
+import {Link} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const MobileRsvpView = ({currentTime, handleDateChangeClick}) => {
@@ -45,8 +65,26 @@ const MobileRsvpView = ({currentTime, handleDateChangeClick}) => {
                         </Button>
                     </ButtonGroup>
                     <Box className='calendarHeaderHamburgerIcon' sx={styles.calendarHeaderHamburgerIcon}>
-                        <Menu>
                             {/* Other JSX components */}
+                        <Menu>
+                            <MenuButton
+                                className='calendarHeaderHamburger'
+                                sx={styles.calendarHeaderHamburger}
+                                as={IconButton}
+                                aria-label='Options'
+                                icon={<HamburgerIcon/>}
+                                variant='ghost'
+                            />
+                            <MenuList className='calendarHeaderHamburgerMenuList'
+                                      sx={styles.calendarHeaderHamburgerMenuList}>
+                                <Link to="/rsvp/create">
+                                    <MenuItem className='calendarHeaderHamburgerMenuItem'
+                                              sx={styles.calendarHeaderHamburgerMenuItem} icon={<AddIcon/>}
+                                              command='⌘T'>
+                                        Add Event
+                                    </MenuItem>
+                                </Link>
+                            </MenuList>
                         </Menu>
                     </Box>
                 </HStack>
