@@ -19,12 +19,12 @@ export const navigationStyles = (theme) => ({
   , desktopAccountButton: {
     color: theme.colors.textMain
     , fontWeight: '200'
-    , backgroundColor: theme.colors.background
+    , backgroundColor: 'transparent'
     , marginLeft: 'auto'
     , display: 'none'
     , marginTop: theme.space.md
     , _hover: {
-      backgroundColor: theme.colors.background,
+      backgroundColor: "transparent",
       color: theme.colors.textMainDeemphasize
     }
     , '@media screen and (min-width: 768px)': {

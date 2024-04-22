@@ -3,15 +3,16 @@ export const DeskHelpStyles = (theme) => ({
         height: '100%'
         , width: '100%'
         , position: 'relative'
-        , color: theme.colors.background
+        , color: theme.colors.textMain
+        , padding: theme.space.md
+        , paddingTop: theme.space.lg
     }
     , helpCard: {
-        height: '500px'
-        , width: '500px'
+        height: '100%'
+        , width: '100%'
         , position: 'absolute'
         , right: '15px'
         , top: '47%'
-        , backgroundColor: theme.colors.textMainDeemphasize
         , transform: 'translateY(-50%)'
         , border: '1px solid #c0ccc8e6'
         , borderRadius: '20px 120px 20px 20px'
@@ -36,6 +37,7 @@ export const DeskHelpStyles = (theme) => ({
     }
     , questionInput: {
         borderColor: theme.colors.background
+        , marginTop: theme.space.md
     }
     , emailLabel: {
         fontWeight: '700'
@@ -51,12 +53,9 @@ export const DeskHelpStyles = (theme) => ({
         marginTop: theme.space.md
         , marginBottom: theme.space.md
     }
-    , questionInput: {
-        marginTop: theme.space.md
-    }
     , helpButton: {
         marginTop: theme.space.md
-        , backgroundColor: theme.colors.secondary
+        , backgroundColor: 'green.200'
     }
 })
 

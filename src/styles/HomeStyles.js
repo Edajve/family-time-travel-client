@@ -2,7 +2,11 @@ export const homeStyles = (theme) => ({
     homeContainer: {
         height: '100vh'
         , width: '100vw'
-        , background: `radial-gradient(circle at center right, #D7C2C9 -200%, #283d36 50%)`,
+        , minWidth: '300px'
+        , background: `radial-gradient(circle at center right, #D7C2C9 -200%, #283d36 50%)`
+        // , '@media screen and (min-width: 768px)': {
+        //     width: '100%'
+        // }
     }
     , hamburgerIcon: {
         textAlign: 'end',
@@ -29,7 +33,7 @@ export const homeStyles = (theme) => ({
     }
     , homeBodyLargeCard: {
         flex: '1 1 150px'
-        , height: '250px'
+        , height: 'auto'
         , border: '0.5px solid #c0ccc897'
         , backgroundColor: theme.colors.background
         , color: theme.colors.textMainDeemphasize
@@ -37,7 +41,7 @@ export const homeStyles = (theme) => ({
         , padding: theme.space.md
         , width: '80%'
         , paddingTop: theme.space.lg
-        , overflow: 'auto'
+        // , overflow: 'hidden'
         , transition: 'transform 0.3s ease, box-shadow 0.3s ease'
         , cursor: 'pointer'
         , _hover: {

@@ -196,7 +196,8 @@ export const Navigation = () => {
                 {/* Laptop and up navigation elements */}
                 <Box sx={styles.desktopAccountDropDown} className='desktopAccountDropwodn'>
                     <Link to='/settings'>
-                        <Button className='desktopAccountButton' sx={styles.desktopAccountButton}>Account</Button>
+                        <Button variant='ghost' className='desktopAccountButton'
+                                sx={styles.desktopAccountButton}>Account</Button>
                     </Link>
                 </Box>
             </Box>

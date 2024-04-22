@@ -10,12 +10,16 @@ export const PrivacyAuthenticationStyles = (theme) => ({
     }
     , settingsPrivacySecurityAuthText: {
         fontSize: theme.fontSizes.lg
-        , fontWeight: 'bold'
-        , color: theme.colors.secondary
+        , color: theme.colors.textMain
         , marginBottom: theme.space.sm
     }
     , settingsPrivacySecurityAuthShowButton: {
-        backgroundColor: theme.colors.secondary
+        backgroundColor: theme.colors.textMain
+    },
+    settingsPrivacySecurityInput: {
+        borderColor: theme.colors.textMain
+        , color: theme.colors.textMain
+
     }
 })
 

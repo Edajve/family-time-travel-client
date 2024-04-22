@@ -1,5 +1,3 @@
-import { Button } from "@chakra-ui/react"
-
 export const DeskAccountStyle = (theme) => ({
     deskAccountContainer: {
         width: '100%'
@@ -58,19 +56,17 @@ export const DeskAccountStyle = (theme) => ({
         , marginRight: theme.space.md
     }
     , deskAccountProfilePicOperationUploadButton: {
-        marginRight: theme.space.sm
+        backgroundColor: theme.colors.textMain
+        , marginRight: theme.space.sm
+
     }
     , deskAccountFullNameContainer: {
         width: '100%'
         , display: 'flex'
         , flexDirection: 'column'
     }
-    , deskAccountFirstNameInput: {
-
-    }
-    , deskAccountLastNameInput: {
-
-    }
+    , deskAccountFirstNameInput: {}
+    , deskAccountLastNameInput: {}
     , deskAccountFullNameTextContainer: {
         marginBottom: theme.space.sm
         , marginTop: theme.space.md
@@ -119,7 +115,7 @@ export const DeskAccountStyle = (theme) => ({
         , marginTop: theme.space.md
     }
     , deskAccountEmailButtonElement: {
-        backgroundColor: theme.colors.secondary
+        backgroundColor: theme.colors.textMain
     }
     , deskAccountProfileAnalayticsDataGroupText: {
         fontSize: theme.fontSizes.sm
@@ -133,11 +129,8 @@ export const DeskAccountStyle = (theme) => ({
         fontSize: theme.fontSizes.xs
     }
     , deskAccountProfilePicOperationDeleteButton: {
-        backgroundColor: theme.colors.textMain
-    }
-    , deskAccountProfilePicOperationUploadButton: {
-        backgroundColor: theme.colors.secondary
-        , marginRight: theme.space.sm
+        // backgroundColor: theme.colors.textMain
+        backgroundColor: 'red.700'
     }
 })
 

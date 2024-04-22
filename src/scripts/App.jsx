@@ -11,26 +11,28 @@ import DeskAccount from './settings/desktopSettingOptionViews/DeskAccount.jsx'
 import NoteBody from "./NoteBody.jsx"
 import RSVP from "./rsvpViews/RSVP.jsx"
 import CreateRSVP from "./rsvpViews/create/CreateRSVP.jsx";
+import Settings from "./Settings.jsx";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Splash />} />
-      <Route path="/splash" element={<Splash />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/note" element={<NoteBody />} />
-      <Route path="/note" element={<NoteBody />} />
-      <Route path="/rsvp" element={<RSVP />} />
-        <Route path="/rsvp/create" element={<CreateRSVP/>}/>
-      <Route path="/settings/account" element={<Account />} />
-      <Route path="/settings/privacy-security" element={<PrivacySecurity />} />
-      <Route path="/settings/notification" element={<Notification />} />
-      <Route path="/settings/help" element={<Help />} />
-      <Route path="/settings/about" element={<About />} />
-      <Route path="/setting/desktop/account" element={<DeskAccount />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
+        return (
+            <Routes>
+                    <Route path="/" element={<Splash/>}/>
+                    <Route path="/splash" element={<Splash/>}/>
+                    <Route path="/home" element={<Home/>}/>
+                    <Route path="/note" element={<NoteBody/>}/>
+                    <Route path="/note" element={<NoteBody/>}/>
+                    <Route path="/rsvp" element={<RSVP/>}/>
+                    <Route path="/rsvp/create" element={<CreateRSVP/>}/>
+                    <Route path="/settings" element={<Settings/>}/>
+                    <Route path="/settings/account" element={<Account/>}/>
+                    <Route path="/settings/privacy-security" element={<PrivacySecurity/>}/>
+                    <Route path="/settings/notification" element={<Notification/>}/>
+                    <Route path="/settings/help" element={<Help/>}/>
+                    <Route path="/settings/about" element={<About/>}/>
+                    <Route path="/setting/desktop/account" element={<DeskAccount/>}/>
+                    <Route path="*" element={<NotFound/>}/>
+            </Routes>
+        );
 }
 
 export default App

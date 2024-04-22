@@ -3,7 +3,7 @@ export const NoteCardStyles = (theme) => ({
         width: '100vw'
         , height: '100%'
         , display: 'flex'
-        , justifyContent: 'space-between'
+        , justifyContent: 'flex-start'
     }
     , splashTitleContainerDark: {
         width: '700px'
@@ -18,7 +18,7 @@ export const NoteCardStyles = (theme) => ({
     }
     , noteCardImageAndText:{
         height: '100%'
-        , width: '40%'
+        , width: '20%'
     }
     , noteCardPictureTag: {
         opacity: '40%'
@@ -38,11 +38,14 @@ export const NoteCardStyles = (theme) => ({
     }
     , noteCardDescriptionText: {
         fontSize: theme.fontSizes.sm
-        , color: theme.colors.deemphasized
+        , color: theme.colors.textMainDeemphasize
     }
     , noteCardQuoteAuthor: {
         marginLeft: theme.space.sm
         , fontWeight: '700'
+    },
+    noteCardPictureTextContainer: {
+        width: 'auto'
     }
 })
 

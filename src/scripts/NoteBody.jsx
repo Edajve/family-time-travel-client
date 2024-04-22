@@ -23,6 +23,7 @@ import {
 } from '@chakra-ui/react'
 import NoteBodyStyle from '../styles/NoteBodyStyle'
 import BackHeader from './navigation/BackHeader'
+import {useState} from "react";
 
 export const NoteBody = () => {
     const theme = useTheme()
