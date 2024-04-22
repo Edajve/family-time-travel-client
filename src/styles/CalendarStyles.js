@@ -132,6 +132,12 @@ export const CalendarStyles = (theme) => ({
     },
     calendarAsideNewEventText: {
         color: theme.colors.textMainDeemphasize
+    },
+    deskRsvpEventsContainer: {
+        width: '100%'
+        , height: '100%'
+    },
+    tableContainer: {
     }
 })
 

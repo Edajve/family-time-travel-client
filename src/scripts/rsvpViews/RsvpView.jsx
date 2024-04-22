@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 import DesktopRsvpView from './DesktopRsvpView.jsx';
 import MobileRsvpView from './MobileRsvpView.jsx';
 import CalendarUtils from '../globals/Time.js';
+import UpcomingEvents from "../globals/mocks/UpcomingEvents.js";
 
 const RsvpView = () => {
     const theme = useTheme();
@@ -17,20 +18,16 @@ const RsvpView = () => {
             day: currentDate.getDay(),
             currentMonth: currentDate.getMonth(),
             year: currentDate.getFullYear(),
-            emptySpacesBeforeMonth: new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay()
+            emptySpacesBeforeMonth: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay()
         };
     });
+    const [eventsForTheDay, setEventsForTheDay] = useState(UpcomingEvents)
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsWindowOver768px(window.innerWidth > 768);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+        // Check width of view port
+        const handleResize = () => setIsWindowOver768px(window.innerWidth > 768)
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
     }, [currentTime]);
 
     const handleDateChangeClick = (actionType) => {
@@ -43,6 +40,7 @@ const RsvpView = () => {
             {isWindowOver768px ? (
                 <DesktopRsvpView
                     currentTime={currentTime}
+                    eventsForTheDay={eventsForTheDay}
                     handleDateChangeClick={handleDateChangeClick}
                 />
             ) : (
