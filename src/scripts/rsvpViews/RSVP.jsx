@@ -8,7 +8,7 @@ const RSVP = () => {
 
     return (
         <>
-            <BackHeader />
+            <BackHeader linkTo='/home'/>
             <Box className='rsvpContainer' sx={styles.rsvpContainer}>
                 <RsvpView/>
             </Box>

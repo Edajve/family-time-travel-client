@@ -28,7 +28,7 @@ import CalendarStyles from "../../styles/CalendarStyles.js";
 import {Link} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const MobileRsvpView = ({currentTime, handleDateChangeClick}) => {
+const MobileRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) => {
     const theme = useTheme();
     const styles = CalendarStyles(theme);
     const timeUtils = new CalendarUtils();
@@ -95,7 +95,10 @@ const MobileRsvpView = ({currentTime, handleDateChangeClick}) => {
                 currentTime={currentTime}
             />
             <Divider className='calendarDivider' sx={styles.calendarDivider}/>
-            <MobileCalendarTracker/>
+            <MobileCalendarTracker
+                currentTime={currentTime}
+                eventsForTheDay={eventsForTheDay}
+            />
         </VStack>
     )
 }

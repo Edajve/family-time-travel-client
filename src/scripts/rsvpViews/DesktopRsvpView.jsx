@@ -37,8 +37,6 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
         setFilterSearch(input.target.value);
     }
 
-    const isEventsNull = eventsForTheDay.length > 0;
-
     return (
         <>
             <Box className='calendarDesktopAsideContainer' sx={styles.calendarDesktopAsideContainer}>
@@ -151,7 +149,7 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {eventsForTheDay ? ( // Check if eventsForTheDay is not null or undefined
+                            {eventsForTheDay ? (
                                 eventsForTheDay.events.map((_event) => (
                                     <Tr key={_event.eventId} className='tr'>
                                         <Td className='td'>

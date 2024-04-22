@@ -1,16 +1,16 @@
-import { Route, Routes } from "react-router-dom"
-import { Splash } from './Splash'
-import { NotFound } from './NotFound'
-import { Home } from './Home'
-import { Settings } from './Settings'
-import { PrivacySecurity } from "./settings/PrivacySecurity"
-import { Notification } from "./settings/Notification"
-import { Help } from "./settings/Help"
+import {Route, Routes} from "react-router-dom"
+import {Splash} from './Splash'
+import {NotFound} from './NotFound'
+import {Home} from './Home'
+import {PrivacySecurity} from "./settings/PrivacySecurity"
+import {Notification} from "./settings/Notification"
+import {Help} from "./settings/Help"
 import Account from "./settings/Account"
 import About from '../scripts/settings/About'
 import DeskAccount from './settings/desktopSettingOptionViews/DeskAccount.jsx'
 import NoteBody from "./NoteBody.jsx"
 import RSVP from "./rsvpViews/RSVP.jsx"
+import CreateRSVP from "./rsvpViews/create/CreateRSVP.jsx";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
       <Route path="/note" element={<NoteBody />} />
       <Route path="/note" element={<NoteBody />} />
       <Route path="/rsvp" element={<RSVP />} />
+        <Route path="/rsvp/create" element={<CreateRSVP/>}/>
       <Route path="/settings/account" element={<Account />} />
       <Route path="/settings/privacy-security" element={<PrivacySecurity />} />
       <Route path="/settings/notification" element={<Notification />} />

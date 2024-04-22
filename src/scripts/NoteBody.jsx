@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import {
     Box
     , useTheme
@@ -69,13 +68,13 @@ export const NoteBody = () => {
 
     return (
         <>
-            <BackHeader />
+            <BackHeader linkTo={"/home"}/>
         <Box sx={styles.homeBodyContainer} className='homeBodyContainer'>
             <Box sx={styles.homeBodyYearPickerContainer} className='homeBodyYearPickerContainer'>
                 <Accordion allowToggle>
                     {['2018', '2019', '2020', '2021', '2022', '2023'].map(year => (
-                        <AccordionItem key={year} className='bodyYearContainer' sx={styles.bodyYearContainer}>
-                            <h2 className='bodyYearTitle' sx={styles.bodyYearTitle}>
+                        <AccordionItem key={year} className='bodyYearContainer'>
+                            <h2 className='bodyYearTitle'>
                                 <AccordionButton>
                                     <Box as="span" flex='1' textAlign='left'>
                                         <Text sx={styles.homeBodyYearElement} className='homeBodyYearElement'>
@@ -138,7 +137,7 @@ export const NoteBody = () => {
                                         id='note-note' value={noteInput.note} onChange={onChangeNoteFormInputs} />
                                     {isErrorForNote ? (<FormErrorMessage>Note is required</FormErrorMessage>) : (
                                         <FormHelperText>
-                                            Enter your time capsule note, make sure it's thoughtful!
+                                            Enter your time capsule note, make sure its thoughtful!
                                         </FormHelperText>
                                     )}
                                 </FormControl>
@@ -176,7 +175,7 @@ export const NoteBody = () => {
                                     </Select>
                                     {isErrorForEmotion ? (<FormErrorMessage>Emotion is required</FormErrorMessage>) : (
                                         <FormHelperText>
-                                            Select how you're feeling about this note
+                                            Select how you are feeling about this note
                                         </FormHelperText>
                                     )}
                                 </FormControl>

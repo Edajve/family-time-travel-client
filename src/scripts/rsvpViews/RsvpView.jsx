@@ -46,6 +46,7 @@ const RsvpView = () => {
             ) : (
                 <MobileRsvpView
                     currentTime={currentTime}
+                    eventsForTheDay={eventsForTheDay}
                     handleDateChangeClick={handleDateChangeClick}
                 />
             )}
