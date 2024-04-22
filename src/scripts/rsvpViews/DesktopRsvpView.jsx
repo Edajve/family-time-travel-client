@@ -126,6 +126,7 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
                         className='deskRsvpEventsDynamicTitle'
                         sx={styles.deskRsvpEventsDynamicTitle}
                     >
+                        {/* eslint-disable-next-line react/prop-types */}
                         {`${timeUtils.fromIntToStringMonth(currentTime.currentMonth)}, ${currentTime.year}. ${eventsForTheDay.totalEvents} Events`}
                     </Text>
                 </Box>
