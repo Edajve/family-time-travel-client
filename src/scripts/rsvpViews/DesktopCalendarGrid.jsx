@@ -9,18 +9,10 @@ const DesktopCalendarGrid = ({currentTime}) => {
     const theme = useTheme();
     const styles = DesktopCalendarStyles(theme);
     // eslint-disable-next-line react/prop-types
-    const [firstDayOfMonth, setFirstDayOfMonth] = useState(new Date(currentTime.year, currentTime.currentMonth, 1).getDay());
+    const [firstDayOfMonth, setFirstDayOfMonth] = useState(currentTime.emptySpacesBeforeMonth);
 
     useEffect(() => {
-
-        // This line sets the empty spaces for the beginning of the month by using the incoming props 'emptySpacesBeforeMonth' method
-        // instead of calculating it on the fly
-        // console.log(currentTime.emptySpacesBeforeMonth)
         setFirstDayOfMonth(currentTime.emptySpacesBeforeMonth)
-
-        // This line sets the empty spaces for the beginning of the month by calculating it on the fly
-        // instead of using the incoming props 'emptySpacesBeforeMonth' method
-        // setFirstDayOfMonth(new Date(currentTime.year, currentTime.currentMonth, 1).getDay())
     }, [currentTime]);
 
     function handleDateClicked(event) {

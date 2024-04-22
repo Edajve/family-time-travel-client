@@ -85,17 +85,24 @@ class CalendarUtils {
     getUpdatedTime(actionType, currentTime) {
         let newTime;
 
-        if (actionType === "previous year") {
-            newTime = {...currentTime, year: currentTime.year - 1};
-        } else if (actionType === "previous month") {
-            newTime = {...currentTime, currentMonth: (currentTime.currentMonth - 1 + 12) % 12};
-        } else if (actionType === "next year") {
-            newTime = {...currentTime, year: currentTime.year + 1};
-        } else if (actionType === "next month") {
-            newTime = {...currentTime, currentMonth: (currentTime.currentMonth + 1) % 12};
+        switch (actionType) {
+            case "previous year":
+                newTime = {...currentTime, year: currentTime.year - 1};
+                break;
+            case "previous month":
+                newTime = {...currentTime, currentMonth: (currentTime.currentMonth - 1 + 12) % 12};
+                break;
+            case "next year":
+                newTime = {...currentTime, year: currentTime.year + 1};
+                break;
+            case "next month":
+                newTime = {...currentTime, currentMonth: (currentTime.currentMonth + 1) % 12};
+                break;
+            default:
+                newTime = {...currentTime};
+                break;
         }
 
-        // Update emptySpacesBeforeMonth only if actionType is related to month or year change
         if (actionType.includes("month") || actionType.includes("year")) {
             const newEmptySpacesBeforeMonth = this.getFirstDayOfMonth(newTime.year, newTime.currentMonth);
             newTime = {...newTime, emptySpacesBeforeMonth: newEmptySpacesBeforeMonth};
