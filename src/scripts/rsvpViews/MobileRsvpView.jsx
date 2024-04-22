@@ -5,7 +5,6 @@ import MobileCalendarTracker from "./MobileCalendarTracker.jsx";
 import CalendarUtils from "../globals/Time.js";
 import CalendarStyles from "../../styles/CalendarStyles.js";
 
-// figure out why this prop is not coming through
 // eslint-disable-next-line react/prop-types
 const MobileRsvpView = ({currentTime, handleDateChangeClick}) => {
     const theme = useTheme();
