@@ -8,16 +8,16 @@ import {
     MenuButton,
     MenuItem,
     MenuList,
-    Text,
-    useTheme,
     Table,
-    Thead,
-    Tbody,
-    Tr,
-    Th,
-    Td,
     TableCaption,
     TableContainer,
+    Tbody,
+    Td,
+    Text,
+    Th,
+    Thead,
+    Tr,
+    useTheme,
 } from "@chakra-ui/react";
 import CalendarStyles from "../../styles/CalendarStyles.js";
 import {ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon} from "@chakra-ui/icons";

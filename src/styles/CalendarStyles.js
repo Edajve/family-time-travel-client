@@ -48,6 +48,7 @@ export const CalendarStyles = (theme) => ({
         , '@media screen and (min-width: 768px)': {
             fontSize: theme.fontSizes.xs
             , color: theme.colors.textMainDeemphasize
+            , width: '100px'
         }
     }
     , calendarHeaderRightArrow: {
