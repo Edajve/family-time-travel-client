@@ -3,9 +3,11 @@ import {
     Button,
     ButtonGroup,
     Divider,
-    HStack, IconButton,
+    HStack,
+    IconButton,
     Menu,
-    MenuButton, MenuItem,
+    MenuButton,
+    MenuItem,
     MenuList,
     Text,
     useTheme,
@@ -65,7 +67,7 @@ const MobileRsvpView = ({currentTime, handleDateChangeClick}) => {
                         </Button>
                     </ButtonGroup>
                     <Box className='calendarHeaderHamburgerIcon' sx={styles.calendarHeaderHamburgerIcon}>
-                            {/* Other JSX components */}
+                        {/* Other JSX components */}
                         <Menu>
                             <MenuButton
                                 className='calendarHeaderHamburger'
@@ -89,7 +91,9 @@ const MobileRsvpView = ({currentTime, handleDateChangeClick}) => {
                     </Box>
                 </HStack>
             </HStack>
-            <MobileCalendar/>
+            <MobileCalendar
+                currentTime={currentTime}
+            />
             <Divider className='calendarDivider' sx={styles.calendarDivider}/>
             <MobileCalendarTracker/>
         </VStack>
