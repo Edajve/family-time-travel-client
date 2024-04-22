@@ -1,22 +1,30 @@
 import {Box, HStack, Text, useTheme, VStack} from "@chakra-ui/react";
 import DesktopCalendarStyles from "../../styles/DesktopCalendarStyles.js";
-import CalendarUtils from "../globals/Time.js"
+import CalendarUtils from "../globals/Time.js";
 import {useEffect, useState} from "react";
 
-const timeUtils = new CalendarUtils();
-
-const DesktopCalendarGrid = () => {
-    const theme = useTheme()
-    const styles = DesktopCalendarStyles(theme)
-    const [firstDayOfMonth, setFirstDayOfMonth] = useState(0)
-    const [currentTime] = useState(timeUtils.currentTimeObj)
+// eslint-disable-next-line react/prop-types
+const DesktopCalendarGrid = ({currentTime}) => {
+    const timeUtils = new CalendarUtils();
+    const theme = useTheme();
+    const styles = DesktopCalendarStyles(theme);
+    // eslint-disable-next-line react/prop-types
+    const [firstDayOfMonth, setFirstDayOfMonth] = useState(new Date(currentTime.year, currentTime.currentMonth, 1).getDay());
 
     useEffect(() => {
-        setFirstDayOfMonth(currentTime.firstDayOfWeek);
+
+        // This line sets the empty spaces for the beginning of the month by using the incoming props 'emptySpacesBeforeMonth' method
+        // instead of calculating it on the fly
+        // console.log(currentTime.emptySpacesBeforeMonth)
+        setFirstDayOfMonth(currentTime.emptySpacesBeforeMonth)
+
+        // This line sets the empty spaces for the beginning of the month by calculating it on the fly
+        // instead of using the incoming props 'emptySpacesBeforeMonth' method
+        // setFirstDayOfMonth(new Date(currentTime.year, currentTime.currentMonth, 1).getDay())
     }, [currentTime]);
 
     function handleDateClicked(event) {
-        console.log(event.target.innerText)
+        console.log(event.target.innerText);
     }
 
     return (
@@ -53,6 +61,7 @@ const DesktopCalendarGrid = () => {
                 gridTemplateColumns="repeat(7, 1fr)"
                 gridTemplateRows="repeat(5, 1fr)"
             >
+                {/* Render empty boxes for days before the first day of the month */}
                 {Array.from({length: firstDayOfMonth}, (_, index) => (
                     <Box
                         className='deskCalendarGridItems empty'
@@ -62,6 +71,8 @@ const DesktopCalendarGrid = () => {
                         {/* Leaving the empty spot blank */}
                     </Box>
                 ))}
+                {/* Render the days of the month */}
+                {/* eslint-disable-next-line react/prop-types */}
                 {Array.from({length: timeUtils.getNumberOfDaysInMonth(currentTime.currentMonth)}, (_, index) => (
                     <Box
                         className='deskCalendarGridItems'

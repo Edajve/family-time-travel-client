@@ -93,7 +93,9 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick}) => {
                             </ButtonGroup>
                         </HStack>
                     </HStack>
-                    <DesktopCalendarGrid/>
+                    <DesktopCalendarGrid
+                        currentTime={currentTime}
+                    />
                 </Box>
                 <Box className='calendarAsideFilterContainer' sx={styles.calendarAsideFilterContainer}>
                     <Input

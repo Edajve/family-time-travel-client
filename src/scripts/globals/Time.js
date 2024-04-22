@@ -1,14 +1,6 @@
 class CalendarUtils {
     days = ['SUN', 'MON', 'TUES', 'WED', 'THU', 'FRI', 'SAT'];
 
-    currentTimeObj = {
-        date: new Date().getDate(),
-        day: new Date().getDay(),
-        currentMonth: new Date().getMonth(),
-        year: new Date().getFullYear(),
-        firstDayOfWeek: new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay()
-    };
-
     getNumberOfDaysInMonth(month) {
         return new Date(new Date().getFullYear(), month + 1, 0).getDate();
     }
@@ -92,6 +84,7 @@ class CalendarUtils {
 
     getUpdatedTime(actionType, currentTime) {
         let newTime;
+
         if (actionType === "previous year") {
             newTime = {...currentTime, year: currentTime.year - 1};
         } else if (actionType === "previous month") {
@@ -101,8 +94,19 @@ class CalendarUtils {
         } else if (actionType === "next month") {
             newTime = {...currentTime, currentMonth: (currentTime.currentMonth + 1) % 12};
         }
+
+        // Update emptySpacesBeforeMonth only if actionType is related to month or year change
+        if (actionType.includes("month") || actionType.includes("year")) {
+            const newEmptySpacesBeforeMonth = this.getFirstDayOfMonth(newTime.year, newTime.currentMonth);
+            newTime = {...newTime, emptySpacesBeforeMonth: newEmptySpacesBeforeMonth};
+        }
+
         return newTime;
     }
+
+    getFirstDayOfMonth = (year, month) => {
+        return new Date(year, month, 1).getDay()
+    };
 }
 
 export default CalendarUtils;
