@@ -126,7 +126,7 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
                         className='deskRsvpEventsDynamicTitle'
                         sx={styles.deskRsvpEventsDynamicTitle}
                     >
-                        {`${timeUtils.fromIntToStringMonth(currentTime.currentMonth)}, ${currentTime.year}. ${5} Events`}
+                        {`${timeUtils.fromIntToStringMonth(currentTime.currentMonth)}, ${currentTime.year}. ${eventsForTheDay.totalEvents} Events`}
                     </Text>
                 </Box>
                 <TableContainer className='tableContainer' sx={styles.tableContainer}>
@@ -148,12 +148,15 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
                                 <Th className='th'>Link</Th>
                             </Tr>
                         </Thead>
-                        {eventsForTheDay.map((_event) => (
-                            <Tbody key={_event.eventId} className='tbody' sx={styles.tbody}>
-                                <Tr className='tr'>
-
+                        <Tbody>
+                            {eventsForTheDay.events.map((_event) => (
+                                <Tr key={_event.eventId} className='tr'>
                                     <Td className='td'>
-                                        <Box bg={_event.iconColor} className='nameIcon' sx={styles.nameIcon}/>
+                                        <Box
+                                            bg={_event.iconColor}
+                                            className='nameIcon'
+                                            sx={styles.nameIcon}
+                                        />
                                     </Td>
                                     <Td className='td'>
                                         {_event.title}
@@ -164,15 +167,22 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
                                     <Td className='td'>{_event.location}</Td>
                                     <Td className='td'>{_event.organizer}</Td>
                                     <Td className='td'>{_event.category}</Td>
-                                    <Td className='td'>{_event.tag}</Td>
-                                    <Td className='td'>{_event.links}</Td>
+                                    <Td className='td'>{_event.tags.join(", ")}</Td>
+                                    <Td className='td'>
+                                        {_event.links.map((link, index) => (
+                                            <a key={index} href={link}>
+                                                Link {index + 1}
+                                            </a>
+                                        ))}
+                                    </Td>
                                 </Tr>
-                            </Tbody>
-                        ))}
+                            ))}
+                        </Tbody>
                     </Table>
                 </TableContainer>
             </Box>
         </>
-    )
+    );
 }
+
 export default DesktopRsvpView;
