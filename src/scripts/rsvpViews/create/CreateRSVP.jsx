@@ -422,13 +422,6 @@ const CreateRSVP = () => {
                                 size='sm'>
                                 Next
                             </Button>
-                            <Button
-                                className='createRsvpNavButton' sx={styles.createRsvpNavButton}
-                                onClick={() => console.log(formData)}
-                                colorScheme='teal'
-                                size='sm'>
-                                Next
-                            </Button>
                         </ButtonGroup>
                     )}
                 </VStack>
