@@ -11,6 +11,7 @@ const RsvpView = () => {
     const styles = CalendarStyles(theme);
     const [isWindowOver768px, setIsWindowOver768px] = useState(window.innerWidth > 768);
     const timeUtils = new CalendarUtils();
+    const [eventsForTheDay] = useState(UpcomingEvents)
     const [currentTime, setCurrentTime] = useState(() => {
         const currentDate = new Date();
         return {
@@ -21,7 +22,6 @@ const RsvpView = () => {
             emptySpacesBeforeMonth: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay()
         };
     });
-    const [eventsForTheDay, setEventsForTheDay] = useState(UpcomingEvents)
 
     useEffect(() => {
         // Check width of view port

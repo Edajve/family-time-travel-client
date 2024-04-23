@@ -1,7 +1,6 @@
-import React from 'react'
 import UpcomingEventsStyles from '../../styles/UpcomingEventsStyles'
-import { useTheme, Box, Image, Text } from '@chakra-ui/react'
-import { CalendarIcon } from '@chakra-ui/icons'
+import {Box, Text, useTheme} from '@chakra-ui/react'
+import {CalendarIcon} from '@chakra-ui/icons'
 
 // Ue -> Upcoming Events
 const UpcomingEvents = () => {

@@ -33,9 +33,7 @@ const DesktopRsvpView = ({currentTime, handleDateChangeClick, eventsForTheDay}) 
     const [filterSearch, setFilterSearch] = useState("");
     const timeUtils = new CalendarUtils();
 
-    function handleFilterSearch(input) {
-        setFilterSearch(input.target.value);
-    }
+    const handleFilterSearch = input => setFilterSearch(input.target.value);
 
     return (
         <>
