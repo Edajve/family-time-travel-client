@@ -27,7 +27,7 @@ import {
 } from '@chakra-ui/react';
 import CreateRsvpStyles from "../../../styles/CreateRsvpStyles.js";
 import BackHeader from "../../navigation/BackHeader.jsx";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
 const CreateRSVP = () => {
     const theme = useTheme();
@@ -44,6 +44,7 @@ const CreateRSVP = () => {
         description: '',
         location: '',
         organizer: '',
+        contactInformation: '',
         date: '',
         startTime: '',
         endTime: '',
@@ -55,14 +56,9 @@ const CreateRSVP = () => {
         guests: [],
     });
 
+    const handleNextStep = () => setActiveStep(prevStep => prevStep + 1);
 
-    const handleNextStep = () => {
-        setActiveStep(prevStep => prevStep + 1);
-    };
-
-    const handlePrevStep = () => {
-        setActiveStep(prevStep => prevStep - 1);
-    };
+    const handlePrevStep = () => setActiveStep(prevStep => prevStep - 1);
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -122,18 +118,15 @@ const CreateRSVP = () => {
     };
 
     const isEmptyField = Object.values(formData).some(value => {
-        if (typeof value === 'string') {
-            return value.trim() === '';
-        } else {
-            return false; // Skip non-string values
-        }
+        if (typeof value === 'string') return value.trim() === ''
+        else return false;
     });
 
     const onStepOne = activeStep === 1
     const onStepTwo = activeStep === 2
 
     useEffect(() => {
-        // console.log(formData);
+        console.log(formData);
     }, [formData]);
 
     return (
@@ -238,6 +231,14 @@ const CreateRSVP = () => {
                                 Enter the name of the event organizer.
                             </FormHelperText>
 
+                            <FormLabel className='formLabel' sx={styles.formLabel}>Contact Information</FormLabel>
+                            <Input size='sm' className='input' type='text' name='contactInformation'
+                                   value={formData.contactInformation}
+                                   onChange={handleInputChange} sx={styles.input}/>
+                            <FormHelperText className='formHelperText' sx={styles.formHelperText}>
+                                Enter contact information so people can contact you.
+                            </FormHelperText>
+
                             <FormLabel className='formLabel' sx={styles.formLabel}>Date*</FormLabel>
                             <Input size='sm' className='input' type='date' name='date' value={formData.date}
                                    onChange={handleInputChange} sx={styles.input}/>
@@ -287,7 +288,7 @@ const CreateRSVP = () => {
                                 value={formData.tagsInput}
                                 name="tagsInput"
                                 onChange={handleInputChange}
-                                onKeyDown={(e) => handleInputKeyDown(e, 'tags')} // Pass 'tags' as the type
+                                onKeyDown={(e) => handleInputKeyDown(e, 'tags')}
                             />
                             {formData.tags.map(tag => (
                                 <Tag className='formTag' sx={styles.formTag} key={tag} variant="solid"
@@ -344,7 +345,8 @@ const CreateRSVP = () => {
                                 <option value="yellow">Pink</option>
                                 <option value="yellow">White</option>
                             </Select>
-                            <FormHelperText className='formHelperText'>Choose an icon color to represent your event.
+                            <FormHelperText className='formHelperText' sx={styles.formHelperText}>Choose an icon color
+                                to represent your event.
                                 Selected: {formData.iconColor}</FormHelperText>
 
                             <FormLabel className='formLabel' sx={styles.formLabel}>Category*</FormLabel>
@@ -382,7 +384,7 @@ const CreateRSVP = () => {
                                 value={formData.linksInput}
                                 name="linksInput"
                                 onChange={handleInputChange}
-                                onKeyDown={(e) => handleInputKeyDown(e, 'links')} // Pass 'links' as the type
+                                onKeyDown={(e) => handleInputKeyDown(e, 'links')}
                             />
                             {formData.links.map(link => (
                                 <Tag className='formTag' sx={styles.formTag} key={link} variant="solid"
