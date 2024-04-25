@@ -1,11 +1,12 @@
 import {
+    Avatar,
     Box,
     Button,
-    ButtonGroup,
+    ButtonGroup, Divider,
     FormControl,
     FormErrorMessage,
     FormHelperText,
-    FormLabel,
+    FormLabel, HStack,
     Input,
     Select,
     Step,
@@ -17,6 +18,11 @@ import {
     StepSeparator,
     StepStatus,
     StepTitle,
+    Tab,
+    TabList,
+    TabPanel,
+    TabPanels,
+    Tabs,
     Tag,
     TagCloseButton,
     TagLabel,
@@ -126,7 +132,7 @@ const CreateRSVP = () => {
     const onStepTwo = activeStep === 2
 
     useEffect(() => {
-        console.log(formData);
+        // console.log(formData);
     }, [formData]);
 
     return (
@@ -185,7 +191,7 @@ const CreateRSVP = () => {
 
                     {onStepOne && (
                         <FormControl isInvalid={isEmptyField} className='formControl' sx={styles.formControl}>
-                            <FormLabel className='formLabel' sx={styles.formLabel}>Title*</FormLabel>
+                            <FormLabel className='formLabel' sx={styles.formLabel}>Title</FormLabel>
                             <Input size='sm' className='input' type='text' name='title' value={formData.title}
                                    onChange={handleInputChange} sx={styles.input}/>
                             {!isEmptyField ? (
@@ -405,7 +411,7 @@ const CreateRSVP = () => {
                     )}
 
                     {onStepTwo && (
-                        <Text>Step two</Text>
+                        <CreateRsvpStepTwo/>
                     )}
 
                     {activeStep <= steps.length - 1 && (
@@ -431,6 +437,129 @@ const CreateRSVP = () => {
                     <Text>Cant Put down the cup</Text>
                 </VStack>
             </Box>
+        </Box>
+    )
+}
+
+const CreateRsvpStepTwo = () => {
+    const theme = useTheme();
+    const styles = CreateRsvpStyles(theme);
+
+    const [formData, setFormData] = useState({
+        from: '',
+        to: [],
+        title: '',
+        body: '',
+    });
+
+    const handleEmailInputChange = (e) => {
+        const {name, value} = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
+    const handleAddToTag = () => {
+        const {to, newTag} = formData;
+        if (newTag.trim() !== '') {
+            setFormData(prevState => ({
+                ...prevState,
+                to: [...to, newTag.trim()],
+                newTag: '',
+            }));
+        }
+    };
+
+    const handleRemoveToTag = (index) => {
+        setFormData(prevState => ({
+            ...prevState,
+            to: prevState.to.filter((_, i) => i !== index),
+        }));
+    };
+
+    return (
+        <Box className='createRsvpFormStepTwoContainer' sx={styles.createRsvpFormStepTwoContainer}>
+            <Tabs className='customTabs' isFitted variant='enclosed' sx={styles.customTabs}>
+                <TabPanels className='customTabPanels' sx={styles.customTabPanels}>
+                    <TabPanel sx={styles.customTabPanel}>
+                        <VStack sx={styles.emailTabPanel}>
+                            <HStack sx={styles.emailTabFromSection}>
+                                <Text sx={styles.emailTabText}>From: </Text>
+                                <Input
+                                    variant='unstyled'
+                                    sx={styles.emailTabInputWithAvarar}
+                                    name='from'
+                                    value={formData.from}
+                                    onChange={handleEmailInputChange}
+                                />
+                                <Tag size='md' colorScheme='red' borderRadius='full'>
+                                    <Avatar
+                                        src='https://bit.ly/sage-adebayo'
+                                        size='xs'
+                                        name='Segun Adebayo'
+                                        ml={-1}
+                                        mr={2}
+                                    />
+                                    <TagLabel>loremipsum@gmail.com</TagLabel>
+                                </Tag>
+                            </HStack>
+                            <Divider/>
+                            <HStack sx={styles.emailTabToSection}>
+                                <Text sx={styles.emailTabText}>To: </Text>
+                                <HStack>
+                                    {formData.to.map((tag, index) => (
+                                        <Tag key={index} variant="solid" colorScheme="teal" className='tag'>
+                                            <TagLabel>{tag}</TagLabel>
+                                            <TagCloseButton fontSize='sm' onClick={() => handleRemoveToTag(index)}/>
+                                        </Tag>
+                                    ))}
+                                    <Input
+                                        variant='unstyled'
+                                        sx={styles.emailTabInput}
+                                        placeholder="Type email and press Enter"
+                                        value={formData.newTag || ''}
+                                        name='newTag'
+                                        onChange={handleEmailInputChange}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter') {
+                                                handleAddToTag();
+                                            }
+                                        }}
+                                    />
+                                </HStack>
+                            </HStack>
+                            <Divider/>
+                            <HStack sx={styles.emailTabTitleSection}>
+                                <Text sx={styles.emailTabText}>Title: </Text>
+                                <Input
+                                    variant='unstyled'
+                                    sx={styles.emailTabInput}
+                                    name='title'
+                                    value={formData.title}
+                                    onChange={handleEmailInputChange}
+                                />
+                            </HStack>
+                            <Divider/>
+                            <HStack sx={styles.emailTabBodySection}>
+                                <Textarea
+                                    variant='unstyled'
+                                    sx={styles.emailTabTextarea}
+                                    name='body'
+                                    value={formData.body}
+                                    onChange={handleEmailInputChange}
+                                />
+                            </HStack>
+                            <HStack sx={styles.emailTabFooterSection}>
+                            </HStack>
+                        </VStack>
+                    </TabPanel>
+                    <TabPanel className='customTabPanel' sx={styles.customTabPanel}>
+                        <p>Phone</p>
+                    </TabPanel>
+                </TabPanels>
+            </Tabs>
+            <Button className='customTabsSubmitButton' sx={styles.customTabsSubmitButton}>Submit</Button>
         </Box>
     )
 }
