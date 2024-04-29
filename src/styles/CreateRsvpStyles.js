@@ -71,7 +71,8 @@ export const CreateRsvpStyles = (theme) => ({
         height: '100%',
     },
     customTabs: {
-        color: theme.colors.textMainDeemphasize,
+        color: theme.colors.textMainDeemphasize
+        , borderColor: theme.colors.textMainDeemphasize
     },
     customTabsSubmitButton: {
         backgroundColor: theme.colors.textMainDeemphasize,
@@ -112,6 +113,11 @@ export const CreateRsvpStyles = (theme) => ({
     },
     emailTabInputWithAvarar: {
         width: '0px'
+    },
+    emailTabTextarea: {
+        width: '100%'
+        , height: '100%'
+        , backgroundColor: theme.colors.textMainDeemphasize
     }
 });
 

@@ -9,7 +9,7 @@ import {
     FormHelperText,
     FormLabel,
     HStack,
-    Input,
+    Input, InputGroup, InputLeftAddon, InputLeftElement,
     Select,
     Step,
     StepDescription,
@@ -19,7 +19,7 @@ import {
     Stepper,
     StepSeparator,
     StepStatus,
-    StepTitle,
+    StepTitle, Tab, TabList,
     TabPanel,
     TabPanels,
     Tabs,
@@ -34,6 +34,9 @@ import {
 import CreateRsvpStyles from "../../../styles/CreateRsvpStyles.js";
 import BackHeader from "../../navigation/BackHeader.jsx";
 import {useEffect, useState} from "react";
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css'
+import {PhoneIcon} from "@chakra-ui/icons";
 
 const CreateRSVP = () => {
     const theme = useTheme();
@@ -299,7 +302,7 @@ const CreateRSVP = () => {
                             />
                             {formData.tags.map(tag => (
                                 <Tag className='formTag' sx={styles.formTag} key={tag} variant="solid"
-                                     colorScheme="teal" className='tag'>
+                                     colorScheme="teal">
                                     <TagLabel>{tag}</TagLabel>
                                     <TagCloseButton fontSize='sm' onClick={() => handleTagRemove(tag)}/>
                                 </Tag>
@@ -451,26 +454,37 @@ const CreateRsvpStepTwo = () => {
     const styles = CreateRsvpStyles(theme);
 
     const [formData, setFormData] = useState({
-        from: '',
-        to: [],
-        title: '',
-        body: '',
+        emailFrom: ''
+        , emailTo: []
+        , emailTitle: ''
+        , emailBody: ''
+        , phoneNumberAndRecipients: []
     });
 
+    console.log(formData);
+
     const handleEmailInputChange = (e) => {
-        const {name, value} = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value,
-        }));
+        if (e.target) {
+            const {name, value} = e.target;
+            setFormData(prevState => ({
+                ...prevState,
+                [name]: value,
+            }));
+        } else {
+            // For ReactQuill component, directly update formData.body
+            setFormData(prevState => ({
+                ...prevState,
+                emailBody: e,
+            }));
+        }
     };
 
     const handleAddToTag = () => {
-        const {to, newTag} = formData;
+        const {emailTo, newTag} = formData;
         if (newTag.trim() !== '') {
             setFormData(prevState => ({
                 ...prevState,
-                to: [...to, newTag.trim()],
+                emailTo: [...emailTo, newTag.trim()],
                 newTag: '',
             }));
         }
@@ -479,15 +493,20 @@ const CreateRsvpStepTwo = () => {
     const handleRemoveToTag = (index) => {
         setFormData(prevState => ({
             ...prevState,
-            to: prevState.to.filter((_, i) => i !== index),
+            emailTo: prevState.emailTo.filter((_, i) => i !== index),
         }));
     };
 
     return (
         <Box className='createRsvpFormStepTwoContainer' sx={styles.createRsvpFormStepTwoContainer}>
-            <Tabs className='customTabs' isFitted variant='enclosed' sx={styles.customTabs}>
+            <Tabs size='sm' className='customTabs' isFitted variant='enclosed' sx={styles.customTabs}>
+                <TabList mb='1em'>
+                    <Tab>Email</Tab>
+                    <Tab>Phone</Tab>
+                </TabList>
                 <TabPanels className='customTabPanels' sx={styles.customTabPanels}>
                     <TabPanel sx={styles.customTabPanel}>
+
                         <VStack sx={styles.emailTabPanel}>
                             <HStack sx={styles.emailTabFromSection}>
                                 <Text sx={styles.emailTabText}>From: </Text>
@@ -495,7 +514,7 @@ const CreateRsvpStepTwo = () => {
                                     variant='unstyled'
                                     sx={styles.emailTabInputWithAvarar}
                                     name='from'
-                                    value={formData.from}
+                                    value={formData.emailFrom}
                                     onChange={handleEmailInputChange}
                                 />
                                 <Tag size='md' colorScheme='red' borderRadius='full'>
@@ -513,7 +532,7 @@ const CreateRsvpStepTwo = () => {
                             <HStack sx={styles.emailTabToSection}>
                                 <Text sx={styles.emailTabText}>To: </Text>
                                 <HStack>
-                                    {formData.to.map((tag, index) => (
+                                    {formData.emailTo.map((tag, index) => (
                                         <Tag key={index} variant="solid" colorScheme="teal">
                                             <TagLabel>{tag}</TagLabel>
                                             <TagCloseButton fontSize='sm' onClick={() => handleRemoveToTag(index)}/>
@@ -540,31 +559,39 @@ const CreateRsvpStepTwo = () => {
                                 <Input
                                     variant='unstyled'
                                     sx={styles.emailTabInput}
-                                    name='title'
-                                    value={formData.title}
+                                    name='emailTitle'
+                                    value={formData.emailTitle}
                                     onChange={handleEmailInputChange}
                                 />
                             </HStack>
                             <Divider/>
-                            <HStack sx={styles.emailTabBodySection}>
-                                <Textarea
-                                    variant='unstyled'
-                                    sx={styles.emailTabTextarea}
-                                    name='body'
-                                    value={formData.body}
+                            <Box sx={styles.emailTabBodySection}>
+                                <ReactQuill
+                                    value={formData.emailBody}
                                     onChange={handleEmailInputChange}
+                                    name='emailBody'
+                                    sx={styles.emailTabTextarea}
+                                    theme='snow'
                                 />
-                            </HStack>
+                            </Box>
                             <HStack sx={styles.emailTabFooterSection}>
                             </HStack>
                         </VStack>
                     </TabPanel>
                     <TabPanel className='customTabPanel' sx={styles.customTabPanel}>
-                        <p>Phone</p>
+                        <HStack className='phoneContainer' sx={styles.phoneContainer}>
+                            <InputGroup>
+                                <InputLeftElement pointerEvents='none'>
+                                    <PhoneIcon fontSize='sm' color='gray.300' mb={3}/>
+                                </InputLeftElement>
+                                <Input size='sm' type='tel' placeholder='Phone number'/>
+                            </InputGroup>
+                            <ArrowDownIcon
+
+                        </HStack>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
-            <Button className='customTabsSubmitButton' sx={styles.customTabsSubmitButton}>Submit</Button>
         </Box>
     )
 }
