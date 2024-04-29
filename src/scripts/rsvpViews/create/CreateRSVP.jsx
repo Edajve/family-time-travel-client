@@ -2,11 +2,13 @@ import {
     Avatar,
     Box,
     Button,
-    ButtonGroup, Divider,
+    ButtonGroup,
+    Divider,
     FormControl,
     FormErrorMessage,
     FormHelperText,
-    FormLabel, HStack,
+    FormLabel,
+    HStack,
     Input,
     Select,
     Step,
@@ -18,8 +20,6 @@ import {
     StepSeparator,
     StepStatus,
     StepTitle,
-    Tab,
-    TabList,
     TabPanel,
     TabPanels,
     Tabs,
@@ -130,6 +130,7 @@ const CreateRSVP = () => {
 
     const onStepOne = activeStep === 1
     const onStepTwo = activeStep === 2
+    const onStepThree = activeStep === 3
 
     useEffect(() => {
         // console.log(formData);
@@ -321,7 +322,7 @@ const CreateRSVP = () => {
                             />
                             {formData.guests.map(guest => (
                                 <Tag className='formTag' sx={styles.formTag} key={guest} variant="solid"
-                                     colorScheme="teal" className='tag'>
+                                     colorScheme="teal">
                                     <TagLabel>{guest}</TagLabel>
                                     <TagCloseButton fontSize='sm' onClick={() => handleGuestRemove(guest)}/>
                                 </Tag>
@@ -394,7 +395,7 @@ const CreateRSVP = () => {
                             />
                             {formData.links.map(link => (
                                 <Tag className='formTag' sx={styles.formTag} key={link} variant="solid"
-                                     colorScheme="teal" className='tag'>
+                                     colorScheme="teal">
                                     <TagLabel>{link}</TagLabel>
                                     <TagCloseButton fontSize='sm' onClick={() => handleLinkRemove(link)}/>
                                 </Tag>
@@ -414,11 +415,15 @@ const CreateRSVP = () => {
                         <CreateRsvpStepTwo/>
                     )}
 
+                    {onStepThree && (
+                        <CreateRsvpStepThree/>
+                    )}
+
                     {activeStep <= steps.length - 1 && (
                         <ButtonGroup className='createRsvpNavButtonGroup' sx={styles.createRsvpNavButtonGroup}>
                             <Button
                                 className='createRsvpNavButton' sx={styles.createRsvpNavButton}
-                                onClick={handlePrevStep} className='nextButton'
+                                onClick={handlePrevStep}
                                 colorScheme='teal'
                                 size='sm'>
                                 Back
@@ -509,7 +514,7 @@ const CreateRsvpStepTwo = () => {
                                 <Text sx={styles.emailTabText}>To: </Text>
                                 <HStack>
                                     {formData.to.map((tag, index) => (
-                                        <Tag key={index} variant="solid" colorScheme="teal" className='tag'>
+                                        <Tag key={index} variant="solid" colorScheme="teal">
                                             <TagLabel>{tag}</TagLabel>
                                             <TagCloseButton fontSize='sm' onClick={() => handleRemoveToTag(index)}/>
                                         </Tag>
@@ -561,6 +566,15 @@ const CreateRsvpStepTwo = () => {
             </Tabs>
             <Button className='customTabsSubmitButton' sx={styles.customTabsSubmitButton}>Submit</Button>
         </Box>
+    )
+}
+
+const CreateRsvpStepThree = () => {
+    const theme = useTheme();
+    const styles = CreateRsvpStyles(theme);
+
+    return (
+        <Box>Step three</Box>
     )
 }
 
