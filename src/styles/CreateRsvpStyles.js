@@ -50,7 +50,7 @@ export const CreateRsvpStyles = (theme) => ({
         backgroundColor: theme.colors.textMainDeemphasize,
         color: theme.colors.background,
         marginTop: theme.space.lg,
-        marginLeft: '80%',
+        marginLeft: '70%',
         minWidth: '100px',
         '&:hover': {
             backgroundColor: theme.colors.textMain,
@@ -75,19 +75,19 @@ export const CreateRsvpStyles = (theme) => ({
         , borderColor: theme.colors.textMainDeemphasize
     },
     customTabsSubmitButton: {
-        backgroundColor: theme.colors.textMainDeemphasize,
-        color: theme.colors.background,
-        marginTop: theme.space.lg,
-        minWidth: '100px',
-        width: '100%',
-        '&:hover': {
-            backgroundColor: theme.colors.textMain,
-            borderRadius: theme.space.sm,
+        backgroundColor: theme.colors.textMainDeemphasize
+        , color: theme.colors.background
+        , marginTop: theme.space.lg
+        , minWidth: '100px'
+        , width: '100%'
+        , '&:hover': {
+            backgroundColor: theme.colors.textMain
+            , borderRadius: theme.space.sm
         },
     },
     emailTabPanel: {
-        width: '100%',
-        height: '100%',
+        width: '100%'
+        , height: '100%'
     }
     , emailTabFromSection: {
         width: '100%'
@@ -111,13 +111,73 @@ export const CreateRsvpStyles = (theme) => ({
         width: '400px'
         , fontSize: theme.fontSizes.sm
     },
-    emailTabInputWithAvarar: {
+    emailTabInputWithAvatar: {
         width: '0px'
     },
     emailTabTextarea: {
         width: '100%'
         , height: '100%'
         , backgroundColor: theme.colors.textMainDeemphasize
+    },
+    phoneAssignmentContainer: {
+        width: '70%'
+        , height: '100%'
+    },
+    phoneAddAssignmentButton: {
+        backgroundColor: theme.colors.textMainDeemphasize
+        , color: theme.colors.background
+        , minWidth: '100px'
+        , display: 'inline-block'
+        , marginTop: theme.space.lg
+        , '&:hover': {
+            backgroundColor: theme.colors.textMain
+            , borderRadius: theme.space.sm
+        }
+    },
+    phoneListOfPhoneAssignments: {
+        width: '100%'
+        , height: 'auto'
+        , marginTop: theme.space.md
+    },
+    phoneAssignmentDisplayContainer: {
+        width: '300px'
+        , height: '200px'
+        , border: '1px solid #c0ccc8e6'
+        , marginTop: theme.space.lg
+    },
+    phoneAssignmentDisplayBox: {
+        width: '100%'
+        , height: '60px'
+        , backgroundColor: theme.colors.textMainDeemphasize
+        , color: theme.colors.background
+        , justifyContent: 'space-between'
+        , padding: theme.space.lg
+        , overflowY: 'auto'
+    }
+    , phoneAssignmentDisplayName: {
+        fontWeight: '700'
+        , fontSize: theme.fontSizes.sm
+    },
+    phoneAssignmentDisplayNumber: {
+        fontSize: theme.fontSizes.xs
+        , paddingLeft: theme.space.sm
+    },
+    phoneAssignmentDeleteButton: {
+        backgroundColor: 'transparent'
+        , color: theme.colors.background
+        , '&:hover': {
+            // color: theme.colors.textMain
+            backgroundColor: theme.colors.textMain
+        }
+    },
+    phoneAssignmentArrowIcon: {
+        marginTop: theme.space.lg
+        , marginBottom: theme.space.md
+    },
+    disclaimer: {
+        color: 'yellow'
+        , fontSize: theme.fontSizes.xs
+        , marginBottom: theme.space.md
     }
 });
 

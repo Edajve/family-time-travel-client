@@ -9,7 +9,8 @@ import {
     FormHelperText,
     FormLabel,
     HStack,
-    Input, InputGroup, InputLeftAddon, InputLeftElement,
+    Input,
+    InputGroup,
     Select,
     Step,
     StepDescription,
@@ -19,7 +20,9 @@ import {
     Stepper,
     StepSeparator,
     StepStatus,
-    StepTitle, Tab, TabList,
+    StepTitle,
+    Tab,
+    TabList,
     TabPanel,
     TabPanels,
     Tabs,
@@ -36,7 +39,7 @@ import BackHeader from "../../navigation/BackHeader.jsx";
 import {useEffect, useState} from "react";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css'
-import {PhoneIcon} from "@chakra-ui/icons";
+import {ArrowDownIcon, DeleteIcon} from "@chakra-ui/icons";
 
 const CreateRSVP = () => {
     const theme = useTheme();
@@ -458,7 +461,12 @@ const CreateRsvpStepTwo = () => {
         , emailTo: []
         , emailTitle: ''
         , emailBody: ''
-        , phoneNumberAndRecipients: []
+        , phoneNumberAndRecipients: [
+            {
+                name: "James Kinovo"
+                , number: "708-996-2138"
+            }
+        ]
     });
 
     console.log(formData);
@@ -497,8 +505,18 @@ const CreateRsvpStepTwo = () => {
         }));
     };
 
+    function handleAssigningNameAndNumber(e) {
+        console.log(e)
+    }
+
+    function handleDeleteAssigningNameAndNumber(e) {
+        console.log(e)
+    }
+
     return (
         <Box className='createRsvpFormStepTwoContainer' sx={styles.createRsvpFormStepTwoContainer}>
+            <Text className='disclaimer' sx={styles.disclaimer}>Choose to send notifications by email, phone or
+                both</Text>
             <Tabs size='sm' className='customTabs' isFitted variant='enclosed' sx={styles.customTabs}>
                 <TabList mb='1em'>
                     <Tab>Email</Tab>
@@ -506,13 +524,14 @@ const CreateRsvpStepTwo = () => {
                 </TabList>
                 <TabPanels className='customTabPanels' sx={styles.customTabPanels}>
                     <TabPanel sx={styles.customTabPanel}>
-
+                        <Text className='disclaimer' sx={styles.disclaimer}>To add a recipient, type email and press
+                            ENTER</Text>
                         <VStack sx={styles.emailTabPanel}>
                             <HStack sx={styles.emailTabFromSection}>
                                 <Text sx={styles.emailTabText}>From: </Text>
                                 <Input
                                     variant='unstyled'
-                                    sx={styles.emailTabInputWithAvarar}
+                                    sx={styles.emailTabInputWithAvatar}
                                     name='from'
                                     value={formData.emailFrom}
                                     onChange={handleEmailInputChange}
@@ -579,16 +598,64 @@ const CreateRsvpStepTwo = () => {
                         </VStack>
                     </TabPanel>
                     <TabPanel className='customTabPanel' sx={styles.customTabPanel}>
+                        <Text className='disclaimer' sx={styles.disclaimer}>To add a recipient, give phone number and
+                            name</Text>
                         <HStack className='phoneContainer' sx={styles.phoneContainer}>
-                            <InputGroup>
-                                <InputLeftElement pointerEvents='none'>
-                                    <PhoneIcon fontSize='sm' color='gray.300' mb={3}/>
-                                </InputLeftElement>
-                                <Input size='sm' type='tel' placeholder='Phone number'/>
-                            </InputGroup>
-                            <ArrowDownIcon
+                            <Box className='phoneAssignmentContainer' sx={styles.phoneAssignmentContainer}>
+                                <Input size='sm' variant='flushed' type='tel' placeholder='Phone number'/>
+                                <Box>
+                                    <ArrowDownIcon
+                                        className='phoneAssignmentArrowIcon'
+                                        sx={styles.phoneAssignmentArrowIcon}
+                                        fontSize='sm'
+                                        color='gray.300'
+                                    />
+                                </Box>
+                                <InputGroup>
+                                    <Input size='sm' variant='flushed' type='text' placeholder='Name'/>
+                                </InputGroup>
+                                <Box>
+                                    <Button
+                                        size='sm'
+                                        className='phoneAddAssignemntButton'
+                                        sx={styles.phoneAddAssignmentButton}
+                                        onClick={handleAssigningNameAndNumber}
+                                    >
+                                        Add To List Of Recipients
+                                    </Button>
+                                </Box>
+                            </Box>
 
                         </HStack>
+                        <Box className='phoneAssignmentDisplayContainer' sx={styles.phoneAssignmentDisplayContainer}>
+                            {formData.phoneNumberAndRecipients.map((user, index) => (
+                                <HStack className='phoneAssignmentDisplayBox' sx={styles.phoneAssignmentDisplayBox}>
+                                    <Box>
+
+                                        <Text
+                                            className='phoneAssignmentDisplayName'
+                                            sx={styles.phoneAssignmentDisplayName}
+                                        >
+                                            {user.name}
+                                        </Text>
+                                        <Text
+                                            className='phoneAssignmentDisplayNumber'
+                                            sx={styles.phoneAssignmentDisplayNumber}
+                                        >
+                                            {user.number}
+                                        </Text>
+                                    </Box>
+                                    <Button
+                                        className='phoneAssignmentDeleteButton'
+                                        sx={styles.phoneAssignmentDeleteButton}
+                                        size='sm'
+                                        onClick={handleDeleteAssigningNameAndNumber}
+                                    >
+                                        <DeleteIcon/>
+                                    </Button>
+                                </HStack>
+                            ))}
+                        </Box>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
